@@ -4,14 +4,14 @@
 require_once '../../global.php';
 require_once  '../../model/pdo.php';
 require_once  '../../model/category_dao.php';
-if(isset($_GET['add-danh-muc'])){
-    $VIEW_AD = './add-danh-muc.php';
-}elseif(isset($_GET['edit-danh-muc'])){
-    $VIEW_AD = './danh-muc/edit-danh-muc.php';
-}
-else{
-    $VIEW_AD = 'danh-sach.php';
-}
+// if(isset($_GET['add-danh-muc'])){
+//     $VIEW_AD = './add-danh-muc.php';
+// }elseif(isset($_GET['edit-danh-muc'])){
+//     $VIEW_AD = './danh-muc/edit-danh-muc.php';
+// }
+// else{
+//     $VIEW_AD = 'danh-sach.php';
+// }
 
 
 // if(isset($_GET['tao-moi'])){

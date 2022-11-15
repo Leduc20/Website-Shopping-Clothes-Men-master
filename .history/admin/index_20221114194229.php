@@ -2,6 +2,8 @@
     require_once '../global.php';
     require_once '../model/pdo.php';
 
+
+
     if(isset($_GET['danh-muc'])){
         $VIEW_AD = './danh-muc/danh-sach.php';
     }
@@ -10,6 +12,6 @@
     }
     // require_once './danh-muc/index.php';
 
-    include_once './layout.php';
+    include_once '../admin/layout.php';
 
 ?>
