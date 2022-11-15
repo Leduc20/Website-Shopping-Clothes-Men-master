@@ -12,6 +12,6 @@ header("location: " . SITE_URL);
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>fuck</h1
 </body>
 </html>
