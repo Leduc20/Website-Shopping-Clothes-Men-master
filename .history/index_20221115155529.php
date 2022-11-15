@@ -12,6 +12,5 @@ header("location: " . SITE_URL);
     <title>Document</title>
 </head>
 <body>
-    
 </body>
 </html>
