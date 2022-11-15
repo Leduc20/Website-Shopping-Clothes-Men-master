@@ -8,7 +8,7 @@
     else{
         $VIEW_AD = 'home.php';
     }
-    // require_once './danh-muc/index.php';
+    require_once './danh-muc/index.php';
 
     include_once './layout.php';
 
