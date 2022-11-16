@@ -51,7 +51,7 @@
 
                                 <td class="py-4 px-6">
                                     <a href="<?= ADMIN_BASE . "?edit-danh-muc"?>" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">Edit</a>
-                                    <a href="' . $delete . '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">delete</a>
+                                    <a href="<?= ADMIN_BASE . "?delete-danh-muc"?>" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">delete</a>
                                 </td>
                             </tr>
                             <!-- <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
