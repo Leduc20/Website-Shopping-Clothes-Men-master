@@ -117,7 +117,6 @@
                                     alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
                             </div>
                             <div class="flex-auto justify-evenly">
-
                                 <div class="flex flex-wrap">
                                     <div class="w-full flex-none text-sm flex items-center text-gray-600"></div>
                                     <div class="flex items-center w-full justify-between min-w-0">
