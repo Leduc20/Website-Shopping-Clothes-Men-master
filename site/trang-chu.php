@@ -97,7 +97,7 @@
             </div>
         </div>
         <!-- show product -->
-        <!--  -->
+
         <div class="grid grid-cols-4 gap-10">
             <div class="max-w-md w-full bg-gray-100 shadow-lg rounded-xl p-6">
                 <div class="">
