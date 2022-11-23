@@ -1,5 +1,0 @@
-<?
-function add-danh-muc(){
-
-}
-?>
