@@ -13,3 +13,4 @@ export const renderCart = ({ id, data = [], html }) => {
     const htmls = data.map((item) => html(item));
     elm.innerHTML = htmls.join("");
 };
+
