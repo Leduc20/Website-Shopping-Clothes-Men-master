@@ -10,6 +10,10 @@ if (isset($_GET['chi-tiet'])) {
     $VIEW_NAME = 'danh-muc.php';
 } elseif (isset($_GET['gio-hang'])) {
     $VIEW_NAME = 'gio-hang.php';
+} elseif (isset($_GET['dat-hang'])) {
+    $VIEW_NAME = 'dat-hang.php';
+}elseif (isset($_GET['purchase'])) {
+    $VIEW_NAME = 'purchase.php';
 } else {
     $products = getFullProducts();
     $VIEW_NAME = 'trang-chu.php';

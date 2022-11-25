@@ -1,7 +1,7 @@
 <!-- component -->
 
 <section class="text-gray-700 body-font overflow-hidden bg-white">
-  <div class="container px-5 py-24 mx-auto" id="data-product">
+  <div class="container px-5 py-24 mx-auto" id="data-product" data-product='<?php echo json_encode($product); ?>'>
     <div class="lg:w-4/5 mx-auto flex flex-wrap">
       <img alt="ecommerce" class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" src="<?= $product['image'] ?>">
       <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -56,7 +56,7 @@
           <div class="flex ml-6 items-center">
             <span class="mr-3">Màu</span>
             <div class="relative">
-              <select class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
+              <select id="color" class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
                 <option>Đỏ</option>
                 <option>Xanh</option>
                 <option>Vàng</option>
@@ -72,7 +72,7 @@
           <div class="flex ml-6 items-center">
             <span class="mr-3">Size</span>
             <div class="relative">
-              <select class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
+              <select id="size" class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
                 <option>SM</option>
                 <option>M</option>
                 <option>L</option>
@@ -88,7 +88,7 @@
         </div>
         <div class="flex">
           <span class="title-font font-medium text-2xl text-gray-900">$<?= $product['price'] ?></span>
-          <button class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Mua
+          <button id="btn-add-prd" class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Mua
             hàng</button>
           <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
             <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
@@ -103,26 +103,32 @@
 </section>
 
 <!-- Toast -->
-<div id="toast-add-prd" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-  <div class="toast-header">
-    <!-- <img src="..." class="rounded me-2" alt="..."> -->
-    <strong class="me-auto">Success!</strong>
-    <small>Vừa xong</small>
-    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close">X</button>
+
+<div id="toast-success" class="hidden absolute top-0 left-2/4 -translate-x-2/4 flex items-center p-4 mb-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+  <div class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+    </svg>
+    <span class="sr-only">Check icon</span>
   </div>
-  <div class="toast-body">
-    Thêm sản phẩm vào giỏ hàng thành công
-  </div>
+  <div class="ml-3 text-sm font-normal">Add product to carts successfully</div>
+  <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-success" aria-label="Close">
+    <span class="sr-only">Close</span>
+    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+    </svg>
+  </button>
 </div>
 
+<script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
 <script type="module">
   import {
-    cartEl,
+    cartCount,
     carts
   } from "./src/js/global.js";
 
   const el = document.getElementById("data-product");
-  const toast = document.getElementById("toast-add-prd")
+  const toast = document.getElementById("toast-success")
   const btnAddPrd = document.getElementById("btn-add-prd")
   const data = JSON.parse(el.getAttribute("data-product"));
 
@@ -134,35 +140,77 @@
     price
   } = data;
 
-  const product = {
-    id,
-    name,
-    image,
-    description,
-    price,
-    sl: 1,
-  };
+  function getValueSelect({
+    id = null
+  }) {
+    const Ele = document.getElementById(id)
+    let result = Ele.value
+
+    Ele.onchange = (e) => {
+      result = e.target.value
+      getPrdCart()
+    }
+    return result;
+  }
+
+  function getPrdCart() {
+    const color = getValueSelect({
+      id: 'color'
+    })
+    const size = getValueSelect({
+      id: 'size'
+    })
+
+    const product = {
+      id,
+      name,
+      image,
+      description,
+      price,
+      sl: 1,
+      color,
+      size
+    };
+
+    return product
+  }
 
   btnAddPrd.onclick = () => {
-    const prdValid = carts.findIndex((item) => item.id == product.id);
+    const product = getPrdCart()
+    const {
+      id,
+      image,
+      description,
+      price,
+      sl,
+      color,
+      size
+    } = product
 
-    if (prdValid != -1) {
+    const prdValid = carts.find((item) => item.id == product.id & item.size == product.size & item.color == product.color);
+
+    if (prdValid) {
       const product = {
         id,
         image,
         description,
         price,
-        sl: carts[prdValid].sl + 1
+        sl: sl + 1,
+        color,
+        size
       };
-      carts[prdValid] = product;
+      const index = carts.findIndex(item => item.id == product.id)
+      carts[index] = product
+
     } else {
-      carts.push(product);
+      carts.unshift(product);
     }
-    cartEl.textContent = carts.length;
+
+    cartCount.textContent = carts.length;
     localStorage.setItem("carts", JSON.stringify(carts));
-    toast.classList.add('show')
+    toast.classList.remove('hidden')
     const _result = setTimeout(() => {
-      toast.classList.remove('show')
+      toast.classList.add('hidden')
       clearTimeout(_result)
     }, 2000)
   }
