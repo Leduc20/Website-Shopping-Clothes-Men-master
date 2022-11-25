@@ -1,4 +1,5 @@
 <!-- banner, slide -->
+
 <div class="carousel relative container mx-auto" style="max-width: 1600px">
     <div class="carousel-inner relative overflow-hidden w-full">
         <!--Slide 1-->
@@ -76,7 +77,6 @@
         <div id="store" class="w-full z-30 top-0 px-6 py-1">
             <div class="w-full container mx-auto flex flex-wrap items-center justify-center mt-0 px-2 py-3">
                 <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl" href="#">
-
                     Sản phẩm
                     <div class="h-1 w-full bg-indigo-500 rounded"></div>
                 </a>
@@ -85,8 +85,8 @@
         <!-- show product -->
         <!--  -->
         <div class="grid grid-cols-4 gap-10">
-            <?php foreach ($products as $key => $value) : ?>
-                <div class="max-w-md w-full bg-gray-100 shadow-lg rounded-xl p-6">
+            <div class="max-w-md w-full bg-gray-100 shadow-lg rounded-xl p-6">
+                <div class="">
                     <div class="relative">
                         <div class="absolute flex flex-col top-0 right-0 p-3">
                             <button class="transition ease-in duration-300 bg-white hover:text-red-500 shadow hover:shadow-md text-gray-500 rounded-full w-8 h-8 text-center p-1">
@@ -95,34 +95,34 @@
                                 </svg>
                             </button>
                         </div>
-                        <a href="<?= SITE_URL ?>?chi-tiet&id=<?= $value['id'] ?>">
+                        <a href="<?= SITE_URL . "?chi-tiet" ?>">
                             <div class=" h-56 mb-3">
-                                <img src=" <?= $value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
+                                <img src="https://images.unsplash.com/photo-1577982787983-e07c6730f2d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2059&q=80" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
                             </div>
                             <div class="flex-auto justify-evenly">
                                 <div class="flex flex-wrap">
                                     <div class="w-full flex-none text-sm flex items-center text-gray-600"></div>
                                     <div class="flex items-center w-full justify-between min-w-0">
                                         <h2 class="text-xl mr-auto font-medium cursor-pointer text-black-100 hover:text-purple-500 truncate">
-                                            <?= $value['name'] ?>
+                                            Lorem ipsum is placeholder text commonly used in the
+                                            graphic
                                         </h2>
                                     </div>
                                 </div>
                                 <div class="text-lg text-black-600 font-normal mt-1">
-                                    $ <?= $value['price'] ?>
+                                    $240.00
                                 </div>
+                            </div>
 
-                                <div class="flex space-x-2 text-sm font-medium justify-start my-3">
-                                    <button class="w-full transition ease-in duration-300 inline-flex items-center justify-center text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-600">
-                                        <span>Xem chi tiết</span>
-                                    </button>
-                                </div>
+                            <div class="flex space-x-2 text-sm font-medium justify-start my-3">
+                                <button class="w-full transition ease-in duration-300 inline-flex items-center justify-center text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-600">
+                                    <span>Xem chi tiết</span>
+                                </button>
                             </div>
                         </a>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            </div>
         </div>
-    </div>
     </div>
 </section>

@@ -1,7 +1,7 @@
 <?php
 require_once '../global.php';
 require_once '../model/pdo.php';
-require_once '../model/product_dao.php';
+require_once '../model/product.php';
 
 if (isset($_GET['chi-tiet'])) {
     $product = getProductById($_GET['id']);
