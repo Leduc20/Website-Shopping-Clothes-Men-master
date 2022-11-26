@@ -1,5 +1,6 @@
 <!-- banner, slide -->
 
+
 <div class="carousel relative container mx-auto" style="max-width: 1600px">
     <div class="carousel-inner relative overflow-hidden w-full">
         <!--Slide 1-->
