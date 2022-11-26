@@ -1,4 +1,5 @@
 <?php
+
 require_once '../global.php';
 require_once '../model/pdo.php';
 require_once '../model/danh_muc.php';

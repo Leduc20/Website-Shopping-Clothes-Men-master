@@ -19,8 +19,8 @@ const html = (prd) => {
       <div class="flex flex-col justify-between ml-4 flex-grow">
         <span class="font-bold text-sm">${prd.name}</span>
         <span class="text-red-500 text-xs">Nike</span>
-        Size:<input name="size[]" class="text-red-500 text-xs outline-none" value="${prd.size}" readonly>
-        Màu: <input name="color[]" class="text-red-500 text-xs outline-none" value="${prd.color}" readonly>
+        Size:<input name="size[]" class="text-red-500 text-xs outline-none" value="${prd.size}" disabled>
+        Màu: <input name="color[]" class="text-red-500 text-xs outline-none" value="${prd.color}" disabled>
         <div></div>
       </div>
     </div>
@@ -133,7 +133,11 @@ checkPrdAllEl.onchange = () => {
         el.checked = checkPrdAllEl.checked;
     });
     const amountPrd = document.querySelectorAll('input[name="sl[]"]');
+    const sizePrds = document.querySelectorAll('input[name="size[]"]')
+    const colorPrds = document.querySelectorAll('input[name="color[]"]')
     amountPrd.forEach((el) => (el.disabled = !checkPrdAllEl.checked));
+    sizePrds.forEach((el) => (el.disabled = !checkPrdAllEl.checked));
+    colorPrds.forEach((el) => (el.disabled = !checkPrdAllEl.checked));
     handleTotalCart();
     btnSubMidCart.disabled = !checkPrdAllEl.checked;
 };
@@ -142,10 +146,15 @@ prdCheckEls.forEach((el) => {
     el.onchange = () => {
         const amountCheck = document.querySelectorAll('input[name="prdId[]"]:checked').length;
         const amountPrd = el.parentNode.querySelector('input[name="sl[]"]');
+        const sizePrd = el.parentNode.querySelector('input[name="size[]"]');
+        const colorPrd = el.parentNode.querySelector('input[name="color[]"]');
+
         const isCheckAll = prdCheckEls.length === amountCheck;
         checkPrdAllEl.checked = isCheckAll;
 
         amountPrd.disabled = !el.checked;
+        sizePrd.disabled = !el.checked;
+        colorPrd.disabled = !el.checked;
 
         if (amountCheck > 0) {
             btnSubMidCart.disabled = false;

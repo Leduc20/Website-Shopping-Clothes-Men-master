@@ -19,13 +19,13 @@ if (isset($_GET['chi-tiet'])) {
     }
     if (isset($_POST['dat-hang'])) {
         $user_id = 2;
-        $user_order = getOrderByUserId($user_id);
-        // var_dump($_POST);
-        // if (!$user_order) {
-        //     add_order($user_id, $_POST['total']);
-        // } else {
-        //     var_dump($_POST['prdId']);
-        // }
+        $orderId = add_order($user_id, $_POST['total'])['id'];
+
+        for ($i = 0; $i < count($_POST['prdId']); $i++) {
+            add_order_detail($_POST['prdId'][$i], $orderId, $_POST['sl'][$i]);
+        }
+        $url = SITE_URL;
+        header("location: $url?purchase");
     }
 
     $VIEW_NAME = 'dat-hang.php';

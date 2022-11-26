@@ -3,6 +3,8 @@
 require_once '../model/pdo.php';
 require_once '../model/product.php';
 
+
+
 function split_array($arr1, $arr2, $arr3, $arr4)
 {
     for ($i = 0; $i < count($arr1); $i++) {
@@ -25,7 +27,6 @@ function split_array($arr1, $arr2, $arr3, $arr4)
 }
 
 $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['color']);
-
 ?>
 
 <div class=" container mx-auto mb-4">
@@ -35,7 +36,7 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
         </p>
     </div>
     <form class="flex" action="<?= SITE_URL ?>?dat-hang" method="post">
-        <div class="">
+        <div class="flex-1 px-4">
             <!-- foreach -->
             <?php foreach ($products  as $key => $value) : ?>
                 <input type="hidden" name="prdId[]" value="<?= $value['id'] ?>">
@@ -92,7 +93,7 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
         </div>
         <!-- 
              -->
-        <div class="text-center">
+        <div class="flex-1 text-center pr-4">
             <p class="text-xl font-semibold">Thông tin khách hàng</p>
             <div class="px-8">
                 <input type="text" name="name_user" class="my-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mời nhập tên khách hàng...">
@@ -109,7 +110,7 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
                 </div>
             </div>
             <div class="">
-                <button name="dat-hang" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-3/4">
+                <button id="btn-submit" name="dat-hang" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-3/4">
                     Thanh toán
                 </button>
             </div>
@@ -118,3 +119,20 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
     </form>
 
 </div>
+
+<script type="module">
+    import {
+        cartCount,
+        carts
+    } from "./src/js/global.js";
+
+    const prdIds = <?php echo json_encode($_POST['prdId']) ?>;
+    const btnSubmit = document.getElementById('btn-submit');
+
+    const prdRm = carts.findIndex((prd) => prd.id == 1);
+
+    btnSubmit.onclick = function(e) {
+        // e.preventDefault()
+        console.log(prdRm)
+    }
+</script>

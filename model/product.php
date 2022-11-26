@@ -18,3 +18,4 @@ function getProductById($id)
     $sql = "select * from products where id = $id";
     return pdo_query_one($sql);
 }
+
