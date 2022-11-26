@@ -2,6 +2,7 @@
 require_once '../global.php';
 require_once '../model/pdo.php';
 require_once '../model/danh_muc.php';
+require_once '../model/product.php';
 // include_once '../model/danh_muc.php';
 // $show_error=getConnect();
 // echo $show_error;
@@ -21,12 +22,24 @@ if (isset($_GET['danh-muc'])) {
     }
     $show_dm=loadall_danh_muc();
     $VIEW_AD = './danh-muc/danh-sach.php';
+} elseif (isset($_GET['edit'])) {
+    if(isset($_GET['id'])){
+        $edit= loadone_danh_muc($_GET['id']);
+    }
+    $sql="SELECT * FROM `groupproduct` order by id desc";
+    $edit_dm=pdo_query_one($sql);
+    $VIEW_AD = './danh-muc/edit-danh-muc.php';
+} elseif (isset($_GET['update'])) {
+    if(isset($_POST['update'])){
+        $id=$_POST['id'];
+        $name=$_POST['name'];
+        update_danh_muc($id,$name);
+    }
+    $show_dm=loadall_danh_muc();
+    $VIEW_AD = './danh-muc/danh-sach.php';
 } elseif (isset($_GET['san-pham'])) {
+    $list_pro=loadAll_san_pham();
     $VIEW_AD = './san-pham/danh-sach.php';
-} elseif (isset($_GET['add-san-pham'])) {
-    $VIEW_AD = './san-pham/add-san-pham.php';
-} elseif (isset($_GET['edit-danh-muc'])) {
-    $VIEW_AD = '../danh-muc/edit-danh-muc.php';
 } elseif (isset($_GET['khach-hang'])) {
     $VIEW_AD = './tai-khoan/danh-sach.php';
 } elseif (isset($_GET['edit-tai-khoan'])) {
