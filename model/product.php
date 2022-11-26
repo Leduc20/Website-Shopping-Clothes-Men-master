@@ -18,3 +18,12 @@ function getProductById($id)
     $sql = "select * from products where id = $id";
     return pdo_query_one($sql);
 }
+function insertProduct($name, $detail, $image, $price, $date, $priceNew, $description)
+{
+    $sql = "INSERT INTO `products`(`name`, `detail`, `image`, `price`, `date`, `priceNew`, `description`) VALUES ('$name','$detail','$image','$price','$date','$priceNew','$description')";
+    pdo_execute($sql);
+}
+function deleteProduct($id){
+    $sql="DELETE FROM `products` WHERE id=$id";
+    pdo_execute($sql);
+}
