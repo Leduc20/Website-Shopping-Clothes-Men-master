@@ -49,8 +49,16 @@
                 <tbody>
                     <?php foreach ($list_pro as $show) {
                         extract($show);
-                        $delete = "index.php?delete_sanpham&id=" . $id;
-                        $edit = "index.php?edit_sanpham&id=" . $id;
+                        //đường dẫn ảnh trong extract đường dẫn
+                        $imagepath = "../upload/" . $image;
+                        //kiểm tra 
+                        if (is_file($imagepath)) {
+                            $image = "<img src='" . $imagepath . "' width='140px'";
+                        } else {
+                            $image= "No image";
+                        }
+                        $delete = "index.php?delete-sanpham&id=" . $id;
+                        $edit = "index.php?edit-sanpham&id=" . $id;
                         echo '<tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                         <th>
                             <div class="">
@@ -79,16 +87,16 @@
                             ' . $priceNew . '
                         </td>
                         <td class="py-4 px-6">
-                            ' . $description . '
+                            ' . $date . '
                         </td>
                         <td class="py-4 px-6">
-                            ' . $date . '
+                            ' . $description . '
                         </td>
                         <td class="py-4 px-6">
                             ' . $status . '
                         </td>
                         <td class="py-4 px-6">
-                        <a href="'.$edit.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">Edit</a>
+                        <a  href="'.$edit.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">Edit</a>
                         <a href="'.$delete.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">delete</a>
                          </td>
                     </tr>';

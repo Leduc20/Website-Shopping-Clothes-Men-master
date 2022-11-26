@@ -68,7 +68,6 @@ function pdo_query_one($query){
     $stmt->execute($args);
     $data = $stmt->fetch();
     return $data;
-
 }
 
 
