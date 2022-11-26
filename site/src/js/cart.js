@@ -1,7 +1,7 @@
 import { cartCount, carts, renderCart, DOMAIN } from "./global.js";
 
 const btnSubMidCart = document.getElementById("submid-cart");
-const formSubMidCart = document.getElementById("cart-list");
+const formSubMidCart = document.getElementById("form-container");
 
 const html = (prd) => {
     return `
@@ -19,8 +19,8 @@ const html = (prd) => {
       <div class="flex flex-col justify-between ml-4 flex-grow">
         <span class="font-bold text-sm">${prd.name}</span>
         <span class="text-red-500 text-xs">Nike</span>
-        <span class="text-red-500 text-xs">Size: ${prd.size}</span>
-        <span class="text-red-500 text-xs">Màu sắc: ${prd.color}</span>
+        Size:<input name="size[]" class="text-red-500 text-xs outline-none" value="${prd.size}" readonly>
+        Màu: <input name="color[]" class="text-red-500 text-xs outline-none" value="${prd.color}" readonly>
         <div></div>
       </div>
     </div>
@@ -171,7 +171,7 @@ function handleTotalCart() {
 
 const totalCart = function ({ prdAmount = 0, prdTotal }) {
     const totalEl = document.getElementById("total");
-    totalEl.innerHTML = `Tổng thanh toán (<span id="product-amount">${prdAmount}</span> sản phẩm) : $ <span id="product-total">${prdTotal}</span> `;
+    totalEl.innerHTML = `Tổng thanh toán (<span id="product-amount">${prdAmount}</span> sản phẩm) : $ <input  class="outline-none min-w-5" name="total" value="${prdTotal}" id="product-total" readonly> `;
 };
 
 // SubMid giỏ hàng
