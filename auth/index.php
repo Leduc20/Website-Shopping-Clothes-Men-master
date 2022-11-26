@@ -43,7 +43,7 @@
                 header ('location: index.php?register&error4=Tài khoản này đã tồn tại!!');
             } else {
                 add_user($_POST['email'], password_hash($_POST['password'], PASSWORD_BCRYPT));
-                $url = SITE_URL;
+                $url = AUTH_BASE;
                 header ("location: $url?login");
             }
         }

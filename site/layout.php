@@ -165,7 +165,7 @@ session_start();
 
             <div class="order-1 md:order-2 uppercase">
                 <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl"
-                    href="http://localhost:8080/duan1/site/index.php?trang-chu">
+                    href="<?=AUTH_BASE?>?trang-chu">
                     <!-- <svg class="fill-current text-gray-800 mr-2" xmlns="http://www.w3.org/2000/svg" width="24"
                         height="24" viewBox="0 0 24 24">
                         <path
