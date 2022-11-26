@@ -165,7 +165,7 @@ session_start();
 
             <div class="order-1 md:order-2 uppercase">
                 <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl"
-                    href="<?=AUTH_BASE?>?trang-chu">
+                    href="<?=SITE_URL?>">
                     <!-- <svg class="fill-current text-gray-800 mr-2" xmlns="http://www.w3.org/2000/svg" width="24"
                         height="24" viewBox="0 0 24 24">
                         <path
@@ -265,24 +265,24 @@ session_start();
                             <path
                                 d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zM12 10c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 10 12 10zM21 21v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h2v-1c0-2.757 2.243-5 5-5h4c2.757 0 5 2.243 5 5v1H21z" />
                         </svg>
+                        <a href="<?=AUTH_BASE . "?login"?>"></a>
                     </a>
                     <!-- chưa đăng nhập -> show cái này -->
-                    <?= !isset($_SESSION['user']) ? 
-                    '<div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="absolute right-0 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl">
-                      <a href="http://localhost/webbanhang/Website-Shopping-Clothes-Men-master/auth/index.php?login" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
-                        Đăng nhập
-                      </a>
-                      <a href="http://localhost/webbanhang/Website-Shopping-Clothes-Men-master/auth/index.php?register" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
-                        Đăng ký
-                      </a>
-                    </div>' :
-                    
-                    '<div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms
+                    <?php
+                    if(isset($_SESSION['user'])){
+                        extract($_SESSION['user']);
+                        ?>
+                        <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms
                         class="absolute inset-x-2/4 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl">
-                        <a href="#"
+                       <?php 
+                       if($is_Admin == 1){
+                        ?>
+                         <a href="#"
                             class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
                             Vào trang quản trị
                         </a>
+                       
+                       <?php } ?>
                         <a href="./profile.html"
                             class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
                             Thông tin cá nhân
@@ -291,11 +291,27 @@ session_start();
                             class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
                             Đơn hàng
                         </a>
-                        <a href="http://localhost/webbanhang/Website-Shopping-Clothes-Men-master/auth/index.php?logout"
+                        <a href="<?= AUTH_BASE ."?logout"?>"
                             class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
                             Đăng xuất
                         </a>
-                    </div>'?>
+                    </div>
+                    <?php
+                    }else{
+
+                    ?>
+                    <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="absolute right-0 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl">
+                      <a href="<?=AUTH_BASE . "?login"?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
+                        Đăng nhập
+                      </a>
+                      <a href="<?=AUTH_BASE . "?register"?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
+                        Đăng ký
+                      </a>
+                    </div>
+                    
+                <?php } ?>
+                    
+                    
                 </div>
 
         <!-- Cart -->
