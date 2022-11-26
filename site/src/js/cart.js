@@ -1,7 +1,7 @@
 import { cartCount, carts, renderCart, DOMAIN } from "./global.js";
 
 const btnSubMidCart = document.getElementById("submid-cart");
-const formSubMidCart = document.getElementById("cart-list");
+const formSubMidCart = document.getElementById("form-container");
 
 const html = (prd) => {
     return `
@@ -19,8 +19,8 @@ const html = (prd) => {
       <div class="flex flex-col justify-between ml-4 flex-grow">
         <span class="font-bold text-sm">${prd.name}</span>
         <span class="text-red-500 text-xs">Nike</span>
-        <span class="text-red-500 text-xs">Size: ${prd.size}</span>
-        <span class="text-red-500 text-xs">Màu sắc: ${prd.color}</span>
+        Size:<input name="size[]" class="text-red-500 text-xs outline-none" value="${prd.size}" disabled>
+        Màu: <input name="color[]" class="text-red-500 text-xs outline-none" value="${prd.color}" disabled>
         <div></div>
       </div>
     </div>
@@ -133,7 +133,11 @@ checkPrdAllEl.onchange = () => {
         el.checked = checkPrdAllEl.checked;
     });
     const amountPrd = document.querySelectorAll('input[name="sl[]"]');
+    const sizePrds = document.querySelectorAll('input[name="size[]"]')
+    const colorPrds = document.querySelectorAll('input[name="color[]"]')
     amountPrd.forEach((el) => (el.disabled = !checkPrdAllEl.checked));
+    sizePrds.forEach((el) => (el.disabled = !checkPrdAllEl.checked));
+    colorPrds.forEach((el) => (el.disabled = !checkPrdAllEl.checked));
     handleTotalCart();
     btnSubMidCart.disabled = !checkPrdAllEl.checked;
 };
@@ -142,10 +146,15 @@ prdCheckEls.forEach((el) => {
     el.onchange = () => {
         const amountCheck = document.querySelectorAll('input[name="prdId[]"]:checked').length;
         const amountPrd = el.parentNode.querySelector('input[name="sl[]"]');
+        const sizePrd = el.parentNode.querySelector('input[name="size[]"]');
+        const colorPrd = el.parentNode.querySelector('input[name="color[]"]');
+
         const isCheckAll = prdCheckEls.length === amountCheck;
         checkPrdAllEl.checked = isCheckAll;
 
         amountPrd.disabled = !el.checked;
+        sizePrd.disabled = !el.checked;
+        colorPrd.disabled = !el.checked;
 
         if (amountCheck > 0) {
             btnSubMidCart.disabled = false;
@@ -171,7 +180,7 @@ function handleTotalCart() {
 
 const totalCart = function ({ prdAmount = 0, prdTotal }) {
     const totalEl = document.getElementById("total");
-    totalEl.innerHTML = `Tổng thanh toán (<span id="product-amount">${prdAmount}</span> sản phẩm) : $ <span id="product-total">${prdTotal}</span> `;
+    totalEl.innerHTML = `Tổng thanh toán (<span id="product-amount">${prdAmount}</span> sản phẩm) : $ <input  class="outline-none min-w-5" name="total" value="${prdTotal}" id="product-total" readonly> `;
 };
 
 // SubMid giỏ hàng

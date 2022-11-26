@@ -1,2 +1,1 @@
-<?php
-var_dump($_POST);
+<h1>Trang đơn hàng của tôi</h1>
