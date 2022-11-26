@@ -65,12 +65,9 @@ function pdo_query_one($query){
     $conn = getConnect();
     
     $stmt = $conn->prepare($query);
-    $stmt->execute($args);
-    $data = $stmt->fetch();
-    if(count($data) > 0){
-        return $data;
-    }
-    return null;
+    $stmt->execute( $args);
+    return $stmt->fetch();
+  
 
 }
 
