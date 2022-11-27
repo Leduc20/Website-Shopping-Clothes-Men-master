@@ -36,11 +36,18 @@ if (isset($_GET['chi-tiet'])) {
 
     $VIEW_NAME = 'dat-hang.php';
 } elseif (isset($_GET['purchase'])) {
-    if (!isset($_SESSION['user'])) {
-        $url = AUTH_BASE;
-        header("location: $url?login");
-        return;
+    // if (!isset($_SESSION['user'])) {
+        //     $url = AUTH_BASE;
+    //     header("location: $url?login");
+    //     return;
+    // }
+    $data=null;
+    if(isset($_GET['type'])) {
+
+    } else {
+
     }
+   
     $VIEW_NAME = 'purchase.php';
 } else {
     $products = getFullProducts();
