@@ -33,7 +33,7 @@
                         </div>
                         <div class="flex space-x-3 font-bold text-xl uppercase">
                             <span>Thành tiền</span>
-                            <span  id="total">Tổng thanh toán (<span id="product-amount">0</span> sản phẩm) : $
+                            <span  id="total">Tổng thanh toán (<span id="product-amount">0</span> sản phẩm) : VNĐ
                                 <span name="total" id="product-total">0</span>
                                 <span>
                         </div>

@@ -14,11 +14,10 @@ const html = (prd) => {
     <div class="flex w-2/5">
       <!-- product -->
       <div class="w-20">
-        <img class="h-24" src="${prd.image}" alt="">
+        <img class="h-24" src="../upload/${prd.image}" alt="">
       </div>
       <div class="flex flex-col justify-between ml-4 flex-grow">
         <span class="font-bold text-sm">${prd.name}</span>
-        <span class="text-red-500 text-xs">Nike</span>
         Size:<input name="size[]" class="text-red-500 text-xs outline-none" value="${prd.size}" disabled>
         Màu: <input name="color[]" class="text-red-500 text-xs outline-none" value="${prd.color}" disabled>
         <div></div>
