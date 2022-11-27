@@ -227,6 +227,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- User -->
                 <div x-data="{ open: false }" @mouseleave="open = false" @mouseover="open = true" class="relative z-10">
                     <a @mouseover="open = true" class="inline-block no-underline hover:text-black" href="#">

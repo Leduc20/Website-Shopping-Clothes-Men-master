@@ -9,7 +9,7 @@ const html = (prd) => {
    
     <input  name="prdId[]" value="${
         prd.id
-    }" type="checkbox" class="font-semibold text-gray-600 text-xs uppercase w-1/5">
+    }" type="checkbox" class="font-semibold text-gray-600 text-xs uppercase w-1/5" autocomplete="off">
    
     <div class="flex w-2/5">
       <!-- product -->
@@ -41,8 +41,8 @@ const html = (prd) => {
     </div>
     <span class="text-center w-1/5 font-semibold text-sm">$ <span class="prd-price">${prd.price}</span></span>
     <span class=" text-center w-1/5 font-semibold text-sm">$ <span class="prd-total">${prd.sl * prd.price}</span></span>
-    <button type="button"   data-id="${
-        prd.id
+    <button type="button"   data-id="${prd.id}" data-size="${prd.size}" data-color="${
+        prd.color
     }" name="btn-remove-prd" class="text-center w-1/5 font-semibold text-sm">Xóa</button>
   </div>`;
 };
@@ -104,7 +104,13 @@ const handleRemovePrd = () => {
     const btnRmPrds = document.getElementsByName("btn-remove-prd");
     btnRmPrds.forEach((btnRmPrd) => {
         btnRmPrd.onclick = () => {
-            const prdRm = carts.findIndex((prd) => prd.id == btnRmPrd.getAttribute("data-id"));
+            const prdRm = carts.findIndex(
+                (prd) =>
+                    (prd.id == btnRmPrd.getAttribute("data-id")) &
+                    (prd.color == btnRmPrd.getAttribute("data-color")) &
+                    (prd.size == btnRmPrd.getAttribute("data-size"))
+            );
+            console.log(btnRmPrd.getAttribute("data-id"));
             const isRemove = confirm("Bạn có chắc muốn xóa sản phẩm này không hở!!!");
             if (isRemove) {
                 carts.splice(prdRm, 1);
@@ -132,8 +138,8 @@ checkPrdAllEl.onchange = () => {
         el.checked = checkPrdAllEl.checked;
     });
     const amountPrd = document.querySelectorAll('input[name="sl[]"]');
-    const sizePrds = document.querySelectorAll('input[name="size[]"]')
-    const colorPrds = document.querySelectorAll('input[name="color[]"]')
+    const sizePrds = document.querySelectorAll('input[name="size[]"]');
+    const colorPrds = document.querySelectorAll('input[name="color[]"]');
     amountPrd.forEach((el) => (el.disabled = !checkPrdAllEl.checked));
     sizePrds.forEach((el) => (el.disabled = !checkPrdAllEl.checked));
     colorPrds.forEach((el) => (el.disabled = !checkPrdAllEl.checked));
