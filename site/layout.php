@@ -227,7 +227,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- User -->
                 <div x-data="{ open: false }" @mouseleave="open = false" @mouseover="open = true" class="relative z-10">
                     <a @mouseover="open = true" class="inline-block no-underline hover:text-black" href="#">
@@ -241,7 +240,6 @@
                         extract($_SESSION['user']);
                         
                     ?>
-                    
                         <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="absolute inset-x-2/4 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl">
                             <?php 
                             if($is_Admin == 1){ ?>
