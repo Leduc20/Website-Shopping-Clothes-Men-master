@@ -37,6 +37,7 @@ if (isset($_GET['danh-muc'])) {
         $id = $_POST['id'];
         $name = $_POST['name'];
         update_danh_muc($id, $name);
+        
     }
     $show_dm = loadall_danh_muc();
     $VIEW_AD = './danh-muc/danh-sach.php';
