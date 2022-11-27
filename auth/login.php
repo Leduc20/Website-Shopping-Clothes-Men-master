@@ -2,7 +2,7 @@
     <div class="container px-6 py-12 h-full">
         <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
             <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0 flex items-center">
-                <img src="http://localhost/webbanhang/Website-Shopping-Clothes-Men-master/site/src/img/logo_2.png"
+                <img src="../site/src/img/logo_2.png"
                     class="" alt="Phone image" />
                 <span style="font-size: 50px; color: #de3730ff;;font-weight: bold;">RANI</span>
             </div>

@@ -7,6 +7,7 @@ require_once '../model/product.php';
 // include_once '../model/danh_muc.php';
 // $show_error=getConnect();
 // echo $show_error;
+// $getFull_pro=getProductById();
 if (isset($_GET['danh-muc'])) {
     $show_dm = loadall_danh_muc();
     $VIEW_AD = './danh-muc/danh-sach.php';
@@ -14,7 +15,7 @@ if (isset($_GET['danh-muc'])) {
     if (isset($_POST['themmoi'])) {
         $tenloai = $_POST['tenloai'];
         add_danh_muc($tenloai);
-        $msg="Thêm danh mục thành công";
+        $msg = "Thêm danh mục thành công";
     }
     $VIEW_AD = './danh-muc/add-danh-muc.php';
 } elseif (isset($_GET['delete'])) {
@@ -51,16 +52,16 @@ if (isset($_GET['danh-muc'])) {
         $description = $_POST['description'];
         $date = $_POST['date'];
         $image = $_FILES['image']['name'];
-        // $groupProduct_Id=$_POST['groupProduct_Id'];
+        $groupProduct_Id = $_POST['groupProduct_Id'];
         //upload ảnh
         $folder = "../upload/";
-        $targerupload = $folder . basename($_FILES['image']['name']);
         $targetupload = $folder . basename($_FILES['image']['name']);
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
         } else {
         }
-        insertProduct($name, $detail, $image,$price,$date,$priceNew,$description);
+        insertProduct($name, $detail, $image, $price, $date, $priceNew, $description, $groupProduct_Id);
     }
+    $show_dm = loadall_danh_muc();
     $VIEW_AD = './san-pham/add-san-pham.php';
 } elseif (isset($_GET['delete-sanpham'])) {
     if (isset($_GET['id'])) {
@@ -69,8 +70,34 @@ if (isset($_GET['danh-muc'])) {
     }
     $list_pro = getFullProducts();
     $VIEW_AD = './san-pham/danh-sach.php';
-} elseif (isset($_GET['delete-tai-khoan'])) {
-    $VIEW_AD = '../danh-muc/edit-danh-muc.php';
+} elseif (isset($_GET['edit-sanpham'])) {
+    if (isset($_GET['id'])) {
+        $getFull_pro = getProductById($_GET['id']);
+    }
+    $show_dm = loadall_danh_muc();
+    $VIEW_AD = './san-pham/edit-san-pham.php';
+} elseif (isset($_GET['update-pro'])) {
+    if (isset($_POST['update-pro'])) {
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $price = $_POST['price'];
+        $priceNew = $_POST['sale'];
+        $detail = $_POST['detail'];
+        $description = $_POST['description'];
+        $date = $_POST['date'];
+        $image = $_FILES['image']['name'];
+        $groupProduct_Id = $_POST['groupProduct_Id'];
+        //upload ảnh
+        $folder = "../upload/";
+        $targetupload = $folder . basename($_FILES['image']['name']);
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
+        } else {
+        }
+        updateProduct($id, $name, $detail, $image, $price, $date, $priceNew, $description, $groupProduct_Id);
+    }
+    $list_pro = getFullProducts();
+    $show_dm = loadall_danh_muc();
+    $VIEW_AD = './san-pham/danh-sach.php';
 } else {
     $VIEW_AD = 'home.php';
 }

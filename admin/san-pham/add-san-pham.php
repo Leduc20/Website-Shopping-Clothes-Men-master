@@ -41,12 +41,13 @@
             <p class="font-bold mt-3 mb-2">Loại hàng</p>
             <select class="border w-[382px] h-[45px] rounded" name="groupProduct_Id" id="myselect">
                 <?php
-                foreach ($listline as $show) {
+                foreach ($show_dm as $show) {
                     extract($show);
-                    echo '<option value="' . $id_commodities . '">' . $name . '</option> ';
+                    echo '
+                    <option value=""></option>
+                    <option value="' . $id . '">' . $name . '</option> ';
                 }
                 ?>
-
             </select>
         </div>
 
