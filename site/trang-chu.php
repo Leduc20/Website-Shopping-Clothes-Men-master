@@ -99,7 +99,7 @@
                         </div>
                         <a href="<?= SITE_URL ?>?chi-tiet&id=<?= $value['id'] ?>">
                             <div class=" h-56 mb-3">
-                                <img src=" <?= BASE_URL."./upload/".$value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
+                                <img src=" <?= BASE_URL."upload/".$value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
                             </div>
                             <div class="flex-auto justify-evenly">
                                 <div class="flex flex-wrap">

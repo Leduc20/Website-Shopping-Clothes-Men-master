@@ -53,5 +53,7 @@
         $url = AUTH_BASE;
         header("location: $url?login");
     }
+
+    
     include_once './layout.php';
 ?>

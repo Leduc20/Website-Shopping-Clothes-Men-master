@@ -42,6 +42,7 @@
                         </th>
                         <th scope="col" class="py-3 px-6">
                             Edit
+
                         </th>
                     </tr>
                 </thead>
@@ -65,37 +66,39 @@
                             </div>
                         </th>
                         <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        ' . $id . '
+                            ' . $id . '
                         </th>
                         <td class="py-4 px-6">
-                        ' . $groupProduct_Id . '
-                        </td>
-                        
-                        <td class="py-4 px-6">
-                        ' . $name . '
+                            ' . $groupProduct_Id . '
                         </td>
                         <td class="py-4 px-6">
-                        ' . $detail . '
+                            ' . $name . '
                         </td>
                         <td class="py-4 px-6">
-                        ' . $image . '
+                            ' . $detail . '
                         </td>
                         <td class="py-4 px-6">
-                        ' . $price . '
+                            ' . $image . '
                         </td>
                         <td class="py-4 px-6">
-                        ' . $priceNew . '
+                            ' . $price . '
                         </td>
                         <td class="py-4 px-6">
-                        ' . $date . '
+                            ' . $priceNew . '
                         </td>
                         <td class="py-4 px-6">
-                        ' . $description . '
+                            ' . $date . '
                         </td>
                         <td class="py-4 px-6">
-                            <a href="' . $edit . '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">Edit</a>
-                            <a href="' . $delete . '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">delete</a>
+                            ' . $description . '
                         </td>
+                        <td class="py-4 px-6">
+                            ' . $status . '
+                        </td>
+                        <td class="py-4 px-6">
+                        <a  href="'.$edit.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">Edit</a>
+                        <a href="'.$delete.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">delete</a>
+                         </td>
                     </tr>';
                     }
                     ?>
