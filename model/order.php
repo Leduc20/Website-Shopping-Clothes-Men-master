@@ -1,8 +1,8 @@
 <?php
 
-function add_order($user_id, $total)
+function add_order($user_id, $total, $payment)
 {
-    $sql = "INSERT INTO orders(user_id, totalMoney) value ($user_id, '$total')";
+    $sql = "INSERT INTO orders(user_id, totalMoney, payment) value ($user_id, '$total', '$payment')";
      pdo_execute($sql);
      return pdo_query_one('SELECT MAX(id) as id FROM orders'); 
 }
