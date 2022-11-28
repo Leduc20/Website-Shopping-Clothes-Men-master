@@ -238,52 +238,61 @@
                         </svg>
                     </a>
                     <!-- chưa đăng nhập -> show cái này -->
-                    <?php if (isset($_SESSION['user'])) {
-                        extract($_SESSION['user']);
 
-                    ?>
-                        <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="absolute inset-x-2/4 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl">
-                            <?php 
-                            if($is_Admin == 1){ ?>
-                                <a href="<?= ADMIN_BASE ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
-                                    Vào trang quản trị
-                                </a>
-                            <?php } ?>
-                            <a href="./profile.html" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
-                                Thông tin cá nhân
-                            </a>
-                            <a href="<?= SITE_URL ?>?purchase" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
-                                Đơn hàng của tôi
-                            </a>
-                            <a href="<?=AUTH_BASE ."?logout"?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
-                                Đăng xuất
-                            </a>
-                        </div>
-                    
-                        <?php } else { ?>
-                        <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="absolute right-0 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl">
-                            <a href="<?=AUTH_BASE. "?login"?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
-                                Đăng nhập
-                            </a>
-                            <a href="<?=AUTH_BASE. "?login"?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
-                                Đăng ký
-                            </a>
-                        </div>
-                        
-                        <?php
-                        // echo var_dump($_SESSION['user']);
+                    <?php if(!isset($_SESSION['user'])) {
+                        extract($_SESSION['user']);
                         ?>
-                   <?php } ?>
+                    <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms
+                        class="absolute right-0 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl">
+                        <a href="http://localhost/webbanhang/Website-Shopping-Clothes-Men-master/auth/index.php?login"
+                            class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
+                            Đăng nhập
+                        </a>
+                        <a href="http://localhost/webbanhang/Website-Shopping-Clothes-Men-master/auth/index.php?register"
+                            class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
+                            Đăng ký
+                        </a>
+                    </div> 
+                    
+                    <?php }else{ ?>
+
+                    <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms
+                        class="absolute inset-x-2/4 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl">
+                        <a href="#"
+                            class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
+                            Vào trang quản trị
+                        </a>
+                        <a href="#"
+                            class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
+                            Xin chào <?= $_SESSION['user']['name']?>
+                        </a>
+                        <a href="./profile.html"
+                            class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
+                            Thông tin cá nhân
+                        </a>
+                        <a href="./profile.html"
+                            class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
+                            Đơn hàng
+                        </a>
+                        <a href="http://localhost/webbanhang/Website-Shopping-Clothes-Men-master/auth/index.php?logout"
+                            class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
+                            Đăng xuất
+                        </a>
+                    </div><?php }?>
                 </div>
+
                 <!-- Cart -->
                 <div>
                     <a class="inline-block no-underline hover:text-black relative" href="<?= SITE_URL ?>?gio-hang ">
-                        <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
-                            <path d="M21,7H7.462L5.91,3.586C5.748,3.229,5.392,3,5,3H2v2h2.356L9.09,15.414C9.252,15.771,9.608,16,10,16h8 c0.4,0,0.762-0.238,0.919-0.606l3-7c0.133-0.309,0.101-0.663-0.084-0.944C21.649,7.169,21.336,7,21,7z M17.341,14h-6.697L8.371,9 h11.112L17.341,14z" />
+                        <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="34"
+                            height="34" viewBox="0 0 24 24">
+                            <path
+                                d="M21,7H7.462L5.91,3.586C5.748,3.229,5.392,3,5,3H2v2h2.356L9.09,15.414C9.252,15.771,9.608,16,10,16h8 c0.4,0,0.762-0.238,0.919-0.606l3-7c0.133-0.309,0.101-0.663-0.084-0.944C21.649,7.169,21.336,7,21,7z M17.341,14h-6.697L8.371,9 h11.112L17.341,14z" />
                             <circle cx="10.5" cy="18.5" r="1.5" />
                             <circle cx="17.5" cy="18.5" r="1.5" />
                         </svg>
-                        <span class="cart-count absolute right-0 top-0 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm leading-tight text-center">
+                        <span
+                            class="cart-count absolute right-0 top-0 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm leading-tight text-center">
                             0
                         </span>
                     </a>
