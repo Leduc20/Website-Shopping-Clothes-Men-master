@@ -22,9 +22,9 @@
                         <th scope="col" class="py-3 px-6">
                             Tên đăng nhập
                         </th>
-                        <th scope="col" class="py-3 px-6">
+                        <!-- <th scope="col" class="py-3 px-6">
                             Role
-                        </th>
+                        </th> -->
                         <th scope="col" class="py-3 px-6">
                             Edit
                         </th>
@@ -34,7 +34,7 @@
                     <?php foreach($list_user as $show){
                         extract($show);
                         $delete = "index.php?delete-sanpham&id=" . $id;
-                        $edit = "index.php?edit-sanpham&id=" . $id;
+                        $edit = "index.php?edit-tai-khoan&id=" . $id;
                         echo '<tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                         <th>
                             <div class="">
@@ -56,9 +56,7 @@
                         <td class="py-4 px-6">
                             '.$userName.'
                         </td>
-                        <td class="py-4 px-6">
-                            '.$is_Admin.'
-                        </td>
+                        
                         <td class="py-4 px-6">
                             <a href="'.$edit.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">Edit</a>
                             <a href="'.$delete.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">delete</a>
