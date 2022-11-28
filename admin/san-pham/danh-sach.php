@@ -11,7 +11,7 @@
                             Id
                         </th>
                         <th scope="col" class="py-4 px-4">
-                            Category
+                            Danh Muc
                         </th>
                         <!-- <th scope="col" class="py-4 px-4">
                                                         Ten Danh mục
