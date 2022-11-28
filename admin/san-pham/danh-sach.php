@@ -1,7 +1,7 @@
 <form action="">
     <div>
         <div class="overflow-x-auto flex  w-full shadow-md sm:rounded-lg mt-4">
-            <table class=" w-full text-lg text-left text-gray-500 dark:text-gray-400">
+            <table class="text-lg text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-sm text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th>
