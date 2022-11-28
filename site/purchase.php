@@ -43,7 +43,7 @@
                 <div class="list-product w-full">
                     <div class="mt-2 flex w-full">
                         <div class="border p-2 rounded">
-                            <img src="<?= $value['image'] ?>" alt="" class="w-24 h-24">
+                            <img src="../upload/<?= $value['image'] ?>" alt="" class="w-24 h-24">
                         </div>
                         <div class="ml-4 flex justify-between items-center w-full">
                             <div class="flex-1">

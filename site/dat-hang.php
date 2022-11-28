@@ -19,7 +19,6 @@ function split_array($arr1, $arr2, $arr3, $arr4)
     for ($i = 0; $i < count($arr4); $i++) {
         $products[$i]['color'] = $arr4[$i];
     }
-
     return $products;
 }
 
