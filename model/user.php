@@ -10,7 +10,10 @@ function add_user($name, $password){
     $sql="INSERT INTO users(userName, passWord) VALUES ('$name', '$password')";
     pdo_execute($sql);
 }
-
+function get_full_user(){
+    $sql="SELECT * FROM users";
+    return pdo_query_all($sql);
+}
 
 
 ?>

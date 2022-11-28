@@ -44,7 +44,7 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
                 <div class="flex space-x-6 p-4 border-b-2 ">
                     <div>
                         <div class="border p-2 rounded">
-                            <img src="<?= $value['image'] ?>" alt="" class="w-24 h-24">
+                            <img src="../upload/<?= $value['image'] ?>" alt="" class="w-24 h-24">
                         </div>
                     </div>
                     <div class="flex justify-between items-center w-full">
@@ -94,8 +94,8 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
             <p class="text-xl font-semibold">Thông tin khách hàng</p>
             <div class="px-8">
                 <input type="text" name="name_user" value="<?=$_SESSION['user']['name']?>" class="my-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mời nhập tên khách hàng..." readonly>
-                <input type="text" name="address_user" class="my-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mời nhập địa chỉ nhận hàng.." readonly>
-                <input type="text" name="phone_user" class="my-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mời nhập số điện thoại..." readonly>
+                <input type="text" name="address_user" value="<?=$_SESSION['user']['address']?>" class="my-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mời nhập địa chỉ nhận hàng.." readonly>
+                <input type="text" name="phone_user" value="<?=$_SESSION['user']['phone']?>" class="my-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mời nhập số điện thoại..." readonly>
                 <div class="border p-2 my-3">
                     <p>
                         Phương thức thanh toán:

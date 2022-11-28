@@ -18,6 +18,8 @@
                 if(password_verify( $_POST['password'], $user_login['passWord'])){
                     $userLogin['id'] = $user_login['id']; 
                     $userLogin['name'] = $user_login['name'];
+                    $userLogin['address'] = $user_login['address'];
+                    $userLogin['phone'] = $user_login['phone'];
                     $userLogin['userName'] = $user_login['userName'];
                     $userLogin['is_Admin'] = $user_login['is_Admin'];
 
