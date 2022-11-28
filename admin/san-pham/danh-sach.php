@@ -5,7 +5,7 @@
                 <thead class="text-sm text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th>
-
+                            
                         </th>
                         <th scope="col" class="py-4 px-4">
                             Id
