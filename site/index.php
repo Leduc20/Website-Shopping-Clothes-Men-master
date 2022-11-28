@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 require_once '../global.php';
 require_once '../model/pdo.php';

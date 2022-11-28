@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 require_once '../global.php';
 require_once '../model/pdo.php';
@@ -100,7 +101,25 @@ if (isset($_GET['danh-muc'])) {
     $show_dm = loadall_danh_muc();
     $VIEW_AD = './san-pham/danh-sach.php';
 } elseif (isset($_GET['danh-sach-user'])) {
-    $list_user=get_full_user();
+    $list_user = get_full_user();
+    $VIEW_AD = './tai-khoan/danh-sach.php';
+} elseif (isset($_GET['edit-tai-khoan'])) {
+    if (isset($_GET['id'])) {
+        $list_user = get_user_Byid($_GET['id']);
+    }
+    $VIEW_AD = './tai-khoan/edit-tai-khoan.php';
+} elseif (isset($_GET['update-tai-khoan'])) {
+    if(isset($_POST['update-tai-khoan'])){
+        $id=$_POST['id'];
+        $userName=$_POST['userName'];
+        $address=$_POST['address'];
+        // $passWord=$_POST['passWord'];
+        $phone=$_POST['phone'];
+        $name=$_POST['name'];
+        $role=$_POST['role'];
+        $update_user=update_user($id,$name,$address,$phone,$userName,$role);
+    }
+    $list_user = get_full_user();
     $VIEW_AD = './tai-khoan/danh-sach.php';
 } else {
     $VIEW_AD = 'home.php';
