@@ -238,7 +238,7 @@
                     <!-- chưa đăng nhập -> show cái này -->
                     <?php if (isset($_SESSION['user'])) {
                         extract($_SESSION['user']);
-                        
+
                     ?>
                         <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="absolute inset-x-2/4 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl">
                             <?php 
