@@ -42,15 +42,22 @@
                         </th>
                         <th scope="col" class="py-3 px-6">
                             Edit
-
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($list_pro as $show) {
                         extract($show);
-                        $delete = "index.php?delete_sanpham&id=" . $id;
-                        $edit = "index.php?edit_sanpham&id=" . $id;
+                        //đường dẫn ảnh trong extract đường dẫn
+                        $imagepath = "../upload/" . $image;
+                        //kiểm tra 
+                        if (is_file($imagepath)) {
+                            $image = "<img src='" . $imagepath . "' width='140px'";
+                        } else {
+                            $image= "No image";
+                        }
+                        $delete = "index.php?delete-sanpham&id=" . $id;
+                        $edit = "index.php?edit-sanpham&id=" . $id;
                         echo '<tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                         <th>
                             <div class="">
@@ -58,39 +65,37 @@
                             </div>
                         </th>
                         <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            ' . $id . '
+                        ' . $id . '
                         </th>
                         <td class="py-4 px-6">
-                            ' . $groupProduct_Id . '
+                        ' . $groupProduct_Id . '
+                        </td>
+                        
+                        <td class="py-4 px-6">
+                        ' . $name . '
                         </td>
                         <td class="py-4 px-6">
-                            ' . $name . '
+                        ' . $detail . '
                         </td>
                         <td class="py-4 px-6">
-                            ' . $detail . '
+                        ' . $image . '
                         </td>
                         <td class="py-4 px-6">
-                            ' . $image . '
+                        ' . $price . '
                         </td>
                         <td class="py-4 px-6">
-                            ' . $price . '
+                        ' . $priceNew . '
                         </td>
                         <td class="py-4 px-6">
-                            ' . $priceNew . '
+                        ' . $date . '
                         </td>
                         <td class="py-4 px-6">
-                            ' . $description . '
+                        ' . $description . '
                         </td>
                         <td class="py-4 px-6">
-                            ' . $date . '
+                            <a href="' . $edit . '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">Edit</a>
+                            <a href="' . $delete . '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">delete</a>
                         </td>
-                        <td class="py-4 px-6">
-                            ' . $status . '
-                        </td>
-                        <td class="py-4 px-6">
-                        <a href="'.$edit.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">Edit</a>
-                        <a href="'.$delete.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">delete</a>
-                         </td>
                     </tr>';
                     }
                     ?>

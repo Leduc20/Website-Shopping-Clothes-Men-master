@@ -19,6 +19,8 @@
                 if(password_verify( $_POST['password'], $user_login['password'])){
                     $userLogin['id'] = $user_login['id']; 
                     $userLogin['name'] = $user_login['name'];
+                    $userLogin['address'] = $user_login['address'];
+                    $userLogin['phone'] = $user_login['phone'];
                     $userLogin['userName'] = $user_login['userName'];
                     $userLogin['address'] = $user_login['address'];
                     $userLogin['phone'] = $user_login['phone'];
@@ -56,7 +58,5 @@
         $url = AUTH_BASE;
         header("location: $url?login");
     }
-
-    
     include_once './layout.php';
 ?>

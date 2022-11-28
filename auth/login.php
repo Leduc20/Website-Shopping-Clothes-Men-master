@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -171,7 +172,7 @@
                     <img src="./src/img/logo_2.png" alt="" class="h-10 mx-2" />
                     rani
                 </a>
-            </div>
+
 
             <div class="order-2 md:order-3 flex items-center space-x-2" id="nav-content">
                 <!--heart yeu thich-->

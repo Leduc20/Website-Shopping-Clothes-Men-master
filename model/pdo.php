@@ -65,10 +65,9 @@ function pdo_query_one($query){
     $conn = getConnect();
     
     $stmt = $conn->prepare($query);
-    $stmt->execute( $args);
-    return $stmt->fetch();
-  
-
+    $stmt->execute($args);
+    $data = $stmt->fetch();
+    return $data;
 }
 
 
@@ -100,4 +99,3 @@ function pdo_execute($sql){
         unset($conn);
     }
 }
-?>

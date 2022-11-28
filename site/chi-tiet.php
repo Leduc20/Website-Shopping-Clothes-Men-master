@@ -3,7 +3,7 @@
 <section class="text-gray-700 body-font overflow-hidden bg-white">
   <div class="container px-5 py-24 mx-auto" id="data-product" data-product='<?php echo json_encode($product); ?>'>
     <div class="lg:w-4/5 mx-auto flex flex-wrap">
-      <img alt="ecommerce" class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" src="<?= $product['image'] ?>">
+      <img alt="ecommerce" class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" src="<?= BASE_URL . "upload/" . $product['image'] ?>">
       <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
         <h2 class="text-sm title-font text-gray-500 tracking-widest">BRAND NAME</h2>
         <h1 class="text-gray-900 text-3xl title-font font-medium mb-1"><?= $product['name'] ?></h1>
@@ -87,7 +87,7 @@
           </div>
         </div>
         <div class="flex">
-          <span class="title-font font-medium text-2xl text-gray-900">$<?= $product['price'] ?></span>
+          <span class="title-font font-medium text-2xl text-gray-900"><?= $product['price'] ?> VNĐ</span>
           <button id="btn-add-prd" class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Mua
             hàng</button>
           <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
@@ -111,7 +111,7 @@
     </svg>
     <span class="sr-only">Check icon</span>
   </div>
-  <div class="ml-3 text-sm font-normal">Add product to carts successfully</div>
+  <div class="ml-3 text-sm font-normal">Thêm sản phẩm thành công</div>
   <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-success" aria-label="Close">
     <span class="sr-only">Close</span>
     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -192,6 +192,7 @@
     if (prdValid) {
       const product = {
         id,
+        name,
         image,
         description,
         price,
@@ -205,7 +206,6 @@
     } else {
       carts.unshift(product);
     }
-
     cartCount.textContent = carts.length;
     localStorage.setItem("carts", JSON.stringify(carts));
     toast.classList.remove('hidden')
