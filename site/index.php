@@ -28,7 +28,7 @@ if (isset($_GET['chi-tiet'])) {
         $orderId = add_order($user_id, $_POST['total'], $_POST['payment'])['id'];
 
         for ($i = 0; $i < count($_POST['prdId']); $i++) {
-            add_order_detail($_POST['prdId'][$i], $orderId, $_POST['sl'][$i]);
+            add_order_detail($_POST['prdId'][$i], $orderId, $_POST['sl'][$i], $_POST['size'][$i], $_POST['color'][$i]);
         }
         $url = SITE_URL;
         header("location: $url?purchase");
@@ -36,18 +36,20 @@ if (isset($_GET['chi-tiet'])) {
 
     $VIEW_NAME = 'dat-hang.php';
 } elseif (isset($_GET['purchase'])) {
-    // if (!isset($_SESSION['user'])) {
-        //     $url = AUTH_BASE;
-    //     header("location: $url?login");
-    //     return;
-    // }
-    $data=null;
-    if(isset($_GET['type'])) {
-
-    } else {
-
+    if (!isset($_SESSION['user'])) {
+        $url = AUTH_BASE;
+        header("location: $url?login");
+        return;
     }
-   
+
+    $orders = [];
+
+    if (isset($_GET['type'])) {
+        $orders = get_orders_by_userId($_SESSION['user']['id'], $_GET['type']);
+    } else {
+        $orders = get_orders_by_userId($_SESSION['user']['id'], 'all');
+    }
+
     $VIEW_NAME = 'purchase.php';
 } else {
     $products = getFullProducts();
