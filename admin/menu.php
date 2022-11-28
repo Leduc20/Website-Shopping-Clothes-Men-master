@@ -1,28 +1,28 @@
  
  <div  class="w-[200px] h-[350px] bg-gray-600">
-            <ul>
-                <li class="pt-3 ">
-                    <a class=" no-underline text-white pt-3 hover:bg-gray-700   flex " href="<?= SITE_URL . "?list-danh-muc"?>"><i class="fa-solid fa-house mt-1 mr-2 ml-1"></i> <span> Trở về Website </span></a>
-                </li>
-                <li class="">
-                    <a class=" no-underline text-white pt-3 hover:bg-gray-700   flex  " href="index.php"><i class="fa-solid fa-store mt-1 mr-2 ml-1"></i> <span> Trang chủ </span></a>
-                </li>
-                <li class="">
-                    <a class=" no-underline text-white pt-3 hover:bg-gray-700   flex  " href="<?= ADMIN_BASE . "?danh-muc"?>"><i class="fa-solid fa-list mt-1 mr-2 ml-1"></i> <span> Loại hàng </span></a>
-                </li>
-                <li class="">
-                    <a class=" no-underline text-white pt-3 hover:bg-gray-700   flex  " href="<?= ADMIN_BASE . "?san-pham"?>"><i class="fa-solid fa-cart-shopping mt-1 mr-2 ml-1"></i> <span> Hàng hóa </span></a>
-                <li class="">
-                    <a class=" no-underline text-white pt-3 hover:bg-gray-700   flex  " href="<?= ADMIN_BASE . "?khach-hang"?>"><i class="fa-solid fa-users mt-1 mr-2 ml-1"></i> <span> Khách hàng </span></a>
-                </li>
-                <li class="">
-                    <a class=" no-underline text-white pt-3 hover:bg-gray-700   flex  " href="index.php?act=dsbl"><i class="fa-solid fa-comments mt-1 mr-2 ml-1"></i> <span> Bình luận </span></a>
-                </li>
-                <li class="">
-                    <a class=" no-underline text-white pt-3 hover:bg-gray-700   flex  " href="index.php?act=dstk"><i class="fa-solid fa-chart-simple mt-1 mr-2 ml-1"></i> <span> Thống kê </span></a>
-                </li>
-            </ul>
-        </div>
+    <ul>
+        <li class="pt-3 ">
+            <a class=" no-underline text-white pt-3 hover:bg-gray-700   flex " href="<?= SITE_URL . "?list-danh-muc"?>"><i class="fa-solid fa-house mt-1 mr-2 ml-1"></i> <span> Trở về Website </span></a>
+        </li>
+        <li class="">
+            <a class=" no-underline text-white pt-3 hover:bg-gray-700   flex  " href="index.php"><i class="fa-solid fa-store mt-1 mr-2 ml-1"></i> <span> Trang chủ </span></a>
+        </li>
+        <li class="">
+            <a class=" no-underline text-white pt-3 hover:bg-gray-700   flex  " href="<?= ADMIN_BASE . "?danh-muc"?>"><i class="fa-solid fa-list mt-1 mr-2 ml-1"></i> <span> Loại hàng </span></a>
+        </li>
+        <li class="">
+            <a class=" no-underline text-white pt-3 hover:bg-gray-700   flex  " href="<?= ADMIN_BASE . "?san-pham"?>"><i class="fa-solid fa-cart-shopping mt-1 mr-2 ml-1"></i> <span> Hàng hóa </span></a>
+        <li class="">
+            <a class=" no-underline text-white pt-3 hover:bg-gray-700   flex  " href="<?= ADMIN_BASE . "?khach-hang"?>"><i class="fa-solid fa-users mt-1 mr-2 ml-1"></i> <span> Khách hàng </span></a>
+        </li>
+        <li class="">
+            <a class=" no-underline text-white pt-3 hover:bg-gray-700   flex  " href="index.php?act=dsbl"><i class="fa-solid fa-comments mt-1 mr-2 ml-1"></i> <span> Bình luận </span></a>
+        </li>
+        <li class="">
+            <a class=" no-underline text-white pt-3 hover:bg-gray-700   flex  " href="index.php?act=dstk"><i class="fa-solid fa-chart-simple mt-1 mr-2 ml-1"></i> <span> Thống kê </span></a>
+        </li>
+    </ul>
+</div>
 
         <!-- <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms
                                 class="absolute z-10 left-0 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl"> HOver me</div>        
