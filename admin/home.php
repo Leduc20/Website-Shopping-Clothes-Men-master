@@ -1,5 +1,4 @@
-<div class="m-2">
-    
+<div class="m-2">    
     <div class="pl-32 grid grid-cols-2 gap-4">
         <div class=" cols-span-1 w-[350px] h-[200px] rounded rounded-4 bg-green-500 drop-shadow-2xl	 ">
             <h1 class="justify-center flex font-bold text-3xl mt-4 text-green-600">Đơn Hàng Được Giao</h1>

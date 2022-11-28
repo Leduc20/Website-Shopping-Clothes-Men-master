@@ -1,5 +1,6 @@
  
  <div  class="w-[200px] h-[350px] bg-gray-600">
+
     <ul>
         <li class="pt-3 ">
             <a class=" no-underline text-white pt-3 hover:bg-gray-700   flex " href="<?= SITE_URL . "?list-danh-muc"?>"><i class="fa-solid fa-house mt-1 mr-2 ml-1"></i> <span> Trở về Website </span></a>
