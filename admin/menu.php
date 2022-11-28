@@ -25,7 +25,7 @@
     </ul>
 </div>
 
-        <!-- <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms
+        <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms
                                 class="absolute z-10 left-0 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl"> HOver me</div>        
          <aside class="w-64" aria-label="Sidebar">
    <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800 hidden ">
@@ -77,7 +77,7 @@
       </ul>
    </div>
 </aside> --> 
-
+<!--  -->
 <!-- <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
                 <nav>
                     <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
@@ -151,4 +151,4 @@
                         </li>
                     </ul>
                 </nav>
-            </div>   -->
+            </div>  
