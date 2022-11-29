@@ -26,8 +26,8 @@
 
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user"></i>Tài khoản</a></li>
-                    <li><a class="dropdown-item" href=""><i class=""></i>Đăng Xuất</a></li>
+                    <li><a class="dropdown-item" href="index.php?act=thoat"><i class="fa-solid fa-arrow-right-from-bracket"></i>Thoát</a></li>
 
                 </ul>
-            </div> -->
+            </div>
         </div>

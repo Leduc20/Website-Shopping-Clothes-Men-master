@@ -1,3 +1,10 @@
+<?php 
+ob_start();
+// // error_reporting(0);
+if(!isset($_SESSION)){
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,10 +23,10 @@
 
 <body>
     <section class="">
-        <section class="bg-white py-3 px-2">
+        <section class="bg-sky-600 py-3 px-2">
             <?php include_once $VIEW_ADMIN = 'header.php'; ?>
         </section>
-        <div class="flex">
+        <div class="flex px-2">
             <div>
                 <?php include_once $VIEW_ADMIN = 'menu.php'; ?>
             </div>

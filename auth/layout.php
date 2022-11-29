@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,8 +20,11 @@
     <script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet" />
 
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> 6de33849dbf38f20c253981fee323592eb8831b0
 </head>
 
 <body>

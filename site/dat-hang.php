@@ -1,9 +1,6 @@
 <?php
-
 require_once '../model/pdo.php';
 require_once '../model/product.php';
-
-
 
 function split_array($arr1, $arr2, $arr3, $arr4)
 {
@@ -22,7 +19,6 @@ function split_array($arr1, $arr2, $arr3, $arr4)
     for ($i = 0; $i < count($arr4); $i++) {
         $products[$i]['color'] = $arr4[$i];
     }
-
     return $products;
 }
 
@@ -47,7 +43,7 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
                 <div class="flex space-x-6 p-4 border-b-2 ">
                     <div>
                         <div class="border p-2 rounded">
-                            <img src="<?= $value['image'] ?>" alt="" class="w-24 h-24">
+                            <img src="../upload/<?= $value['image'] ?>" alt="" class="w-24 h-24">
                         </div>
                     </div>
                     <div class="flex justify-between items-center w-full">
@@ -96,15 +92,15 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
         <div class="flex-1 text-center pr-4">
             <p class="text-xl font-semibold">Thông tin khách hàng</p>
             <div class="px-8">
-                <input type="text" name="name_user" class="my-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mời nhập tên khách hàng...">
-                <input type="text" name="address_user" class="my-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mời nhập địa chỉ nhận hàng..">
-                <input type="text" name="phone_user" class="my-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mời nhập số điện thoại...">
+                <input type="text" name="name_user" value="<?=$_SESSION['user']['name']?>" class="my-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mời nhập tên khách hàng..." readonly>
+                <input type="text" name="address_user" value="<?=$_SESSION['user']['address']?>" class="my-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mời nhập địa chỉ nhận hàng.." readonly>
+                <input type="text" name="phone_user" value="<?=$_SESSION['user']['phone']?>" class="my-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mời nhập số điện thoại..." readonly>
                 <div class="border p-2 my-3">
                     <p>
                         Phương thức thanh toán:
-                        <select name="payment " id="">
-                            <option value="">Nhận hàng thanh toán</option>
-                            <option value="">Thẻ ngân hàng</option>
+                        <select name="payment" id="">
+                            <option value="cod">Nhận hàng thanh toán</option>
+                            <option value="banking">Thẻ ngân hàng</option>
                         </select>
                     </p>
                 </div>
@@ -127,12 +123,20 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
     } from "./src/js/global.js";
 
     const prdIds = <?php echo json_encode($_POST['prdId']) ?>;
+    const prdSizes = <?php echo json_encode($_POST['size']) ?>;
+    const prdColors = <?php echo json_encode($_POST['color']) ?>;
     const btnSubmit = document.getElementById('btn-submit');
 
-    const prdRm = carts.findIndex((prd) => prd.id == 1);
-
     btnSubmit.onclick = function(e) {
-        // e.preventDefault()
-        console.log(prdRm)
+        const cartNews = carts.filter((prd, index) => {
+            const isId = prdIds.indexOf(String(prd.id))
+            const isSize = prdSizes.indexOf(prd.size)
+            const isColor = prdColors.indexOf(prd.color)
+            if (isId >= 0 && isSize >= 0 && isColor >= 0) return false;
+            return true
+
+        })
+        cartCount.textContent = cartNews.length
+        localStorage.setItem('carts', JSON.stringify(cartNews))
     }
 </script>
