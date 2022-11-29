@@ -67,7 +67,7 @@
                                 <input class="ml-2" type="checkbox" value="" id="flexCheckChecked">
                             </div>
                         </th>
-                        <th scope="row" class="justify-center flex mt-9 font-medium text-black ">
+                        <th scope="row" class="justify-center flex mt-4 font-medium text-black  ">
                             ' . $id . '
                         </th>
                         <td class="py-4 px-3">
