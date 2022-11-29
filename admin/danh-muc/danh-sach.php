@@ -1,6 +1,6 @@
-<div class="">
-    <div class="border bg-green-200 mt-2 rounded">
-        <p class="ml-3 mt-3">Danh sách loại hàng</p>
+<div class="ml-20 mt-10 w-full ">
+    <div class="border bg-gray-200 rounded">
+        <p class=" w-full justify-center flex py-2 uppercase font-semibold text-gray-500">Danh sách loại hàng</p>
     </div>
     <h2>
         <?= isset($_COOKIE['success']) ? $_COOKIE['success'] : '' ?>
@@ -14,9 +14,9 @@
     </div>
     <form action="">
         <div>
-            <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4">
+            <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-2">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <thead class="text-sm text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th>
 
@@ -28,7 +28,7 @@
                                 Tên loại
                             </th>
                             <th scope="col" class="py-3 px-6">
-                                Edit
+                                
                             </th>
 
                         </tr>
@@ -41,19 +41,19 @@
                             $edit = "index.php?edit&id=" . $id;
                             echo '<tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                             <th>
-                                <div class="">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                <div class="ml-7">
+                                    <input class="" type="checkbox" value="" id="flexCheckChecked">
                                 </div>
                             </th>
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <th scope="row" class=" py-4 px-6 font-medium  text-gray-900 whitespace-nowrap dark:text-white">
                             ' . $id . '
                             </th>
                             <td class="py-4 px-6">
                             ' . $name . '
                             </td>
                             <td class="py-4 px-6">
-                            <a onclick="" href="' . $edit . '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">Edit</a>
-                            <a onclick="toat" href="' . $delete . '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">delete</a>
+                            <a onclick="" href="' . $edit . '" class=" px-2 text-white  rounded font-bold bg-blue-600 hover:bg-blue-700 ">Edit</a>
+                            <a onclick="" href="' . $delete . '" class="  px-2 text-white font-bold rounded bg-red-500 hover:bg-red-700 ">Delete</i></a>
                         </td>
                         </tr>';
                         }
@@ -100,11 +100,11 @@
                 </table>
             </div>
         </div>
-        <div class="z-50">
-            <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Chọn tất cả</a>
-            <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Bỏ chọn tất cả</a>
-            <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Xóa các mục chọn</a>
-            <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="<?= ADMIN_BASE . "?add-danh-muc" ?>">Nhập thêm</a>
+        <div class="ml-20 mt-4">
+            <a class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Chọn tất cả</a>
+            <a class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Bỏ chọn tất cả</a>
+            <a class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Xóa các mục chọn</a>
+            <a class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="<?= ADMIN_BASE . "?add-danh-muc" ?>">Nhập thêm</a>
         </div>
     </form>
     <div id="toast-success" class="hidden absolute top-0 left-2/4 -translate-x-2/4 flex items-center p-4 mb-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
