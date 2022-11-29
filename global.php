@@ -7,7 +7,7 @@ function dd(){
     die;
 }
 
-const BASE_URL = "http://localhost/webbanhang/";
+const BASE_URL = "http://localhost:8080/duan1/";
 
 const SITE_URL = BASE_URL . "site/index.php";
 const ADMIN_BASE = BASE_URL . 'admin/';

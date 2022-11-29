@@ -2,6 +2,7 @@ import { cartCount, carts, renderCart, DOMAIN } from "./global.js";
 
 const btnSubMidCart = document.getElementById("submid-cart");
 const formSubMidCart = document.getElementById("form-container");
+const destroyAllEl = document.getElementById("destroyAll");
 
 const html = (prd) => {
     return `
@@ -134,6 +135,11 @@ const checkPrdAllEl = document.getElementById("check-full-prd");
 const prdCheckEls = document.getElementsByName("prdId[]");
 
 checkPrdAllEl.onchange = () => {
+    if (checkPrdAllEl.checked) {
+        destroyAllEl.classList.remove("hidden");
+    } else {
+        destroyAllEl.classList.add("hidden");
+    }
     prdCheckEls.forEach((el) => {
         el.checked = checkPrdAllEl.checked;
     });
@@ -144,7 +150,7 @@ checkPrdAllEl.onchange = () => {
     sizePrds.forEach((el) => (el.disabled = !checkPrdAllEl.checked));
     colorPrds.forEach((el) => (el.disabled = !checkPrdAllEl.checked));
     handleTotalCart();
-    btnSubMidCart.disabled = !checkPrdAllEl.checked;
+    btnSubMidCart.disabled = !checkPrdAllEl.checked || !!(carts.length == 0);
 };
 
 prdCheckEls.forEach((el) => {
@@ -161,6 +167,12 @@ prdCheckEls.forEach((el) => {
         sizePrd.disabled = !el.checked;
         colorPrd.disabled = !el.checked;
 
+        if (el.checked) {
+            destroyAllEl.classList.remove("hidden");
+        } else {
+            destroyAllEl.classList.add("hidden");
+        }
+
         if (amountCheck > 0) {
             btnSubMidCart.disabled = false;
         } else {
@@ -169,6 +181,25 @@ prdCheckEls.forEach((el) => {
         handleTotalCart();
     };
 });
+
+// Destroy All
+destroyAllEl.onclick = () => {
+    if (checkPrdAllEl.checked) {
+        const isRemove = confirm("Are you sure you want to destroy");
+        if (isRemove) {
+            cartCount.textContent = 0;
+            localStorage.setItem("carts", JSON.stringify([]));
+            renderCart({
+                id: "cart-list",
+                data: [],
+                html: html,
+            });
+            handleTotalCart();
+            checkPrdAllEl.checked = false;
+            destroyAllEl.classList.add("hidden");
+        }
+    }
+};
 
 function handleTotalCart() {
     let total = 0;

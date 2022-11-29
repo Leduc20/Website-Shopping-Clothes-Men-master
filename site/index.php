@@ -43,6 +43,13 @@ if (isset($_GET['chi-tiet'])) {
         return;
     }
 
+    if (isset($_POST['huy-prd'])) {
+        update_order_by_id($_POST['order_id']);
+        $url = SITE_URL;
+        header("location: $url?purchase");
+        return;
+    }
+
     $orders = [];
 
     if (isset($_GET['type'])) {

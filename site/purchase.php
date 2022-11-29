@@ -8,10 +8,10 @@
             <a href="<?= SITE_URL ?>?purchase&type=cancel" class="<?php if (isset($_GET['type']) && $_GET['type'] == 'cancel') echo 'text-red-500' ?> p-4 px-12 hover:text-red-500">Đã hủy</a>
         </div>
     </div>
-
     <div class="mt-2 border">
         <?php if (count($orders) == 0) echo "<p>Chưa có thông tin về đơn hàng của bạn</p>" ?>
         <?php foreach ($orders  as $key => $value) : ?>
+           
             <div class="p-4 border-b-2 relative">
                 <!--  -->
                 <div class="absolute top-0 right-0">
@@ -21,7 +21,7 @@
                         <span>Chờ xác nhận</span>
                     </div>' ?>
 
-                    <?php if (strtolower($value['status']) == 'dã hủy') echo '
+                    <?php if (strtolower($value['status']) == 'đã hủy') echo '
                     <div class="text-red-500 bg-blue-100 p-2 rounded-bl-md">
                         <i class="fa-solid fa-xmark"></i>
                         <span>Đã hủy</span>
@@ -75,7 +75,15 @@
 
                 <div class="flex justify-end items-center">
                     <a href="<?= SITE_URL ?>?chi-tiet&id=<?= $value['prdId'] ?>" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-500">Mua lại</a>
-                    <span class="ml-6">Tổng số tiền: <span class="text-green-500"><?= $value['totalMoney'] ?> VND</span></span>
+
+                    <?php if ($value['status'] == 'chờ xác nhận') { ?>
+                        <form action="" method="post">
+
+                            <input type="hidden" name="order_id" value="<?php echo $value['orderId'] ?>">
+                            <button type="submit" name="huy-prd" class="px-4 ml-4 py-2 bg-red-600 text-white rounded hover:bg-red-500">Hủy đơn hàng</button>
+                        </form>
+                    <?php } ?>
+                    <!-- <span class="ml-6">Tổng số tiền: <span class="text-green-500"><?= $value['totalMoney'] ?> VND</span></span> -->
                 </div>
             </div>
         <?php endforeach ?>
