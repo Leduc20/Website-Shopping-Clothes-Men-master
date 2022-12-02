@@ -17,7 +17,7 @@ if (isset($_GET['danh-muc'])) {
     if (isset($_POST['themmoi'])) {
         $tenloai = $_POST['tenloai'];
         add_danh_muc($tenloai);
-        $msg = "Thêm danh mục thành công";
+        $msg="Thêm danh mục thành công";
     }
     $VIEW_AD = './danh-muc/add-danh-muc.php';
 } elseif (isset($_GET['delete'])) {
@@ -54,16 +54,16 @@ if (isset($_GET['danh-muc'])) {
         $description = $_POST['description'];
         $date = $_POST['date'];
         $image = $_FILES['image']['name'];
-        $groupProduct_Id = $_POST['groupProduct_Id'];
+        // $groupProduct_Id=$_POST['groupProduct_Id'];
         //upload ảnh
         $folder = "../upload/";
+        $targerupload = $folder . basename($_FILES['image']['name']);
         $targetupload = $folder . basename($_FILES['image']['name']);
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
         } else {
         }
-        insertProduct($name, $detail, $image, $price, $date, $priceNew, $description, $groupProduct_Id);
+        insertProduct($name, $detail, $image,$price,$date,$priceNew,$description);
     }
-    $show_dm = loadall_danh_muc();
     $VIEW_AD = './san-pham/add-san-pham.php';
 } elseif (isset($_GET['delete-sanpham'])) {
     if (isset($_GET['id'])) {
@@ -129,4 +129,4 @@ if (isset($_GET['danh-muc'])) {
 include_once './layout.php';
 
 ?>
-<img src="./tai-khoan/danh-sach.php" alt="">
+<img src="../upload/" alt="">

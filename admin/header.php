@@ -1,16 +1,19 @@
-<p class="text-center text-white text-[30px]">Quản Trị WEB</p>
-        <div class="flex justify-end">
+<div class="justify-center flex mt-3 mb-3">
+    <img src="../site/src/img/logo_2.png" alt="" class="h-10 mx-2" />
+    <span class="font-semi text-2xl"> RANI </span>
+</div>
+        <div class="flex justify-between">
             <form action="">
-                <span class="text-white text-[21px]">Cửa Hàng</span>
+                <span class="text-black text-[21px]">Danh Sách Cửa Hàng</span>
                 <select name="" id="" class="border-[1px] w-[160px] rounded-[5px]">
-                    <option value="">Cửa Hàng</option>
-                    <option value="">A</option>
-                    <option value="">b</option>
-                    <option value="">c</option>
+                    <option value="">Cơ sở 1</option>
+                    <option value="">Cơ sở 2</option>
+                    <option value="">Cơ sở 3</option>
                 </select>
             </form>
-            <div class="dropdown ml-9 w-[250px]">
-                <span class="btn btn-secondary dropdown-toggle w-[250px]" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            
+            <!-- <div class="dropdown ml-9 w-[250px]">
+                <span class="btn btn-secondary  bg-gray-600 dropdown-toggle w-[250px]" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
                     Xin Chào,<?php
                                 if (isset($_SESSION['user'])) {

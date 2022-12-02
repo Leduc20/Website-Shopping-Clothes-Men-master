@@ -1,47 +1,50 @@
 <form action="">
     <div>
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4">
-            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <div class="overflow-x-auto flex  w-full shadow-md sm:rounded-lg mt-4">
+            <table class="text-lg text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-sm text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th>
-
+                            
                         </th>
-                        <th scope="col" class="py-3 px-6">
-                            Mã hàng hóa
+                        <th scope="col" class="py-4 px-4">
+                            Id
                         </th>
-                        <th scope="col" class="py-3 px-6">
-                            Mã loại
+                        <th scope="col" class="py-4 px-4">
+                            Danh Muc
                         </th>
-                        <!-- <th scope="col" class="py-3 px-6">
+                        <!-- <th scope="col" class="py-4 px-4">
                                                         Ten Danh mục
                                                     </th> -->
-                        <th scope="col" class="py-3 px-6">
-                            Tên sản phẩm
+                        <th scope="col" class="py-4 px-4">
+                            Name
                         </th>
-                        <th scope="col" class="py-3 px-6">
-                            Chi tiết
+                        <th scope="col" class="py-4 px-4">
+                            Detail
                         </th>
-                        <th scope="col" class="py-3 px-6">
-                            Hình ảnh
+                        <th scope="col" class="py-4 px-4">
+                            Image
                         </th>
-                        <th scope="col" class="py-3 px-6">
-                            Giá gốc
+                        <th scope="col" class="py-4 px-4">
+                            Price
                         </th>
-                        <th scope="col" class="py-3 px-6">
-                            Giá giảm
+                        <th scope="col" class="py-4 px-4">
+                            Sale
                         </th>
-                        <!-- <th scope="col" class="py-3 px-6">
+                        <!-- <th scope="col" class="py-4 px-4">
                             ststus
                         </th> -->
-                        <th scope="col" class="py-3 px-6">
+                        <th scope="col" class="py-4 px-4">
                             Date
                         </th>
-                        <th scope="col" class="py-3 px-6">
+                        <th scope="col" class="py-4 px-4">
                             Description
                         </th>
-                        <th scope="col" class="py-3 px-6">
-                            Edit
+                        <th scope="col" class="py-4 px-4">
+                            Quanlity
+                        </th>
+                        <th scope="col" class="py-4 px-4">
+                            
                         </th>
                     </tr>
                 </thead>
@@ -61,41 +64,43 @@
                         echo '<tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                         <th>
                             <div class="">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                <input class="ml-2" type="checkbox" value="" id="flexCheckChecked">
                             </div>
                         </th>
-                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        ' . $id . '
+                        <th scope="row" class="justify-center flex mt-4 font-medium text-black  ">
+                            ' . $id . '
                         </th>
-                        <td class="py-4 px-6">
-                        ' . $groupProduct_Id . '
+                        <td class="py-4 px-3">
+                            ' . $groupProduct_Id . '
                         </td>
-                        
-                        <td class="py-4 px-6">
-                        ' . $name . '
+                        <td class="py-4 px-3">
+                            ' . $name . '
                         </td>
-                        <td class="py-4 px-6">
-                        ' . $detail . '
+                        <td class="py-4 px-3">
+                            ' . $detail . '
                         </td>
-                        <td class="py-4 px-6">
-                        ' . $image . '
+                        <td class="py-4 px-3">
+                            ' . $image . '
                         </td>
-                        <td class="py-4 px-6">
-                        ' . $price . '
+                        <td class="py-4 px-3">
+                            ' . $price . ' VND
                         </td>
-                        <td class="py-4 px-6">
-                        ' . $priceNew . '
+                        <td class="py-4 px-3">
+                            ' . $priceNew . ' VND
                         </td>
-                        <td class="py-4 px-6">
-                        ' . $date . '
+                        <td class="py-4 px-3">
+                            ' . $date . '
                         </td>
-                        <td class="py-4 px-6">
-                        ' . $description . '
+                        <td class="py-4 px-3">
+                            ' . $description . '
                         </td>
-                        <td class="py-4 px-6">
-                            <a href="' . $edit . '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">Edit</a>
-                            <a href="' . $delete . '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">delete</a>
+                        <td class="py-4 px-3">
+                            ' . $status . '
                         </td>
+                        <td class="">
+                        <a  href="'.$edit.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">Edit</a>
+                        <a href="'.$delete.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">delete</a>
+                         </td>
                     </tr>';
                     }
                     ?>
@@ -104,7 +109,7 @@
         </div>
     </div>
 
-    <div class="z-50">
+    <div class="mt-4">
         <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Chọn tất cả</a>
         <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Bỏ chọn tất cả</a>
         <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Xóa các mục chọn</a>
