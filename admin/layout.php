@@ -1,10 +1,4 @@
-<?php 
-ob_start();
-// // error_reporting(0);
-if(!isset($_SESSION)){
-    session_start();
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,4 +1,4 @@
-<div class="container mx-auto mb-4 flex justify-center flex-col w-8/12">
+<div class="px-2 container mx-auto mb-4 flex justify-center flex-col w-8/12">
     <div class="border border-gray-400 mb-2">
         <div class="flex justify-between space-x-4 w-full">
             <a href="<?= SITE_URL ?>?purchase&type=all" class="<?php if (!isset($_GET['type']) || $_GET['type'] == 'all') echo 'text-red-500' ?> p-4 px-12 hover:text-red-500">Tất cả</a>
@@ -77,7 +77,7 @@
                     <a href="<?= SITE_URL ?>?chi-tiet&id=<?= $value['prdId'] ?>" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-500">Mua lại</a>
 
                     <?php if ($value['status'] == 'chờ xác nhận') { ?>
-                        <form action="" method="post">
+                        <form class="contents" action="" method="post">
 
                             <input type="hidden" name="order_id" value="<?php echo $value['orderId'] ?>">
                             <button type="submit" name="huy-prd" class="px-4 ml-4 py-2 bg-red-600 text-white rounded hover:bg-red-500">Hủy đơn hàng</button>

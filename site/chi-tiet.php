@@ -132,6 +132,7 @@
 </div>
 
 <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+<!-- <script src="./src/js/test.js"></script> -->
 <script type="module">
   import {
     cartCount,
@@ -229,7 +230,7 @@
         image,
         description,
         price,
-        sl: prdValid.sl * 1 + 1,
+        sl: prdValid.sl * 1 + slEl.value*1,
         color,
         size
       };
@@ -240,7 +241,7 @@
     }
     cartCount.textContent = carts.length;
     localStorage.setItem("carts", JSON.stringify(carts));
-    toast.classList.remove('hidden')
+    toast.classList.remove('hidden', "opacity-0")
     const _result = setTimeout(() => {
       toast.classList.add('hidden')
       clearTimeout(_result)

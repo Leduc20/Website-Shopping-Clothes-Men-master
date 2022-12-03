@@ -85,9 +85,8 @@
         </div>
         <!-- show product -->
         <!--  -->
-        <div class="grid grid-cols-4 gap-10">
+        <div class="grid grid-cols-4 gap-10 px-4">
             <?php foreach ($products as $key => $value) : ?>
-                
                 <div class="max-w-md w-full bg-gray-100 shadow-lg rounded-xl p-6">
                     <div class="relative">
                         <div class="absolute flex flex-col top-0 right-0 p-3">
@@ -99,11 +98,7 @@
                         </div>
                         <a href="<?= SITE_URL ?>?chi-tiet&id=<?= $value['id'] ?>">
                             <div class=" h-56 mb-3">
-<<<<<<< HEAD
-                                <img src=" <?= BASE_URL."upload/".$value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
-=======
-                                <img src=" <?= BASE_URL."./upload/".$value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
->>>>>>> 6de33849dbf38f20c253981fee323592eb8831b0
+                                <img src=" <?= BASE_URL . "upload/" . $value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
                             </div>
                             <div class="flex-auto justify-evenly">
                                 <div class="flex flex-wrap">

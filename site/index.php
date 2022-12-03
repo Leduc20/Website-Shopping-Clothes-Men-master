@@ -59,6 +59,16 @@ if (isset($_GET['chi-tiet'])) {
     }
 
     $VIEW_NAME = 'purchase.php';
+} elseif (isset($_GET['search'])) {
+    $VIEW_NAME = 'search.php';
+} elseif (isset($_GET['my-favorites'])) {
+    if (!isset($_SESSION['user'])) {
+        $url = AUTH_BASE;
+        header("location: $url?login");
+        return;
+    }
+    $products = get_full_favorites_by_userId($_SESSION['user']['id']);
+    $VIEW_NAME = 'my-favorites.php';
 } else {
     $products = getFullProducts();
     $VIEW_NAME = 'trang-chu.php';

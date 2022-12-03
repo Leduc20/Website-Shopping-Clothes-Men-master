@@ -38,3 +38,7 @@ function updateProduct($id,$name,$detail,$image,$price,$date,$priceNew,$descript
     return pdo_execute($sql);
 }
 
+function get_full_favorites_by_userId($user_id) {
+    $sql = "SELECT prd.name, prd.image, prd.price, prd.description FROM favorites JOIN products prd ON favorites.product_id = prd.id WHERE  user_id = $user_id";
+    return pdo_query_all($sql);
+}

@@ -26,11 +26,11 @@ function get_orders_by_userId($user_id, $type)
     {
         if ($type) return "SELECT prd.id AS prdId, prd.name, prd.image, prd.price, odt.size, odt.color, odt.amount, od.id AS orderId, od.status, od.totalMoney
     FROM products prd JOIN order_details odt ON prd.id = odt.product_id
-    JOIN orders od ON od.id = odt.order_id WHERE od.user_id = $user_id AND od.status= '$type' ORDER BY od.create_at DESC";
+    JOIN orders od ON od.id = odt.order_id WHERE od.user_id = $user_id AND od.status= '$type' ORDER BY od.created_at DESC";
 
         return "SELECT prd.id AS prdId, prd.name, prd.image, prd.price, odt.size, odt.color, odt.amount, od.id AS orderId, od.status, od.totalMoney
     FROM products prd JOIN order_details odt ON prd.id = odt.product_id
-    JOIN orders od ON od.id = odt.order_id WHERE od.user_id = $user_id  ORDER BY od.create_at DESC";
+    JOIN orders od ON od.id = odt.order_id WHERE od.user_id = $user_id  ORDER BY od.created_at DESC";
     }
     if ($type == 'wait')  return pdo_query_all(sql($user_id, "chờ xác nhận"));
     if ($type == "done") return pdo_query_all(sql($user_id, "giao hàng thành công"));
@@ -44,3 +44,4 @@ function update_order_by_id($order_id)
     $sql = "UPDATE orders SET status = 'đã hủy' WHERE id = $order_id";
     return pdo_execute($sql);
 }
+
