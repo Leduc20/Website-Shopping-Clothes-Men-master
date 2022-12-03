@@ -12,6 +12,7 @@ require_once '../model/order.php';
 // $show_error=getConnect();
 // echo $show_error;
 // $getFull_pro=getProductById();
+
 if (isset($_GET['danh-muc'])) {
     $show_dm = loadall_danh_muc();
     $VIEW_AD = './danh-muc/danh-sach.php';
@@ -19,7 +20,7 @@ if (isset($_GET['danh-muc'])) {
     if (isset($_POST['themmoi'])) {
         $tenloai = $_POST['tenloai'];
         add_danh_muc($tenloai);
-        $msg = "Thêm danh mục thành công";
+        $msg="Thêm danh mục thành công";
     }
     $VIEW_AD = './danh-muc/add-danh-muc.php';
 } elseif (isset($_GET['delete'])) {
@@ -51,21 +52,21 @@ if (isset($_GET['danh-muc'])) {
     if (isset($_POST['add-san-pham'])) {
         $name = $_POST['name'];
         $price = $_POST['price'];
-        $priceNew = $_POST['sale'];
+        // $priceNew = $_POST['sale'];
         $detail = $_POST['detail'];
         $description = $_POST['description'];
         $date = $_POST['date'];
         $image = $_FILES['image']['name'];
-        $groupProduct_Id = $_POST['groupProduct_Id'];
+        // $groupProduct_Id=$_POST['groupProduct_Id'];
         //upload ảnh
         $folder = "../upload/";
+        $targerupload = $folder . basename($_FILES['image']['name']);
         $targetupload = $folder . basename($_FILES['image']['name']);
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
         } else {
         }
-        insertProduct($name, $detail, $image, $price, $date, $priceNew, $description, $groupProduct_Id);
+        insertProduct($name, $detail, $image,$price,$date,$priceNew,$description);
     }
-    $show_dm = loadall_danh_muc();
     $VIEW_AD = './san-pham/add-san-pham.php';
 } elseif (isset($_GET['delete-sanpham'])) {
     if (isset($_GET['id'])) {
@@ -205,3 +206,7 @@ if (isset($_GET['danh-muc'])) {
 // require_once './danh-muc/    index.php';
 
 include_once './layout.php';
+
+
+?>
+

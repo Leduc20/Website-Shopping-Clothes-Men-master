@@ -1,3 +1,4 @@
+
 <form action="">
     <div>
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4">
@@ -125,3 +126,4 @@
         <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="<?= ADMIN_BASE . "?add-san-pham" ?>">Nhập thêm</a>
     </div>
 </form>
+
