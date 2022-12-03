@@ -23,6 +23,12 @@
                             Chi tiết
                         </th>
                         <th scope="col" class="py-3 px-6">
+                            ADD Attribute
+                        </th>
+                        <!-- <th scope="col" class="py-3 px-6">
+                            Details Attribute
+                        </th> -->
+                        <th scope="col" class="py-3 px-6">
                             Hình ảnh
                         </th>
                         <th scope="col" class="py-3 px-6">
@@ -58,6 +64,10 @@
                         }
                         $delete = "index.php?delete-sanpham&id=" . $id;
                         $edit = "index.php?edit-sanpham&id=" . $id;
+                        $edit_size = "index.php?add_size&id=" . $id;
+                        $add_color = "index.php?add_color&id=" . $id;
+                        $detail_size = "index.php?detail_size&id=" . $id;
+                        $detail_color = "index.php?detail_color&id=" . $id;
                         echo '<tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                         <th>
                             <div class="">
@@ -77,6 +87,10 @@
                         <td class="py-4 px-6">
                         ' . $detail . '
                         </td>
+                        <td class="py-4 px-6">
+                        <a href="' . $edit_size. '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">ADD_size</a>
+                        <a href="' . $add_color . '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">ADD_color</a>
+                        
                         <td class="py-4 px-6">
                         ' . $image . '
                         </td>

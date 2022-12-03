@@ -15,6 +15,9 @@
                     <a class="no-underline text-black" href="<?= ADMIN_BASE . "?danh-sach-user"?>"><i class="fa-solid fa-users"></i>Khách hàng</a>
                 </li>
                 <li class="ml-[10px] py-3 ml-1 border-[1px] bg-slate-300 rounded-[3px] font-bold hover:bg-white">
+                    <a class="no-underline text-black" href="<?= ADMIN_BASE . "?don-hang"?>"><i class="fa-solid fa-comments"></i>Đơn hàng</a>
+                </li>
+                <li class="ml-[10px] py-3 ml-1 border-[1px] bg-slate-300 rounded-[3px] font-bold hover:bg-white">
                     <a class="no-underline text-black" href="index.php?act=dsbl"><i class="fa-solid fa-comments"></i>Bình luận</a>
                 </li>
                 <li class="ml-[10px] py-3 ml-1 border-[1px] bg-slate-300 rounded-[3px] font-bold hover:bg-white">
