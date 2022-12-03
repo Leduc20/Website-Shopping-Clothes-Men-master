@@ -10,6 +10,7 @@ require_once '../model/user.php';
 // $show_error=getConnect();
 // echo $show_error;
 // $getFull_pro=getProductById();
+
 if (isset($_GET['danh-muc'])) {
     $show_dm = loadall_danh_muc();
     $VIEW_AD = './danh-muc/danh-sach.php';
@@ -49,7 +50,7 @@ if (isset($_GET['danh-muc'])) {
     if (isset($_POST['add-san-pham'])) {
         $name = $_POST['name'];
         $price = $_POST['price'];
-        $priceNew = $_POST['sale'];
+        // $priceNew = $_POST['sale'];
         $detail = $_POST['detail'];
         $description = $_POST['description'];
         $date = $_POST['date'];
@@ -129,4 +130,16 @@ if (isset($_GET['danh-muc'])) {
 include_once './layout.php';
 
 ?>
-<img src="../upload/" alt="">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../danhmuc">
+</head>
+<body>
+    
+</body>
+</html>

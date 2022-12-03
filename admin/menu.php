@@ -1,8 +1,5 @@
+ 
  <style>
-        .a{
-            position: sticky;
-            z-index: 1;
-        }
         .icon{
             cursor: pointer;
             margin: 5px;
@@ -54,7 +51,7 @@
         }   
         
  </style>
- <div  class=" menu w-[70px] h-[700px] bg-gray-200 rounded-r-3xl ">
+ <div  class=" w-[70px] h-[700px] bg-gray-200 rounded-r-3xl ">
 
         <a href="<?= SITE_URL . "?list-danh-muc"?>" class="icon ">
         <i class="fa-solid fa-house"></i>
@@ -64,8 +61,8 @@
         <i class="fa-solid fa-store"></i>
         <span class="tooltip">Home </span></a>
 
-        <a href="<?= ADMIN_BASE . "?danh-muc"?>" class="icon ">
-        <i class="fa-solid fa-list"></i>
+        <a href="<?= ADMIN_BASE . "?danh-muc" ?>" class="icon ">
+        <i class="fa-solid fa-list"></i>    
         <span class="tooltip">Category </span></a>
 
         <a href="<?= ADMIN_BASE . "?san-pham"?>" class="icon ">
@@ -87,7 +84,7 @@
         <a href="index.php?act=thoat" class="icon ">
         <i class="fa-solid fa-arrow-right-from-bracket"></i>
         <span class="tooltip">Log Out </span></a>
-
+        </div>
         
     <!-- <ul>
         <li class="pt-3 ">
@@ -113,7 +110,7 @@
     </ul> -->
     
         
-</div>
+
 
         
 

@@ -5,8 +5,8 @@ if (is_array($edit)) {
 
 ?>
 
-<div class="border bg-gray-200 rounded w-full ml-52 mt-10">
-    <form action="index.php?update" method="post" enctype="multipart/form-data" id="check">
+<div class="border bg-gray-200 rounded  mt-10 mr-10">
+    <form action="index.php?update" method="post" enctype="multipart/form-data" id="check" class="ml-4 ">
         <p class="font-bold mt-3 mb-2 ml-2">Mã loại</p>
         <input class="border ml-2 mr-5 p-1 rounded-[4px]" type="text" disabled name="" id=""value="<?php if (isset($id) && ($id> 0)) echo $id; ?>">
 
