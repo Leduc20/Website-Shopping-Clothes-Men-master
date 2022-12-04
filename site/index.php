@@ -100,14 +100,7 @@ if (isset($_GET['chi-tiet'])) {
     $products = get_full_favorites_by_userId($_SESSION['user']['id']);
     $VIEW_NAME = 'my-favorites.php';
 } else {
-    if (isset($_POST['add_fav'])) {
-        add__favorite($_POST['prd_id'], $_SESSION['user']['id']);
-        header("location: " . $_SERVER['HTTP_REFERER']);
-    }
-    if (isset($_POST['remove_fav'])) {
-        remove_favorite_by_favoriteId($_POST['fav_id']);
-        header("location: " . $_SERVER['HTTP_REFERER']);
-    }
+    
     $products = get_full_products();
     $VIEW_NAME = 'trang-chu.php';
 }

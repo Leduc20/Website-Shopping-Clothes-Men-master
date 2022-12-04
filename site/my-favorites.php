@@ -55,9 +55,8 @@
     </div>
 </div>
 
-<script>
 
-</script>
+
 
 
 <!-- $arr = [
