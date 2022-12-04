@@ -101,13 +101,8 @@
                                 <button name="hi" value="hí" x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="p-2 absolute top-10 right-4 w-32 mt-2 bg-white rounded-md shadow-xl">
                                     <?= ($value['user_id'] == (isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : 'null')) ? 'Xóa khỏi sản phẩm yêu thích' : 'Thêm vào list sản phẩm yêu thích' ?>
                                 </button>
+                            </div>
                         </form>
-                    </div>
-                    <a href="<?= SITE_URL ?>?chi-tiet&id=<?= $value['id'] ?>">
-                        <div class=" h-56 mb-3">
-                            <img src=" <?= BASE_URL . "upload/" . $value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
-                        </div>
-
                         <a href="<?= SITE_URL ?>?chi-tiet&id=<?= $value['id'] ?>">
                             <div class=" h-56 mb-3">
                                 <img src=" <?= BASE_URL."./upload/".$value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
@@ -123,20 +118,19 @@
                                 </div>
                                 <div class="text-lg text-black-600 font-normal mt-1">
                                     $ <?= $value['price'] ?>
+                                </div>
+                           
+                                <div class="text-lg text-black-600 font-normal mt-1">
+                                    $ <?= $value['price'] ?>
+                                </div>
 
+                                <div class="flex space-x-2 text-sm font-medium justify-start my-3">
+                                    <button class="w-full transition ease-in duration-300 inline-flex items-center justify-center text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-600">
+                                        <span>Xem chi tiết</span>
+                                    </button>
                                 </div>
                             </div>
-                            <div class="text-lg text-black-600 font-normal mt-1">
-                                $ <?= $value['price'] ?>
-                            </div>
-
-                            <div class="flex space-x-2 text-sm font-medium justify-start my-3">
-                                <button class="w-full transition ease-in duration-300 inline-flex items-center justify-center text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-600">
-                                    <span>Xem chi tiết</span>
-                                </button>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
                 </div>
         </div>
     <?php endforeach; ?>
