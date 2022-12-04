@@ -5,9 +5,9 @@ function get_user_by_name($name){
     return pdo_query_one($sql);
 }
 
-function add_user($name,$address,$phone,$email,$passWord){
+function add_user($name,$phone,$email,$passWord){
     // $sql="INSERT INTO users(name,address,phone,userName, passWord,is_Admin) VALUES ('$name','$address','$phone','$passWord','$is_Admin')";
-    $sql="INSERT INTO `users`(`name`, `address`, `phone`,`userName`,`passWord`) VALUES ('$name','$address','$phone','$email','$passWord')";
+    $sql="INSERT INTO `users`(`name`, `phone`,`userName`,`passWord`) VALUES ('$name','$phone','$email','$passWord')";
     pdo_execute($sql);
 }
 function get_full_user(){
