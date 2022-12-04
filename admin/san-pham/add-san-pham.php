@@ -76,19 +76,10 @@
                             <input class="border w-full p-2 rounded-[4px]" type="text" name="" id="">
                         </div> -->
 
-<<<<<<< HEAD
-        </div>
-    </div>
-    <div class="mt-4  ml-20 mb-10">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" type="submit" name="add-san-pham">Thêm mới</button>
-        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Nhập lại</button>
-        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="<?= ADMIN_BASE . "?san-pham" ?>">Danh sách</a>
-    </div>
-=======
     </div>
 
     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" type="submit" name="add-san-pham">Thêm mới</button>
     <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Nhập lại</button>
     <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="<?= ADMIN_BASE . "?san-pham" ?>">Danh sách</a>
->>>>>>> 6de33849dbf38f20c253981fee323592eb8831b0
+
 </form>
