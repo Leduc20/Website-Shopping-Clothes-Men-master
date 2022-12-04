@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -275,10 +276,12 @@
                                     Vào trang quản trị
                                 </a>
                             <?php } ?>
-                            <a href="./profile.html" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
+                            <a href="<?= AUTH_BASE."?profile" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
                                 Thông tin cá nhân
                             </a>
-                            <a href="<?= SITE_URL . "?purchase" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
+
+                            <a href="" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">Xin chào <?= $_SESSION['user']['name'] ?></a>
+                            <a href="<?= SITE_URL."?purchase" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
                                 Đơn hàng
                             </a>
                             <a href="<?= AUTH_BASE . "?logout" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">

@@ -5,9 +5,9 @@ function get_user_by_name($name){
     return pdo_query_one($sql);
 }
 
-function add_user($name,$phone,$email,$passWord){
+function add_user($name,$address,$phone,$email,$passWord,$gender,$image){
     // $sql="INSERT INTO users(name,address,phone,userName, passWord,is_Admin) VALUES ('$name','$address','$phone','$passWord','$is_Admin')";
-    $sql="INSERT INTO `users`(`name`, `phone`,`userName`,`passWord`) VALUES ('$name','$phone','$email','$passWord')";
+    $sql="INSERT INTO `users`(`name`, `address`, `phone`,`userName`,`passWord`,`gender`, `image`) VALUES ('$name','$address','$phone','$email','$passWord', '$gender', '$image')";
     pdo_execute($sql);
 }
 function get_full_user(){
@@ -15,7 +15,7 @@ function get_full_user(){
     return pdo_query_all($sql);
 }
 function get_user_Byid($id){
-    $sql="SELECT * FROM users where id=".$id;
+    $sql="SELECT * FROM users where id= $id";
     return pdo_query_one($sql);
 }
 function update_user($id,$name,$address,$phone,$userName,$isAdmin){
@@ -23,5 +23,9 @@ function update_user($id,$name,$address,$phone,$userName,$isAdmin){
     return pdo_execute($sql);
 }
 
+function update_profile($id, $name, $phone, $address, $userName, $gender, $image){
+    $sql="UPDATE `users` SET `name`='".$name."',`address`='".$address."',`phone`='".$phone."',`userName`='".$userName."',`gender`='".$gender."', `image`='".$image."' WHERE id=".$id;
+    return pdo_execute($sql);
+}
 
 ?>
