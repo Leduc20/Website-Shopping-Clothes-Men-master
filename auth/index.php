@@ -41,7 +41,7 @@ if (isset($_GET['login'])) {
 } elseif (isset($_GET['register'])) {
     if (isset($_POST['register'])) {
         $name = $_POST['name_user'];
-        $address = $_POST['address'];
+        // $address = $_POST['address'];
         $email = $_POST['email'];
         $phone = $_POST['phone_number'];
         $password = $_POST['password'];
@@ -54,7 +54,7 @@ if (isset($_GET['login'])) {
             header('location: index.php?register&error4=Tài khoản này đã tồn tại!!');
         } else {
 
-            add_user($name, $address,$phone,$email,password_hash($password, PASSWORD_BCRYPT));
+            add_user($name,$phone,$email,password_hash($password, PASSWORD_BCRYPT));
             $url = AUTH_BASE;
             header("location: $url?login");
         }

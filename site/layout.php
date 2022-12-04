@@ -249,7 +249,7 @@
                                 </li>
                             </ul> -->
                             Sản phẩm yêu thích của tôi
-                            <a href="<?= SITE_URL ?>?my-favorites&id=<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : null ?>" @mouseover="open = true" class="inline-block no-underline opacity-80 hover:opacity-100 font-bold" href="./pro_farvorite.html">
+                            <a href="<?= SITE_URL ?>?my-favorites" @mouseover="open = true" class="inline-block no-underline opacity-80 hover:opacity-100 font-bold" href="./pro_farvorite.html">
                                 Xem sản phẩm
                             </a>
                         </div>

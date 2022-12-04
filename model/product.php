@@ -7,9 +7,11 @@ function product_remove_by_cate_id($cate_id)
     pdo_execute($query, $cate_id);
 }
 
-function getFullProducts()
+function get_full_products()
 {
-    $sql = "select * from products";
+    // $sql = "select * from products ORDER BY products.updated_at DESC";
+    $sql = "select prd.id, prd.name, prd.image, prd.price, prd.description, fa.id as favorite_id, fa.user_id
+    from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  ORDER BY prd.created_at DESC";
     return pdo_query_all($sql);
 }
 
@@ -38,7 +40,4 @@ function updateProduct($id,$name,$detail,$image,$price,$date,$priceNew,$descript
     return pdo_execute($sql);
 }
 
-function get_full_favorites_by_userId($user_id) {
-    $sql = "SELECT prd.name, prd.image, prd.price, prd.description FROM favorites JOIN products prd ON favorites.product_id = prd.id WHERE  user_id = $user_id";
-    return pdo_query_all($sql);
-}
+
