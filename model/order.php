@@ -45,3 +45,21 @@ function update_order_by_id($order_id)
     return pdo_execute($sql);
 }
 
+
+function getfullOrder(){
+    $sql="SELECT * FROM `orders`";
+    return pdo_query_all($sql);
+}
+function get_order_ID($id){
+    $sql="SELECT * FROM order o, order_details ods where o.id=ods.order_id and ods.id=$id";
+    return pdo_query_all($sql);
+}
+function getorderDetails($id){
+    $sql="SELECT * FROM order_details where order_id=$id";
+    return pdo_query_all($sql);
+}
+function updateStatus($id,$status){
+    $sql="UPDATE orders SET status = '$status' WHERE id = $id";
+    return pdo_execute($sql);
+}
+

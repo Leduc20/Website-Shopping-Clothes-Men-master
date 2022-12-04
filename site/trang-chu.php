@@ -107,13 +107,23 @@
                         <div class=" h-56 mb-3">
                             <img src=" <?= BASE_URL . "upload/" . $value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
                         </div>
-                        <div class="flex-auto justify-evenly">
-                            <div class="flex flex-wrap">
-                                <div class="w-full flex-none text-sm flex items-center text-gray-600"></div>
-                                <div class="flex items-center w-full justify-between min-w-0">
-                                    <h2 class="text-xl mr-auto font-medium cursor-pointer text-black-100 hover:text-purple-500 truncate">
-                                        <?= $value['name'] ?>
-                                    </h2>
+
+                        <a href="<?= SITE_URL ?>?chi-tiet&id=<?= $value['id'] ?>">
+                            <div class=" h-56 mb-3">
+                                <img src=" <?= BASE_URL."./upload/".$value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
+                            </div>
+                            <div class="flex-auto justify-evenly">
+                                <div class="flex flex-wrap">
+                                    <div class="w-full flex-none text-sm flex items-center text-gray-600"></div>
+                                    <div class="flex items-center w-full justify-between min-w-0">
+                                        <h2 class="text-xl mr-auto font-medium cursor-pointer text-black-100 hover:text-purple-500 truncate">
+                                            <?= $value['name'] ?>
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="text-lg text-black-600 font-normal mt-1">
+                                    $ <?= $value['price'] ?>
+
                                 </div>
                             </div>
                             <div class="text-lg text-black-600 font-normal mt-1">
