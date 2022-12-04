@@ -103,11 +103,10 @@
                                 </button>
                             </div>
                         </form>
+
                         <a href="<?= SITE_URL ?>?chi-tiet&id=<?= $value['id'] ?>">
                             <div class=" h-56 mb-3">
-
                                 <img src=" <?= BASE_URL."upload/".$value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
-
                             </div>
                             <div class="flex-auto justify-evenly">
                                 <div class="flex flex-wrap">
@@ -121,7 +120,8 @@
                                 <div class="text-lg text-black-600 font-normal mt-1">
                                     $ <?= $value['price'] ?>
                                 </div>
-                           
+
+
                                 <div class="text-lg text-black-600 font-normal mt-1">
                                     $ <?= $value['price'] ?>
                                 </div>
@@ -133,12 +133,12 @@
                                 </div>
                             </div>
                         </a>
+                  </div>
                 </div>
+            <?php endforeach; ?>
         </div>
-    <?php endforeach; ?>
     </div>
-    </div>
-    </div>
+
 </section>
 
 
@@ -163,22 +163,38 @@
     const toastContetn = document.getElementById('toast-conten-fav');
     const btnFavs = document.querySelectorAll('.btn-fav')
 
-    btnFavs.forEach((btnFav) => {
-        btnFav.onclick = (e) => {
-            // e.preventDefault();
-            if (btnFav.name == 'add_fav') {
-                toastContetn.textContent = 'Thêm vào list thành công'
-            }
-            if (btnFav.name == 'remove_fav') {
-                toastContetn.textContent = 'Xóa khỏi list thành công'
-            }
+    $(document).ready(function() {
+        btnFavs.forEach((btnFav) => {
+            btnFav.onclick = (e) => {
+                e.preventDefault();
 
-            toast.classList.remove('hidden', "opacity-0")
-            const _result = setTimeout(() => {
-                toast.classList.add('hidden')
-                clearTimeout(_result)
-            }, 2000)
-        }
+                $.ajax({
+                    url: "handleAjax.php?favourite",
+                    type: 'post',
+                    // dataType: 'html',
+                    data: {
+                        q: searchEl.value
+                    }
+                }).done(function(results) {
+                    loading.classList.add("hidden")
+                    loaded.classList.remove("hidden")
+                    $('#results').html(results)
+                })
+
+                if (btnFav.name == 'add_fav') {
+                    toastContetn.textContent = 'Thêm vào list thành công'
+                }
+                if (btnFav.name == 'remove_fav') {
+                    toastContetn.textContent = 'Xóa khỏi list thành công'
+                }
+
+                toast.classList.remove('hidden', "opacity-0")
+                const _result = setTimeout(() => {
+                    toast.classList.add('hidden')
+                    clearTimeout(_result)
+                }, 2000)
+            }
+        })
     })
     // console.log(btnFavs)
 </script>
