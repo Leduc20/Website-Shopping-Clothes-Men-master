@@ -8,7 +8,8 @@ function get_full_favorites_by_userId($user_id)
 function add__favorite($product_id, $user_id)
 {
     $sql = "INSERT INTO favorites (product_id, user_id) VALUE ($product_id, $user_id)";
-    return pdo_execute($sql);
+    pdo_execute($sql);
+    return pdo_query_one('SELECT MAX(id) as id FROM favorites');
 }
 
 function remove_favorite_by_favoriteId($id)
