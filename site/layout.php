@@ -159,7 +159,7 @@
             <div class="order-2 md:order-3 flex items-center space-x-2" id="nav-content">
                 <!--heart yeu thich-->
                 <div x-data="{ open: false }" @mouseleave="open = false" @mouseover="open = true" class="relative z-10">
-                    <a @mouseover="open = true" class="inline-block no-underline opacity-80 hover:opacity-100 font-bold" href="./pro_farvorite.html">
+                    <a href="<?= SITE_URL ?>?my-favorites&id=<?= isset($_SESSION['user']) ? $_SESSION['user']['id'] : null ?>" @mouseover="open = true" class="inline-block no-underline opacity-80 hover:opacity-100 font-bold" href="./pro_farvorite.html">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M11.3783 5.88622C9.66902 4.10486 6.79049 4.0794 4.92308 5.90387C4.91717 5.90965 4.91116 5.91534 4.90506 5.92092C3.09331 7.58038 3.06654 10.3577 4.92308 12.1716L4.92796 12.1763L11.9374 19.1469L19.0769 12.1716C19.0828 12.1658 19.0888 12.1601 19.0949 12.1545C20.9067 10.495 20.9335 7.71772 19.0769 5.90387C17.2195 4.08919 14.3268 4.08919 12.4694 5.90387C12.3227 6.04722 12.125 6.12596 11.9202 6.12264C11.7154 6.11933 11.5204 6.03424 11.3783 5.88622ZM11.9465 4.31813C9.59468 2.40387 6.12292 2.58601 3.85838 4.79012C1.36802 7.08049 1.39686 10.8778 3.84702 13.2742C3.84785 13.275 3.84869 13.2759 3.84952 13.2767L11.391 20.7763C11.689 21.0727 12.1688 21.0748 12.4694 20.7811L20.1419 13.2851C22.6328 10.9939 22.603 7.19491 20.1505 4.79876C17.8724 2.57305 14.397 2.41284 11.9465 4.31813Z" fill="#030D45" />
                         </svg>
@@ -170,7 +170,7 @@
                             <i class="fa-solid fa-caret-up text-4xl text-gray-100"></i>
                         </div>
                         <div class="w-72 p-4 rounded-lg focus-within:shadow-lg bg-purple-100 overflow-hidden">
-                            <ul>
+                            <!-- <ul>
                                 <li class="border-b-2 border-purple-400 my-4">
                                     <div class="flex justify-between items-center mb-2">
                                         <a href="" class="w-10/12">
@@ -222,8 +222,37 @@
                                             </a>
                                         </div>
                                     </div>
+                                </li>    <li class="border-b-2 border-purple-400 my-4">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <a href="" class="w-10/12">
+                                            <div class="flex space-x-3">
+                                                <div>
+                                                    <img src="https://picsum.photos/200/300" alt="" class="w-12 h-12" />
+                                                </div>
+                                                <div class="w-8/12">
+                                                    <div class="w-full flex-none text-xs flex items-center text-gray-600">
+                                                    </div>
+                                                    <div>
+                                                        <h2 class="text-base mr-auto font-normal cursor-pointer text-black-100 hover:text-purple-500 truncate">
+                                                            Lorem ipsum is placeholder text commonly used in the graphic
+                                                        </h2>
+                                                    </div>
+                                                    <div class="text-xs text-black-600 mt-1">$240.00</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="text-red-500">
+                                            <a href="">
+                                                <i class="fa-regular fa-trash-can"></i>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </li>
-                            </ul>
+                            </ul> -->
+                            Sản phẩm yêu thích của tôi
+                            <a href="<?= SITE_URL ?>?my-favorites" @mouseover="open = true" class="inline-block no-underline opacity-80 hover:opacity-100 font-bold" href="./pro_farvorite.html">
+                                Xem sản phẩm
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -250,11 +279,12 @@
                             <a href="<?= AUTH_BASE."?profile" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
                                 Thông tin cá nhân
                             </a>
+
                             <a href="" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">Xin chào <?= $_SESSION['user']['name'] ?></a>
                             <a href="<?= SITE_URL."?purchase" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
                                 Đơn hàng
                             </a>
-                            <a href="<?= AUTH_BASE."?logout" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
+                            <a href="<?= AUTH_BASE . "?logout" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
                                 Đăng xuất
                             </a>
                         </div>

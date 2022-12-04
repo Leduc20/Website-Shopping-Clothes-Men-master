@@ -42,6 +42,7 @@ if (isset($_GET['login'])) {
 } elseif (isset($_GET['register'])) {
     if (isset($_POST['register'])) {
         $name = $_POST['name_user'];
+
         $address = $_POST['address'];
         $gender = $_POST['gender'];
         $phone = $_POST['phone'];
@@ -50,7 +51,6 @@ if (isset($_GET['login'])) {
         //upload ảnh
         $folder = "../upload/";
         $targerupload = $folder . basename($_FILES['image']['name']);
-        $targetupload = $folder . basename($_FILES['image']['name']);
         $email = $_POST['email'];
         $password = $_POST['password'];
         if (strlen($_POST['password']) < 8) {
@@ -60,13 +60,14 @@ if (isset($_GET['login'])) {
         $user_db = get_user_by_name($email);
         if ($user_db) {
             header('location: index.php?register&error4=Tài khoản này đã tồn tại!!');
+
         } else {  
             if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
                 add_user($name,$address,$phone,$email,password_hash($password, PASSWORD_BCRYPT),$gender,$image);
                 $url = AUTH_BASE;
                 header("location: $url?login");
             }
-        }
+        } 
     }
     $VIEW_AUTH = 'register.php';
 } elseif (isset($_GET['logout'])) {

@@ -2,6 +2,7 @@ import { cartCount, carts, renderCart, DOMAIN } from "./global.js";
 
 const btnSubMidCart = document.getElementById("submid-cart");
 const formSubMidCart = document.getElementById("form-container");
+const destroyAllEl = document.getElementById("destroyAll");
 
 const html = (prd) => {
     return `
@@ -18,8 +19,10 @@ const html = (prd) => {
       </div>
       <div class="flex flex-col justify-between ml-4 flex-grow">
         <span class="font-bold text-sm">${prd.name}</span>
-        Size:<input name="size[]" class="text-red-500 text-xs outline-none" value="${prd.size}" disabled>
-        Màu: <input name="color[]" class="text-red-500 text-xs outline-none" value="${prd.color}" disabled>
+        Size:<input name="size[]" class="bg-transparent text-red-500 text-xs outline-none" value="${prd.size}" readonly>
+        Màu: <input name="color[]" class="bg-transparent text-red-500 text-xs outline-none" value="${
+            prd.color
+        }" readonly>
         <div></div>
       </div>
     </div>
@@ -31,7 +34,7 @@ const html = (prd) => {
         </button>
         <input  type="number"
           class="outline-none focus:outline-none text-center w-full bg-gray-100 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
-          name="sl[]" value="${prd.sl}" min="0" disabled></input>
+          name="sl[]" value="${prd.sl}" min="0"></input>
         <button type="button" data-action="increment"
           class="bg-gray-200 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer">
           <span class="m-auto text-2xl font-thin">+</span>
@@ -110,7 +113,7 @@ const handleRemovePrd = () => {
                     (prd.color == btnRmPrd.getAttribute("data-color")) &
                     (prd.size == btnRmPrd.getAttribute("data-size"))
             );
-            console.log(btnRmPrd.getAttribute("data-id"));
+
             const isRemove = confirm("Bạn có chắc muốn xóa sản phẩm này không hở!!!");
             if (isRemove) {
                 carts.splice(prdRm, 1);
@@ -134,32 +137,39 @@ const checkPrdAllEl = document.getElementById("check-full-prd");
 const prdCheckEls = document.getElementsByName("prdId[]");
 
 checkPrdAllEl.onchange = () => {
+    if (checkPrdAllEl.checked) {
+        destroyAllEl.classList.remove("hidden");
+    } else {
+        destroyAllEl.classList.add("hidden");
+    }
     prdCheckEls.forEach((el) => {
         el.checked = checkPrdAllEl.checked;
     });
-    const amountPrd = document.querySelectorAll('input[name="sl[]"]');
-    const sizePrds = document.querySelectorAll('input[name="size[]"]');
-    const colorPrds = document.querySelectorAll('input[name="color[]"]');
-    amountPrd.forEach((el) => (el.disabled = !checkPrdAllEl.checked));
-    sizePrds.forEach((el) => (el.disabled = !checkPrdAllEl.checked));
-    colorPrds.forEach((el) => (el.disabled = !checkPrdAllEl.checked));
     handleTotalCart();
-    btnSubMidCart.disabled = !checkPrdAllEl.checked;
+    btnSubMidCart.disabled = !checkPrdAllEl.checked || !!(carts.length == 0);
 };
 
+const amountPrds = document.querySelectorAll('input[name="sl[]"]');
+amountPrds.forEach(
+    (el) =>
+        (el.onchange = () => {
+            if (el.value < 1) {
+                el.value = 1;
+            }
+        })
+);
 prdCheckEls.forEach((el) => {
     el.onchange = () => {
         const amountCheck = document.querySelectorAll('input[name="prdId[]"]:checked').length;
-        const amountPrd = el.parentNode.querySelector('input[name="sl[]"]');
-        const sizePrd = el.parentNode.querySelector('input[name="size[]"]');
-        const colorPrd = el.parentNode.querySelector('input[name="color[]"]');
 
         const isCheckAll = prdCheckEls.length === amountCheck;
         checkPrdAllEl.checked = isCheckAll;
 
-        amountPrd.disabled = !el.checked;
-        sizePrd.disabled = !el.checked;
-        colorPrd.disabled = !el.checked;
+        if (el.checked) {
+            destroyAllEl.classList.remove("hidden");
+        } else {
+            destroyAllEl.classList.add("hidden");
+        }
 
         if (amountCheck > 0) {
             btnSubMidCart.disabled = false;
@@ -169,6 +179,25 @@ prdCheckEls.forEach((el) => {
         handleTotalCart();
     };
 });
+
+// Destroy All
+destroyAllEl.onclick = () => {
+    if (checkPrdAllEl.checked) {
+        const isRemove = confirm("Are you sure you want to destroy");
+        if (isRemove) {
+            cartCount.textContent = 0;
+            localStorage.setItem("carts", JSON.stringify([]));
+            renderCart({
+                id: "cart-list",
+                data: [],
+                html: html,
+            });
+            handleTotalCart();
+            checkPrdAllEl.checked = false;
+            destroyAllEl.classList.add("hidden");
+        }
+    }
+};
 
 function handleTotalCart() {
     let total = 0;
