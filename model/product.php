@@ -21,9 +21,10 @@ function getProductById($id)
     return pdo_query_one($sql);
 }
 
-function insertProduct($name, $detail, $image, $price, $date, $priceNew, $description, $groupProduct_Id)
+
+function insertProduct($name, $detail, $image, $price,$description,$groupProduct_Id)
 {
-    $sql = "INSERT INTO `products`(`name`, `detail`, `image`, `price`, `date`, `priceNew`, `description`,`groupProduct_Id`) VALUES ('$name','$detail','$image','$price','$date','$priceNew','$description','$groupProduct_Id')";
+    $sql = "INSERT INTO `products`(`name`, `detail`, `image`, `price`, `description`,`groupProduct_Id`) VALUES ('$name','$detail','$image','$price','$description','$groupProduct_Id')";
     pdo_execute($sql);
 }
 function deleteProduct($id)
