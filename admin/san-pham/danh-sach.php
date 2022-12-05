@@ -99,7 +99,7 @@
                         </td>
                         <td class="">
                         <a  href="'.$edit.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">Edit</a>
-                        <a href="'.$delete.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">delete</a>
+                        <a href="'.$delete.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700" onclick="return confirm("Bạn có muốn xóa không?")">delete</a>
                          </td>
                     </tr>';
                     }

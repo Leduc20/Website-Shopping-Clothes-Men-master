@@ -17,7 +17,7 @@ if (isset($_GET['login'])) {
         if (!($user_login)) {
             header('location: index.php?login&error2=Bạn chưa đăng ký');
         } else {
-            if (password_verify($_POST['password'], $user_login['passWord'])) {
+            if (password_verify($_POST['password'], $user_login['password'])) {
                 $userLogin['id'] = $user_login['id'];
                 $userLogin['name'] = $user_login['name'];
                 $userLogin['address'] = $user_login['address'];

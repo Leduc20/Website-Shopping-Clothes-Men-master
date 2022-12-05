@@ -54,7 +54,7 @@ if (isset($_GET['danh-muc'])) {
         $description = $_POST['description'];
         $date = $_POST['date'];
         $image = $_FILES['image']['name'];
-        // $groupProduct_Id=$_POST['groupProduct_Id'];
+        $groupProduct_Id=$_POST['groupProduct_Id'];
         //upload ảnh
         $folder = "../upload/";
         $targerupload = $folder . basename($_FILES['image']['name']);
@@ -62,7 +62,7 @@ if (isset($_GET['danh-muc'])) {
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
         } else {
         }
-        insertProduct($name, $detail, $image,$price,$date,$priceNew,$description);
+        insertProduct($name, $detail, $image,$price,$date,$priceNew,$description, $groupProduct_Id);
     }
     $VIEW_AD = './san-pham/add-san-pham.php';
 } elseif (isset($_GET['delete-sanpham'])) {

@@ -12,7 +12,7 @@
                 </select>
             </form>
             
-            <!-- <div class="dropdown ml-9 w-[250px]">
+           <div class="dropdown ml-9 w-[250px]">
                 <span class="btn btn-secondary  bg-gray-600 dropdown-toggle w-[250px]" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
                     Xin Chào,<?php

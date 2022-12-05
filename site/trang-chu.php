@@ -99,11 +99,9 @@
                         </div>
                         <a href="<?= SITE_URL ?>?chi-tiet&id=<?= $value['id'] ?>">
                             <div class=" h-56 mb-3">
-<<<<<<< HEAD
+
                                 <img src=" <?= BASE_URL."upload/".$value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
-=======
-                                <img src=" <?= BASE_URL."./upload/".$value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
->>>>>>> 6de33849dbf38f20c253981fee323592eb8831b0
+
                             </div>
                             <div class="flex-auto justify-evenly">
                                 <div class="flex flex-wrap">
