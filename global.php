@@ -9,7 +9,7 @@ function dd()
 }
 
 
-const BASE_URL = "http://localhost:/webbanhang/";
+const BASE_URL = "http://localhost:/webbanhang/Website-Shopping-Clothes-Men-master/";
 
 
 
