@@ -34,7 +34,7 @@
 
         <div class="ml-24 ">
             <div class="">
-                <?php include_once $VIEW_AD ?>
+                <?php if(isset($VIEW_AD)) include_once $VIEW_AD ?>
             </div>
         </div>
 
