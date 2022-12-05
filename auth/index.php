@@ -28,7 +28,6 @@ if (isset($_GET['login'])) {
                 $userLogin['email'] = $user_login['email'];
                 $userLogin['password'] = $user_login['password'];
                 $userLogin['is_Admin'] = $user_login['is_Admin'];
-
                 $_SESSION['user'] = $userLogin;
 
                 $url = SITE_URL;
