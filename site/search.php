@@ -26,7 +26,7 @@
         </form>
     </div>
     
-    <!-- <h3 class="mb-4">Kết quả tìm kiểm: <?= $keyWord ?></h3> -->
+    <h3 class="mb-4">Kết quả tìm kiểm: <?= $keyWord ?></h3>
     
     <div class="grid grid-cols-4 gap-10 px-4">
         <?php foreach ($products as $key => $value) : ?>
