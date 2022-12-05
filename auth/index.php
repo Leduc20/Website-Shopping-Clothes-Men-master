@@ -51,7 +51,8 @@ if (isset($_GET['login'])) {
         //upload ảnh
         $folder = "../upload/";
         $targerupload = $folder . basename($_FILES['image']['name']);
-        $targerupload = $folder . basename($_FILES['image']['name']);
+        $targetupload = $folder . basename($_FILES['image']['name']);
+
         $email = $_POST['email'];
         $password = $_POST['password'];
         if (strlen($_POST['password']) < 8) {
