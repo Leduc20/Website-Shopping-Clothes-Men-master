@@ -52,6 +52,7 @@ if (isset($_GET['login'])) {
         $folder = "../upload/";
         $targerupload = $folder . basename($_FILES['image']['name']);
         $targetupload = $folder . basename($_FILES['image']['name']);
+
         $email = $_POST['email'];
         $password = $_POST['password'];
         if (strlen($_POST['password']) < 8) {
@@ -99,8 +100,6 @@ if (isset($_GET['login'])) {
         $targetupload = $folder . basename($_FILES['image']['name']);
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
             update_profile($id, $name, $phone, $address, $userName, $gender, $image);
-
-        } else {
         }
 
     }
@@ -112,3 +111,4 @@ if (isset($_GET['login'])) {
 }
 
 include_once './layout.php';
+?>

@@ -35,9 +35,9 @@
                         <th scope="col" class="py-3 px-6">
                             Giá gốc
                         </th>
-                        <th scope="col" class="py-3 px-6">
+                        <!-- <th scope="col" class="py-3 px-6">
                             Giá giảm
-                        </th>
+                        </th> -->
                         <!-- <th scope="col" class="py-3 px-6">
                             ststus
                         </th> -->
@@ -98,11 +98,9 @@
                         <td class="py-4 px-6">
                         ' . $price . '
                         </td>
+                        
                         <td class="py-4 px-6">
-                        ' . $priceNew . '
-                        </td>
-                        <td class="py-4 px-6">
-                        ' . $date . '
+                        ' . $created_at . '
                         </td>
                         <td class="py-4 px-6">
                         ' . $description . '

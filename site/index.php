@@ -74,6 +74,18 @@ if (isset($_GET['chi-tiet'])) {
 
     $VIEW_NAME = 'purchase.php';
 } elseif (isset($_GET['search'])) {
+    if (!isset($_GET['q'])) {
+        $url = SITE_URL;
+        header("location: $url");
+        return;
+    }
+    $keyWord = $_GET['q'];
+    $category = empty($_GET['category']) ? '' : $_GET['category'];
+    $start = empty($_GET['start']) ? '' : $_GET['start'];
+    $end = empty($_GET['end']) ? '' : $_GET['end'];
+
+    $categories = ['0' => ['name' => 'nike'], '1' => ['name' => 'gui chi']];
+    $products = searchProduct($keyWord, $category, $start, $end);
     $VIEW_NAME = 'search.php';
 } elseif (isset($_GET['my-favorites'])) {
     if (!isset($_SESSION['user'])) {
@@ -87,18 +99,8 @@ if (isset($_GET['chi-tiet'])) {
     }
     $products = get_full_favorites_by_userId($_SESSION['user']['id']);
     $VIEW_NAME = 'my-favorites.php';
-} elseif (isset($_GET['handle_remove_favorite'])) {
-    $VIEW_NAME = null;
 } else {
-    $url = SITE_URL;
-    if (isset($_POST['add_fav'])) {
-        add__favorite($_POST['prd_id'], $_SESSION['user']['id']);
-       header("location: $url");
-    }
-    if (isset($_POST['remove_fav'])) {
-        remove_favorite_by_favoriteId($_POST['fav_id']);
-        header("location: $url");
-    }
+    
     $products = get_full_products();
     $VIEW_NAME = 'trang-chu.php';
 }
