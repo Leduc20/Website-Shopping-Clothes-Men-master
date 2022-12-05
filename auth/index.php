@@ -80,7 +80,7 @@ if (isset($_GET['login'])) {
 
 
     if (!isset($_SESSION['user']['id'])) {
-        $url = SITE_URL;
+        $url = AUTH_BASE;
         header("location: $url");
         return;
     }
