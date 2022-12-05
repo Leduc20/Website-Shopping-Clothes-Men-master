@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
 
+<<<<<<< HEAD
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -76,6 +75,8 @@
     <!--Nav-->
 
     <!--  -->
+=======
+>>>>>>> f87a2107e89dc3a3a94d1fe4bf10c00dc19c543f
     <section class="bg-gray-50 dark:bg-gray-900">
         <div class="flex justify-center px-6 py-24 mx-auto">
             <div
@@ -88,7 +89,7 @@
 
 
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                    <form class="space-y-4 md:space-y-6" action="<?= AUTH_BASE . "?register" ?>" method="POST">
+                    <form class="space-y-4 md:space-y-6" action="<?= AUTH_BASE . "?register" ?>" method="POST" enctype="multipart/form-data">
                         <div>
                             <label for="name_user"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tên của
@@ -101,9 +102,31 @@
                             <label for="phone_number"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Số điện
                                 thoại</label>
-                            <input type="text" name="phone_number" id="phone_number"
+                            <input type="text" name="phone" id="phone"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="0987654321" required="">
+                        </div>
+                        <div>
+                            <label for="address"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Quê quán
+                                </label>
+                            <input type="text" name="address" id="address"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="" required="">
+                        </div>
+                        <div>
+                            <select id="gender" name="gender" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option value="nam">Nam</option>
+                                <option value="nu">Nữ</option>
+                            </select>
+                        </div>
+                        <div>
+                        <label for="image"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Chọn ảnh đại diện
+                                </label>
+                            <input type="file" name="image" id="image"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="" required="">
                         </div>
                         <div>
                             <label for="email"

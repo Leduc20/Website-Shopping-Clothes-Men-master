@@ -69,6 +69,7 @@
               </span>
             </div>
           </div>
+
           <div class="flex ml-6 items-center">
             <span class="mr-3">Size</span>
             <div class="relative">
@@ -84,6 +85,16 @@
                 </svg>
               </span>
             </div>
+          </div>
+
+          <div class="flex flex-row h-10 w-full rounded-lg relative bg-transparent ml-4">
+            <button type="button" data-action="decrement" class=" bg-gray-200 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none">
+              <span class="m-auto text-2xl font-thin">−</span>
+            </button>
+            <input type="number" class="outline-none focus:outline-none text-center w-full bg-gray-100 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none" id="slPrd" name="sl" value="1" min="0"></input>
+            <button type="button" data-action="increment" class="bg-gray-200 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer">
+              <span class="m-auto text-2xl font-thin">+</span>
+            </button>
           </div>
         </div>
         <div class="flex">
@@ -104,7 +115,7 @@
 
 <!-- Toast -->
 
-<div id="toast-success" class="hidden absolute top-0 left-2/4 -translate-x-2/4 flex items-center p-4 mb-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+<div id="toast-success" style="transform: translateX(-50%);" class="hidden absolute top-0 left-2/4 -translate-x-2/4 flex items-center p-4 mb-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
   <div class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
@@ -121,6 +132,7 @@
 </div>
 
 <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+<!-- <script src="./src/js/test.js"></script> -->
 <script type="module">
   import {
     cartCount,
@@ -131,6 +143,27 @@
   const toast = document.getElementById("toast-success")
   const btnAddPrd = document.getElementById("btn-add-prd")
   const data = JSON.parse(el.getAttribute("data-product"));
+  const decrementButton = document.querySelector(`button[data-action="decrement"]`);
+  const incrementButton = document.querySelector(`button[data-action="increment"]`);
+  const slEl = document.querySelector('#slPrd')
+
+  slEl.onchange = (e) => {
+    if (slEl.value < 1) slEl.value = 1;
+  }
+
+  decrementButton.onclick = () => {
+    const target = decrementButton.nextElementSibling;
+    let value = Number(target.value);
+    value--;
+    if (value > 0) target.value = value;
+  }
+
+  incrementButton.onclick = () => {
+    const target = decrementButton.nextElementSibling;
+    let value = Number(target.value);
+    value++;
+    target.value = value;
+  }
 
   const {
     id,
@@ -161,13 +194,14 @@
       id: 'size'
     })
 
+
     const product = {
       id,
       name,
       image,
       description,
       price,
-      sl: 1,
+      sl: slEl.value * 1,
       color,
       size
     };
@@ -196,19 +230,18 @@
         image,
         description,
         price,
-        sl: sl + 1,
+        sl: prdValid.sl * 1 + slEl.value*1,
         color,
         size
       };
       const index = carts.findIndex(item => item.id == product.id)
       carts[index] = product
-
     } else {
       carts.unshift(product);
     }
     cartCount.textContent = carts.length;
     localStorage.setItem("carts", JSON.stringify(carts));
-    toast.classList.remove('hidden')
+    toast.classList.remove('hidden', "opacity-0")
     const _result = setTimeout(() => {
       toast.classList.add('hidden')
       clearTimeout(_result)

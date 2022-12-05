@@ -4,6 +4,7 @@ session_start();
 require_once '../global.php';
 require_once '../model/pdo.php';
 require_once '../model/product.php';
+require_once '../model/favorites.php';
 require_once '../model/order.php';
 
 if (isset($_GET['chi-tiet'])) {
@@ -43,6 +44,13 @@ if (isset($_GET['chi-tiet'])) {
         return;
     }
 
+    if (isset($_POST['huy-prd'])) {
+        update_order_by_id($_POST['order_id']);
+        $url = SITE_URL;
+        header("location: $url?purchase");
+        return;
+    }
+
     $orders = [];
 
     if (isset($_GET['type'])) {
@@ -50,10 +58,50 @@ if (isset($_GET['chi-tiet'])) {
     } else {
         $orders = get_orders_by_userId($_SESSION['user']['id'], 'all');
     }
+    $results = [];
+    foreach ($orders as $key => $value) {
+        if (!in_array($value['orderId'], $results)) {
+            // $results[$key]['orderId'] = $value['orderId'];
+
+            // $results[$key]['status'] = $value['status'];
+            // $results[$key]['totalMoney'] = $value['totalMoney'];
+            var_dump(in_array($value['orderId'], $results));
+        }
+        // var_dump($value['orderId']);
+    }
+
+    var_dump($results);
 
     $VIEW_NAME = 'purchase.php';
+} elseif (isset($_GET['search'])) {
+    if (!isset($_GET['q'])) {
+        $url = SITE_URL;
+        header("location: $url");
+        return;
+    }
+    $keyWord = $_GET['q'];
+    $category = empty($_GET['category']) ? '' : $_GET['category'];
+    $start = empty($_GET['start']) ? '' : $_GET['start'];
+    $end = empty($_GET['end']) ? '' : $_GET['end'];
+
+    $categories = ['0' => ['name' => 'nike'], '1' => ['name' => 'gui chi']];
+    $products = searchProduct($keyWord, $category, $start, $end);
+    $VIEW_NAME = 'search.php';
+} elseif (isset($_GET['my-favorites'])) {
+    if (!isset($_SESSION['user'])) {
+        $url = AUTH_BASE;
+        header("location: $url?login");
+        return;
+    }
+
+    if (isset($_POST['remove-favorite'])) {
+        remove_favorite_by_productId($_POST['product_id']);
+    }
+    $products = get_full_favorites_by_userId($_SESSION['user']['id']);
+    $VIEW_NAME = 'my-favorites.php';
 } else {
-    $products = getFullProducts();
+    
+    $products = get_full_products();
     $VIEW_NAME = 'trang-chu.php';
 }
 
