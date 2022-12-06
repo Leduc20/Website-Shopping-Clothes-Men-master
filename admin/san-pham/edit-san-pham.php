@@ -12,7 +12,9 @@ if (is_file($imagepath)) {
 ?>
 <form onsubmit="return checkSelect()" action="<?=ADMIN_BASE?>?update-pro" method="POST" id="checkproduct"
     enctype="multipart/form-data">
-    <div class="grid grid-cols-2 gap-2 mr-10 bg-gray-50 rounded">
+    <div class="grid grid-cols-2 gap-2 mr-10 bg-white rounded">
+        <input type="hidden" name="id" id="">
+
         <div class="mt-4 ml-4">
             <p class="font-bold">Mã sản phẩm</p>
             <input class="border rounded-[4px] px-[50px] mt-1 p-2" readonly placeholder="Không cần nhập" type="text"
