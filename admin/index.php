@@ -65,7 +65,11 @@ if (isset($_GET['danh-muc'])) {
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
         } else {
         }
+<<<<<<< HEAD
+        insertProduct($name, $detail, $image,$price,$date,$priceNew,$description, $groupProduct_Id);
+=======
         insertProduct($name, $detail, $image,$price,$description,$groupProduct_Id);
+>>>>>>> f87a2107e89dc3a3a94d1fe4bf10c00dc19c543f
     }
     $show_dm = loadall_danh_muc();
     $VIEW_AD = './san-pham/add-san-pham.php';

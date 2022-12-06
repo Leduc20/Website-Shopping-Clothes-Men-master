@@ -3,4 +3,26 @@
     <span class="font-semi text-2xl"> RANI </span>
 </div>
             
+<<<<<<< HEAD
+           <div class="dropdown ml-9 w-[250px]">
+                <span class="btn btn-secondary  bg-gray-600 dropdown-toggle w-[250px]" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                    Xin Chào,<?php
+                                if (isset($_SESSION['user'])) {
+                                    extract($_SESSION['user']);
+                                    echo '<span class="">' . $name . '</span>';
+                                }
+
+                                ?>
+                </span>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user"></i>Tài khoản</a></li>
+                    <li><a class="dropdown-item" href="index.php?act=thoat"><i class="fa-solid fa-arrow-right-from-bracket"></i>Thoát</a></li>
+
+                </ul>
+            </div>
+        </div>
+=======
             
+>>>>>>> f87a2107e89dc3a3a94d1fe4bf10c00dc19c543f

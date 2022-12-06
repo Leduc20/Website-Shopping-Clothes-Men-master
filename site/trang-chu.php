@@ -106,7 +106,13 @@
 
                         <a href="<?= SITE_URL ?>?chi-tiet&id=<?= $value['id'] ?>">
                             <div class=" h-56 mb-3">
+<<<<<<< HEAD
+
+                                <img src=" <?= BASE_URL."upload/".$value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
+
+=======
                                 <img src=" <?= BASE_URL . "upload/" . $value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
+>>>>>>> f87a2107e89dc3a3a94d1fe4bf10c00dc19c543f
                             </div>
                             <div class="flex-auto justify-evenly">
                                 <div class="flex flex-wrap">
