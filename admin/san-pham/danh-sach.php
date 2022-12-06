@@ -1,8 +1,8 @@
 <form action="">
     <div>
-        <div class="overflow-x-auto flex  w-full shadow-md sm:rounded-lg mt-4">
+        <div class="overflow-x-auto flex   shadow-md sm:rounded-lg mt-4">
             <table class="text-lg text-left text-gray-500 dark:text-gray-400 ">
-                <thead class="text-sm text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400  ">
+                <thead class="text-sm text-gray-700 navbar-expand-lg dark:bg-gray-700 dark:text-gray-400  ">
                     <tr>
                         <th>
                             
@@ -61,13 +61,13 @@
                         }
                         $delete = "index.php?delete-sanpham&id=" . $id;
                         $edit = "index.php?edit-sanpham&id=" . $id;
-                        echo '<tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                        echo '<tr class="bg-white text-base text-black text-left border-b dark:bg-gray-900 dark:border-gray-700">
                         <th>
                             <div class="">
                                 <input class="ml-2" type="checkbox" value="" id="flexCheckChecked">
                             </div>
                         </th>
-                        <th scope="row" class="justify-center flex mt-4 font-medium text-black  ">
+                        <th scope="row" class="text-center font-medium   ">
                             ' . $id . '
                         </th>
                         <td class="py-4 px-3">
@@ -89,7 +89,7 @@
                             ' . $priceNew . ' VND
                         </td>
                         <td class="py-4 px-3">
-                            ' . $date . '
+                            ' . $created_at . '
                         </td>
                         <td class="py-4 px-3">
                             ' . $description . '
@@ -98,8 +98,8 @@
                             ' . $status . '
                         </td>
                         <td class="">
-                        <a  href="'.$edit.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">Edit</a>
-                        <a href="'.$delete.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">delete</a>
+                        <a  href="'.$edit.'" class="no-underline text-white font-bold  px-2 border border-[2px] p2 rounded bg-yellow-400  hover:bg-yellow-500">Edit</a>
+                        <a href="'.$delete.'" class="no-underline text-white font-bold  px-2 border border-[2px] p2 rounded bg-red-500  hover:bg-red-600">Delete</a>
                          </td>
                     </tr>';
                     }
@@ -109,10 +109,10 @@
         </div>
     </div>
 
-    <div class="mt-4">
-        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Chọn tất cả</a>
-        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Bỏ chọn tất cả</a>
-        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Xóa các mục chọn</a>
-        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="<?= ADMIN_BASE . "?add-san-pham" ?>">Nhập thêm</a>
+    <div class="mt-4 ml-72">
+        <a class="bg-blue-500  hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Chọn tất cả</a>
+        <a class="bg-blue-500  hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Bỏ chọn tất cả</a>
+        <a class="bg-blue-500  hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Xóa các mục chọn</a>
+        <a class="bg-blue-500  hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="<?= ADMIN_BASE . "?add-san-pham" ?>">Nhập thêm</a>
     </div>
 </form>
