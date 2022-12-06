@@ -42,7 +42,7 @@
     -->
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-          ,
+          hi,
         </a>
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
           Admin
@@ -70,18 +70,18 @@
           </li>
           <li>
             <a href="<?= ADMIN_BASE . "?khach-hang"?>">
-              <i class="now-ui-icons ui-1_bell-53"></i>
+              <i class="now-ui-icons users_single-02"></i>
               <p>Customer</p>
             </a>
           </li>
           <li>
-            <a href="./user.html">
-              <i class="now-ui-icons users_single-02"></i>
+            <a href="#">
+              <i class="now-ui-icons ui-2_chat-round rotate"></i>
               <p>Comment</p>
             </a>
           </li>
           <li>
-            <a href="./tables.html">
+            <a href="<?= ADMIN_BASE . "?home.php"?>">
               <i class="now-ui-icons design_bullet-list-67"></i>
               <p>Statistical </p>
             </a>
@@ -89,7 +89,7 @@
           
           <li class="index.php?act=thoat">
             <a href="./upgrade.html">
-              <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+              <i class="now-ui-icons loader_gear"></i>
               <p>Log Out</p>
             </a>
           </li>
