@@ -1,10 +1,10 @@
 <div class="mr-10 ">
-    <form class="  py-3 rounded place-items-center justify-center flex " action="<?= ADMIN_BASE . "?add-danh-muc" ?>" method="post" id="check-line" enctype="multipart/form-data">
+    <form class=" bg-gray-100 py-3 rounded place-items-center justify-center flex " action="<?= ADMIN_BASE . "?add-danh-muc" ?>" method="post" id="check-line" enctype="multipart/form-data">
     <div class="">    
         <div class="font-bold mb-1 "> Mã Loại </div>
             <input class="border mb-1 p-1  rounded-[4px] " disabled placeholder="" type="text" name="" id="" value>
             
-            <div class="font-bold mt-2 mb-1 p-1"> Tên loại </div>
+            <div class="font-bold mt-2 mb-1"> Tên loại </div>
             <input class="border mb-1 p-1  rounded-[4px]" type="text" name="tenloai" required id="add"> 
             <p id="inform" class="text-red-500"></p>
             <script>

@@ -1,12 +1,12 @@
-<div class="">
+<div class=" mr-10 ">
     <div class="">
-        <div class=" border bg-white rounded">
-            <p class="  justify-center flex py-2 uppercase font-semibold text-black">Danh sách loại hàng</p>
+        <div class=" border bg-gray-200 rounded">
+            <p class="  justify-center flex py-2 uppercase font-semibold text-gray-500">Danh sách loại hàng</p>
         </div>
         <h2>
             <?= isset($_COOKIE['success']) ? $_COOKIE['success'] : '' ?>
         </h2>
-        <div class="mt-2 text-black-500 font-bold text-red-500 bg-">
+        <div class="mt-2 text-black-500 font-bold text-red-500">
             <?php
         if (isset($msg)) {
             echo "<script>alert('$msg');</script>";
@@ -15,9 +15,9 @@
         </div>
         <form action="">
             <div>
-                <div class=" shadow-md sm:rounded-lg mt-2  bg-white ">
-                    <table class="w-full text-sm text-left text-gray-500 bg-white dark:text-black">
-                        <thead class="text-sm text-black bg-white dark: dark:text-black">
+                <div class=" shadow-md sm:rounded-lg mt-2">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-sm text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         
                             <tr>
                                 <th>
@@ -41,13 +41,13 @@
                             extract($show);
                             $delete = "index.php?delete&id=" . $id;
                             $edit = "index.php?edit&id=" . $id;
-                            echo '<tr class="bg-white border-b dark:bg-white dark:bg-white">
+                            echo '<tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                             <th>
-                                <div class=" bg-white">
-                                    <input class="ml-8" type="checkbox" value="" id="flexCheckChecked">
+                                <div class="ml-7">
+                                    <input class="" type="checkbox" value="" id="flexCheckChecked">
                                 </div>
                             </th>
-                            <th scope="row" class=" py-4 px-6 font-medium  text-black whitespace-nowrap dark:text-white">
+                            <th scope="row" class=" py-4 px-6 font-medium  text-gray-900 whitespace-nowrap dark:text-white">
                             ' . $id . '
                             </th>
                             <td class="py-4 px-6">
@@ -67,7 +67,7 @@
                                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
                                                     </div>
                                                 </th>
-                                                <th scope="row" class="py-4 px-6 font-medium text-black whitespace-nowrap dark:text-white">
+                                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     1000
                                                 </th>
                                                 <td class="py-4 px-6">
@@ -85,7 +85,7 @@
                                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
                                                     </div>
                                                 </th>
-                                                <th scope="row" class="py-4 px-6 font-medium text-black whitespace-nowrap dark:text-white">
+                                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     1000
                                                 </th>
                                                 <td class="py-4 px-6">
@@ -102,7 +102,7 @@
                     </table>
                 </div>
             </div>
-            <div class=" mt-4 ml-72">
+            <div class=" mt-4">
                 <a class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline"
                     href="">Chọn tất cả</a>
                 <a class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline"
@@ -114,7 +114,7 @@
             </div>
         </form>
         <div id="toast-success"
-            class="hidden absolute top-0 left-2/4 -translate-x-2/4 flex items-center p-4 mb-4 w-full max-w-xs text-black bg-white rounded-lg shadow dark:text-black dark:bg-gray-800"
+            class="hidden absolute top-0 left-2/4 -translate-x-2/4 flex items-center p-4 mb-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
             role="alert">
             <div
                 class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
@@ -126,9 +126,9 @@
                 </svg>
                 <span class="sr-only">Check icon</span>
             </div>
-            <div class=" text-sm font-normal">Xóa thành công</div>
+            <div class="ml-3 text-sm font-normal">Xóa thành công</div>
             <button type="button"
-                class=" -5 -my-1.5 bg-white text-black hover:text-black rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
                 data-dismiss-target="#toast-success" aria-label="Close">
                 <span class="sr-only">Close</span>
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
