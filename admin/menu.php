@@ -1,4 +1,12 @@
 
+
+
+ 
+        
+ </style>
+ <div  class=" w-[70px] h-[700px] bg-gray-200 rounded-r-3xl ">
+
+
  
  <!-- <div class=" w-[70px] h-[800px]  bg-gray-200 rounded-r-3xl ">
  <div class="sticky top-0 ">
@@ -20,10 +28,6 @@
 
      <a href="" class="icon ">
          <i class="fa-solid fa-users"></i>
-         <span class="tooltip"> </span></a>
-
-     <a href="" class="icon ">
-         <i class="fa-solid fa-comments"></i>
          <span class="tooltip"> </span></a>
 
      <a href="" class="icon ">
@@ -158,5 +162,4 @@
             </ul>
           </div>
         </div>
-      </nav>
-      <!-- End Navbar -->
+

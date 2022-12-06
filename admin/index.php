@@ -6,10 +6,12 @@ require_once '../model/pdo.php';
 require_once '../model/danh_muc.php';
 require_once '../model/product.php';
 require_once '../model/user.php';
+require_once '../model/option.php';
+require_once '../model/order.php';
 // include_once '../model/danh_muc.php';
 // $show_error=getConnect();
 // echo $show_error;
-// $getFull_pro=getProductById();
+// $getFull_pro=getProductById($id);
 
 if (isset($_GET['danh-muc'])) {
     $show_dm = loadall_danh_muc();
@@ -44,7 +46,7 @@ if (isset($_GET['danh-muc'])) {
     $show_dm = loadall_danh_muc();
     $VIEW_AD = './danh-muc/danh-sach.php';
 } elseif (isset($_GET['san-pham'])) {
-    $list_pro = getFullProducts();
+    $list_pro = get_full_products();
     $VIEW_AD = './san-pham/danh-sach.php';
 } elseif (isset($_GET['add-san-pham'])) {
     if (isset($_POST['add-san-pham'])) {
@@ -53,9 +55,9 @@ if (isset($_GET['danh-muc'])) {
         // $priceNew = $_POST['sale'];
         $detail = $_POST['detail'];
         $description = $_POST['description'];
-        $date = $_POST['date'];
+        // $date = $_POST['date'];
         $image = $_FILES['image']['name'];
-        // $groupProduct_Id=$_POST['groupProduct_Id'];
+        $groupProduct_Id=$_POST['groupProduct_Id'];
         //upload ảnh
         $folder = "../upload/";
         $targerupload = $folder . basename($_FILES['image']['name']);
@@ -63,15 +65,16 @@ if (isset($_GET['danh-muc'])) {
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
         } else {
         }
-        insertProduct($name, $detail, $image,$price,$date,$priceNew,$description);
+        insertProduct($name, $detail, $image,$price,$description,$groupProduct_Id);
     }
+    $show_dm = loadall_danh_muc();
     $VIEW_AD = './san-pham/add-san-pham.php';
 } elseif (isset($_GET['delete-sanpham'])) {
     if (isset($_GET['id'])) {
         $id_pro = $_GET['id'];
         deleteProduct($id_pro);
     }
-    $list_pro = getFullProducts();
+    $list_pro = get_full_products();
     $VIEW_AD = './san-pham/danh-sach.php';
 } elseif (isset($_GET['edit-sanpham'])) {
     if (isset($_GET['id'])) {
@@ -84,23 +87,70 @@ if (isset($_GET['danh-muc'])) {
         $id = $_POST['id'];
         $name = $_POST['name'];
         $price = $_POST['price'];
-        $priceNew = $_POST['sale'];
         $detail = $_POST['detail'];
         $description = $_POST['description'];
-        $date = $_POST['date'];
         $image = $_FILES['image']['name'];
         $groupProduct_Id = $_POST['groupProduct_Id'];
         //upload ảnh
         $folder = "../upload/";
         $targetupload = $folder . basename($_FILES['image']['name']);
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
+            
+            updateProduct($id, $name, $detail, $image, $price ,$description, $groupProduct_Id);
         } else {
+            updateProduct($id, $name, $detail, '', $price ,$description, $groupProduct_Id);
         }
-        updateProduct($id, $name, $detail, $image, $price, $date, $priceNew, $description, $groupProduct_Id);
     }
-    $list_pro = getFullProducts();
+    $list_pro = get_full_products();
     $show_dm = loadall_danh_muc();
     $VIEW_AD = './san-pham/danh-sach.php';
+} elseif (isset($_GET['add_size'])) {
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        if (isset($_POST['add_size'])) {
+            $size = $_POST['size'];
+            add_size_product($size, $id);
+        }
+    }
+    $list_pro =get_full_products();
+    $list_size_ID = get_size_ID($id);
+    $VIEW_AD = './san-pham/edit_size.php';
+} elseif (isset($_GET['delete-size'])) {
+    if (isset($_GET['id_size'])) {
+        // $id_size = $_GET['id'];
+        delete_Size($_GET['id_size']);
+    }
+    $list_size = getfullSize();
+    foreach ($list_size as $show) {
+        extract($show);
+        if (isset($product_id)) {
+            $list_size_ID = get_size_ID($product_id);
+        }
+    }
+    $VIEW_AD = './san-pham/edit_size.php';
+} elseif (isset($_GET['add_color'])) {
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        if (isset($_POST['add_color'])) {
+            $color = $_POST['color'];
+            add_color_product($color, $id);
+        }
+    }
+    $list_color_ID = get_color_ID($id);
+    $VIEW_AD = './san-pham/edit_color.php';
+} elseif (isset($_GET['delete-color'])) {
+    if (isset($_GET['id_color'])) {
+        // $id_size = $_GET['id'];
+        delete_Color($_GET['id_color']);
+    }
+    $list_size = getfullColor();
+    foreach ($list_size as $show) {
+        extract($show);
+        if (isset($product_id)) {
+            $list_color_ID = get_color_ID($product_id);
+        }
+    }
+    $VIEW_AD = './san-pham/edit_color.php';
 } elseif (isset($_GET['danh-sach-user'])) {
     $list_user = get_full_user();
     $VIEW_AD = './tai-khoan/danh-sach.php';
@@ -110,36 +160,50 @@ if (isset($_GET['danh-muc'])) {
     }
     $VIEW_AD = './tai-khoan/edit-tai-khoan.php';
 } elseif (isset($_GET['update-tai-khoan'])) {
-    if(isset($_POST['update-tai-khoan'])){
-        $id=$_POST['id'];
-        $userName=$_POST['userName'];
-        $address=$_POST['address'];
+    if (isset($_POST['update-tai-khoan'])) {
+        $id = $_POST['id'];
+        $userName = $_POST['userName'];
+        $address = $_POST['address'];
         // $passWord=$_POST['passWord'];
-        $phone=$_POST['phone'];
-        $name=$_POST['name'];
-        $role=$_POST['role'];
-        $update_user=update_user($id,$name,$address,$phone,$userName,$role);
+        $phone = $_POST['phone'];
+        $name = $_POST['name'];
+        $role = $_POST['role'];
+        $update_user = update_user($id, $name, $address, $phone, $userName, $role);
     }
     $list_user = get_full_user();
     $VIEW_AD = './tai-khoan/danh-sach.php';
+} elseif (isset($_GET['don-hang'])) {
+    $list_order = getfullOrder();
+    $VIEW_AD = './quan-ly-bill/bill.php';
+} elseif (isset($_GET['detail_bill'])) {
+    if (isset($_GET['id'])) {
+        $list_bill_detail = getorderDetails($_GET['id']);
+    }
+    // var_dump($list_bill_detail);
+    $VIEW_AD = './quan-ly-bill/bill_details.php';
+} elseif (isset($_GET['update_stt'])) {
+    // var_dump($_GET['id']);
+    // $id = $_GET['id'];
+    if (isset($_POST['update_status'])) {
+        $id=$_POST['id'];
+        // var_dump($id);
+        $status = $_POST['order_status'];
+        updateStatus($id, $status);
+    }
+
+    $getfullOrder = getfullOrder();
+    foreach ($getfullOrder as $show) {
+        # code...
+        extract($show);
+        $list_bill_detail = getorderDetails($id);
+    }
+    $list_order = getfullOrder();
+    // var_dump($id, $status);
+    $VIEW_AD = './quan-ly-bill/bill.php';
+} elseif (isset($_GET[''])) {
 } else {
     $VIEW_AD = 'home.php';
 }
 // require_once './danh-muc/    index.php';
 
 include_once './layout.php';
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../danhmuc">
-</head>
-<body>
-    
-</body>
-</html>

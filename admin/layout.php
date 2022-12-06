@@ -1,10 +1,4 @@
-<?php 
-ob_start();
-// // error_reporting(0);
-if(!isset($_SESSION)){
-    session_start();
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +7,7 @@ if(!isset($_SESSION)){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Show_Product</title>
+    <link href="style/style.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -52,7 +47,15 @@ if(!isset($_SESSION)){
                 
         </div>
 
+
         
+
+        <div class="ml-24 ">
+            <div class="">
+                <?php if(isset($VIEW_AD)) include_once $VIEW_AD ?>
+            </div>
+        </div>
+
 
         <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>

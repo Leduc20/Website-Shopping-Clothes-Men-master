@@ -38,10 +38,10 @@
                 <input class="border py-2 mt-1    rounded-[4px]" type="number" required name="description" id="checkquantity" min="0" max="100">
                 <p id="showquantity"></p>
             </div>
-            <div class="mt-4 mb-4 ml-4">
+            <!-- <div class="mt-4 mb-4 ml-4">
                 <p class="font-bold ">Date</p>
                 <input class="border mt-1  py-2 rounded-[4px]" required type="date" name="date" id="checktime">
-                <p id="showdate"></p>
+                <p id="showdate"></p> -->
             <!-- </div class="mt-4 ml-4"> -->
             <!-- <div>
             <p class="font-bold ">Trạng thái</p>
@@ -54,7 +54,6 @@
                 foreach ($show_dm as $show) {
                     extract($show);
                     echo '
-                    <option value=""></option>
                     <option value="' . $id . '">' . $name . '</option> ';
                 }
                 ?>
@@ -99,6 +98,11 @@
                     inform = "";
                 }
 
+
+    </div>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" type="submit" name="add-san-pham">Thêm mới</button>
+    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Nhập lại</button>
+    <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="<?= ADMIN_BASE . "?san-pham" ?>">Danh sách</a>
                 if (checkgia.value==""){
                     checkgia = "Giá Tiền Không Được Để Trống";
                 } else if(checkgia.value <= 0){
