@@ -28,7 +28,6 @@ if (isset($_GET['login'])) {
                 $userLogin['email'] = $user_login['email'];
                 $userLogin['password'] = $user_login['password'];
                 $userLogin['is_Admin'] = $user_login['is_Admin'];
-
                 $_SESSION['user'] = $userLogin;
 
                 $url = SITE_URL;
@@ -51,6 +50,8 @@ if (isset($_GET['login'])) {
         //upload ảnh
         $folder = "../upload/";
         $targerupload = $folder . basename($_FILES['image']['name']);
+        $targetupload = $folder . basename($_FILES['image']['name']);
+
         $email = $_POST['email'];
         $password = $_POST['password'];
         if (strlen($_POST['password']) < 8) {
@@ -78,7 +79,7 @@ if (isset($_GET['login'])) {
 
 
     if (!isset($_SESSION['user']['id'])) {
-        $url = SITE_URL;
+        $url = AUTH_BASE;
         header("location: $url");
         return;
     }
@@ -98,8 +99,6 @@ if (isset($_GET['login'])) {
         $targetupload = $folder . basename($_FILES['image']['name']);
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
             update_profile($id, $name, $phone, $address, $userName, $gender, $image);
-
-        } else {
         }
 
     }
@@ -111,3 +110,4 @@ if (isset($_GET['login'])) {
 }
 
 include_once './layout.php';
+?>

@@ -220,7 +220,7 @@
                         </td>
                         
                         <td class="py-4 px-6">
-                        ' . $date . '
+                        ' . $created_at . '
                         </td>
                         <td class="py-4 px-6">
                         ' . $description . '

@@ -1,4 +1,4 @@
-export const DOMAIN = "http://localhost:8080/webshop/";
+export const DOMAIN = "http://localhost:/webbanhang/";
 export const cartCount = document.querySelector(".cart-count");
 export const carts = JSON.parse(localStorage.getItem("carts")) || [];
 

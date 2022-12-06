@@ -11,7 +11,7 @@ require_once '../model/order.php';
 // include_once '../model/danh_muc.php';
 // $show_error=getConnect();
 // echo $show_error;
-// $getFull_pro=getProductById();
+// $getFull_pro=getProductById($id);
 
 if (isset($_GET['danh-muc'])) {
     $show_dm = loadall_danh_muc();
@@ -46,7 +46,7 @@ if (isset($_GET['danh-muc'])) {
     $show_dm = loadall_danh_muc();
     $VIEW_AD = './danh-muc/danh-sach.php';
 } elseif (isset($_GET['san-pham'])) {
-    $list_pro = getFullProducts();
+    $list_pro = get_full_products();
     $VIEW_AD = './san-pham/danh-sach.php';
 } elseif (isset($_GET['add-san-pham'])) {
     if (isset($_POST['add-san-pham'])) {
@@ -78,7 +78,7 @@ if (isset($_GET['danh-muc'])) {
         $id_pro = $_GET['id'];
         deleteProduct($id_pro);
     }
-    $list_pro = getFullProducts();
+    $list_pro = get_full_products();
     $VIEW_AD = './san-pham/danh-sach.php';
 } elseif (isset($_GET['edit-sanpham'])) {
     if (isset($_GET['id'])) {
@@ -91,21 +91,21 @@ if (isset($_GET['danh-muc'])) {
         $id = $_POST['id'];
         $name = $_POST['name'];
         $price = $_POST['price'];
-        $priceNew = $_POST['sale'];
         $detail = $_POST['detail'];
         $description = $_POST['description'];
-        $date = $_POST['date'];
         $image = $_FILES['image']['name'];
         $groupProduct_Id = $_POST['groupProduct_Id'];
         //upload ảnh
         $folder = "../upload/";
         $targetupload = $folder . basename($_FILES['image']['name']);
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
+            
+            updateProduct($id, $name, $detail, $image, $price ,$description, $groupProduct_Id);
         } else {
+            updateProduct($id, $name, $detail, '', $price ,$description, $groupProduct_Id);
         }
-        updateProduct($id, $name, $detail, $image, $price, $date, $priceNew, $description, $groupProduct_Id);
     }
-    $list_pro = getFullProducts();
+    $list_pro = get_full_products();
     $show_dm = loadall_danh_muc();
     $VIEW_AD = './san-pham/danh-sach.php';
 } elseif (isset($_GET['add_size'])) {
@@ -116,7 +116,7 @@ if (isset($_GET['danh-muc'])) {
             add_size_product($size, $id);
         }
     }
-    $list_pro = getFullProducts();
+    $list_pro =get_full_products();
     $list_size_ID = get_size_ID($id);
     $VIEW_AD = './san-pham/edit_size.php';
 } elseif (isset($_GET['delete-size'])) {
@@ -211,7 +211,3 @@ if (isset($_GET['danh-muc'])) {
 // require_once './danh-muc/    index.php';
 
 include_once './layout.php';
-
-
-?>
-
