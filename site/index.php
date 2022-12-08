@@ -65,12 +65,9 @@ if (isset($_GET['chi-tiet'])) {
 
             // $results[$key]['status'] = $value['status'];
             // $results[$key]['totalMoney'] = $value['totalMoney'];
-            var_dump(in_array($value['orderId'], $results));
         }
         // var_dump($value['orderId']);
     }
-
-    var_dump($results);
 
     $VIEW_NAME = 'purchase.php';
 } elseif (isset($_GET['search'])) {
@@ -102,7 +99,7 @@ if (isset($_GET['chi-tiet'])) {
 } else {
     $limit = 4;
     $page = isset($_GET['page'])?$_GET['page']:1;
-    $products = get_full_products($limit, $page);
+    $products = get_page($limit, $page);
     
 
     $VIEW_NAME = 'trang-chu.php';

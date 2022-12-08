@@ -2,8 +2,6 @@
     <img src="../site/src/img/logo_2.png" alt="" class="h-10 mx-2" />
     <span class="font-semi text-2xl"> RANI </span>
 </div>
-            
-<<<<<<< HEAD
            <div class="dropdown ml-9 w-[250px]">
                 <span class="btn btn-secondary  bg-gray-600 dropdown-toggle w-[250px]" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
@@ -23,6 +21,4 @@
                 </ul>
             </div>
         </div>
-=======
-            
->>>>>>> f87a2107e89dc3a3a94d1fe4bf10c00dc19c543f
+
