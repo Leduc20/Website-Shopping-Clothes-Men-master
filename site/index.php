@@ -4,11 +4,16 @@ session_start();
 require_once '../global.php';
 require_once '../model/pdo.php';
 require_once '../model/product.php';
+require_once '../model/danh_muc.php';
 require_once '../model/favorites.php';
 require_once '../model/order.php';
 
 if (isset($_GET['chi-tiet'])) {
     $product = getProductById($_GET['id']);
+
+    $is_bought = !isset($_SESSION['user']) ? 'login' : (!!get_productId_bought_by_user_id($_SESSION['user']['id'], $_GET['id']) ? 'cmt' : 'watch');
+    var_dump($is_bought);
+
     $VIEW_NAME = 'chi-tiet.php';
 } elseif (isset($_GET['danh-muc'])) {
     $VIEW_NAME = 'danh-muc.php';
@@ -58,20 +63,8 @@ if (isset($_GET['chi-tiet'])) {
     } else {
         $orders = get_orders_by_userId($_SESSION['user']['id'], 'all');
     }
-    $results = [];
-    foreach ($orders as $key => $value) {
-        if (!in_array($value['orderId'], $results)) {
-            // $results[$key]['orderId'] = $value['orderId'];
 
-            // $results[$key]['status'] = $value['status'];
-            // $results[$key]['totalMoney'] = $value['totalMoney'];
-            var_dump(in_array($value['orderId'], $results));
-        }
-        // var_dump($value['orderId']);
-    }
-
-    var_dump($results);
-
+    
     $VIEW_NAME = 'purchase.php';
 } elseif (isset($_GET['search'])) {
     if (!isset($_GET['q'])) {
@@ -84,7 +77,7 @@ if (isset($_GET['chi-tiet'])) {
     $start = empty($_GET['start']) ? '' : $_GET['start'];
     $end = empty($_GET['end']) ? '' : $_GET['end'];
 
-    $categories = ['0' => ['name' => 'nike'], '1' => ['name' => 'gui chi']];
+    $categories = get_full_categories();
     $products = searchProduct($keyWord, $category, $start, $end);
     $VIEW_NAME = 'search.php';
 } elseif (isset($_GET['my-favorites'])) {
@@ -100,7 +93,7 @@ if (isset($_GET['chi-tiet'])) {
     $products = get_full_favorites_by_userId($_SESSION['user']['id']);
     $VIEW_NAME = 'my-favorites.php';
 } else {
-    
+
     $products = get_full_products();
     $VIEW_NAME = 'trang-chu.php';
 }

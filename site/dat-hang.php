@@ -23,6 +23,7 @@ function split_array($arr1, $arr2, $arr3, $arr4)
 }
 
 $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['color']);
+
 ?>
 
 <div class=" container mx-auto mb-4">
@@ -35,6 +36,7 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
         <div class="flex-1 px-4">
             <!-- foreach -->
             <?php foreach ($products  as $key => $value) : ?>
+                <?php var_dump($value['name']); ?>
                 <input type="hidden" name="prdId[]" value="<?= $value['id'] ?>">
                 <input type="hidden" name="sl[]" value="<?= $value['sl'] ?>">
                 <input type="hidden" name="size[]" value="<?= $value['size'] ?>">
