@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -262,12 +261,12 @@
                                     Vào trang quản trị
                                 </a>
                             <?php } ?>
-                            <a href="<?= AUTH_BASE."?profile" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
+                            <a href="<?= AUTH_BASE . "?profile" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
                                 Thông tin cá nhân
                             </a>
 
                             <a href="" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">Xin chào <?= $_SESSION['user']['name'] ?></a>
-                            <a href="<?= SITE_URL."?purchase" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
+                            <a href="<?= SITE_URL . "?purchase" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
                                 Đơn hàng
                             </a>
                             <a href="<?= AUTH_BASE . "?logout" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
@@ -285,7 +284,7 @@
                             </a>
                         </div>
 
-
+                        +
                         <?php
                         // echo var_dump($_SESSION['user']);
                         ?>
@@ -504,8 +503,7 @@
 
                         <span class="ml-4">Tìm kiếm sản phẩm: <span id="search" class=""></span></span>
                     </div>
-                    <div id="results" class="mt-3">
-
+                    <div id="results" class="mt-3 " style="max-height: 400px; overflow-y: auto;">
 
                     </div>
                 </div>
@@ -551,6 +549,11 @@
                 $("#remove-search").removeClass("hidden")
                 loading.classList.remove("hidden")
                 loaded.classList.add("hidden")
+                if (searchEl.value == '') {
+                    loading.classList.add("hidden")
+                    loaded.classList.remove("hidden")
+                    return $('#results').html('')
+                }
 
                 $.ajax({
                     url: "handleAjax.php?search",
