@@ -42,8 +42,8 @@ const html = (prd) => {
       </div>
       <!--  -->
     </div>
-    <span class="text-center w-1/5 font-semibold text-sm">$ <span class="prd-price">${prd.price}</span></span>
-    <span class=" text-center w-1/5 font-semibold text-sm">$ <span class="prd-total">${prd.sl * prd.price}</span></span>
+    <span class="text-center w-1/5 font-semibold text-sm"><span class="prd-price">${prd.price}</span> VNĐ</span>
+    <span class=" text-center w-1/5 font-semibold text-sm"><span class="prd-total">${prd.sl * prd.price}</span> VNĐ</span>
     <button type="button"   data-id="${prd.id}" data-size="${prd.size}" data-color="${
         prd.color
     }" name="btn-remove-prd" class="text-center w-1/5 font-semibold text-sm">Xóa</button>

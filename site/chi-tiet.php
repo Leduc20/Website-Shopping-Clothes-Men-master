@@ -51,7 +51,7 @@
             </a>
           </span>
         </div>
-        <p class="leading-relaxed"><?= $product['description'] ?></p>
+        <p class="leading-relaxed">Số lượng: <?= $product['description'] ?></p>
         <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
           <div class="flex ml-6 items-center">
             <span class="mr-3">Màu</span>
@@ -96,6 +96,9 @@
               <span class="m-auto text-2xl font-thin">+</span>
             </button>
           </div>
+        </div>
+        <div>
+        <?= $product['detail'] ?>
         </div>
         <div class="flex">
           <span class="title-font font-medium text-2xl text-gray-900"><?= $product['price'] ?> VNĐ</span>

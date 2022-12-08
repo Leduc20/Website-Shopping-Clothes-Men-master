@@ -4,6 +4,11 @@ function add_danh_muc($tenloai){
     $tenloai')";
     pdo_execute($sql);
 }
+
+function get_full_categories() {
+    $sql = "SELECT * FROM groupproduct";
+    return pdo_query_all($sql);
+}
 function loadall_danh_muc(){
     $sql="SELECT * FROM groupproduct";
     $show_dm=pdo_query_all($sql);

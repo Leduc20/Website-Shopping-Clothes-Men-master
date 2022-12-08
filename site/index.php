@@ -4,6 +4,7 @@ session_start();
 require_once '../global.php';
 require_once '../model/pdo.php';
 require_once '../model/product.php';
+require_once '../model/danh_muc.php';
 require_once '../model/favorites.php';
 require_once '../model/order.php';
 
@@ -65,12 +66,12 @@ if (isset($_GET['chi-tiet'])) {
 
             // $results[$key]['status'] = $value['status'];
             // $results[$key]['totalMoney'] = $value['totalMoney'];
-            var_dump(in_array($value['orderId'], $results));
+            // var_dump(in_array($value['orderId'], $results));
         }
         // var_dump($value['orderId']);
     }
 
-    var_dump($results);
+    // var_dump($results);
 
     $VIEW_NAME = 'purchase.php';
 } elseif (isset($_GET['search'])) {
@@ -84,7 +85,7 @@ if (isset($_GET['chi-tiet'])) {
     $start = empty($_GET['start']) ? '' : $_GET['start'];
     $end = empty($_GET['end']) ? '' : $_GET['end'];
 
-    $categories = ['0' => ['name' => 'nike'], '1' => ['name' => 'gui chi']];
+    $categories = get_full_categories();
     $products = searchProduct($keyWord, $category, $start, $end);
     $VIEW_NAME = 'search.php';
 } elseif (isset($_GET['my-favorites'])) {

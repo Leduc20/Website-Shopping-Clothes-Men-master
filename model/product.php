@@ -66,7 +66,7 @@ function searchProduct($search, $category, $start, $end)
     if ($category != '') {
 
         $sql = "SELECT prd.id, prd.name, prd.image, prd.price, prd.description, fa.id as favorite_id, fa.user_id
-        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id WHERE prd.name LIKE '%$search%' AND cat.name = '$category'";
+        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id JOIN groupproduct cat ON prd.groupProduct_id = cat.id WHERE prd.name LIKE '%$search%' AND cat.name = '$category'";
     }
     if ($start != '' & $end != '') {
 
@@ -76,7 +76,7 @@ function searchProduct($search, $category, $start, $end)
 
     if ($category != '' & $start != ''  & $end != '') {
         $sql = "SELECT prd.id, prd.name, prd.image, prd.price, prd.description, fa.id as favorite_id, fa.user_id
-        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id WHERE prd.name LIKE '%$search%' 
+        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id JOIN groupproduct cat ON prd.groupProduct_id = cat.id WHERE prd.name LIKE '%$search%' 
             AND cat.name = '$category' AND price <= $end AND  price>= $start";
     }
 

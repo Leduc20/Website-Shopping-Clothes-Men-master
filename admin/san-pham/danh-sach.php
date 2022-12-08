@@ -123,5 +123,12 @@
         <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Xóa các mục chọn</a>
         <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="<?= ADMIN_BASE . "?add-san-pham" ?>">Nhập thêm</a>
     </div>
+    <div class="mt-2 text-black-500 font-bold text-red-500">
+            <?php
+            if (isset($product_tb)) {
+                echo "<script>alert('$product_tb');</script>";
+            }
+            ?>
+        </div>
 </form>
 

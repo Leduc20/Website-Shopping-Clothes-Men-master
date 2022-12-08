@@ -70,10 +70,6 @@
         <i class="fa-solid fa-cart-shopping"></i>
         <span class="tooltip">Product </span></a>
 
-        <a href="<?= ADMIN_BASE . "?khach-hang"?>" class="icon ">
-        <i class="fa-solid fa-users"></i>
-        <span class="tooltip">Customer </span></a>
-
         <a href="<?= ADMIN_BASE . "?don-hang"?>" class="icon ">
         <i class="fa-solid fa-users"></i>
         <span class="tooltip">Quản lí đơn </span></a>
