@@ -100,8 +100,11 @@ if (isset($_GET['chi-tiet'])) {
     $products = get_full_favorites_by_userId($_SESSION['user']['id']);
     $VIEW_NAME = 'my-favorites.php';
 } else {
+    $limit = 4;
+    $page = isset($_GET['page'])?$_GET['page']:1;
+    $products = get_full_products($limit, $page);
     
-    $products = get_full_products();
+
     $VIEW_NAME = 'trang-chu.php';
 }
 

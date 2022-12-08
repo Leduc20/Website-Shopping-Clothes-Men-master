@@ -86,8 +86,6 @@
                         class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                         Đăng ký tài khoản mới
                     </h1>
-
-
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                     <form class="space-y-4 md:space-y-6" action="<?= AUTH_BASE . "?register" ?>" method="POST" enctype="multipart/form-data">
                         <div>
