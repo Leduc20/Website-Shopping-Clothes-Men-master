@@ -19,10 +19,12 @@ const html = (prd) => {
       </div>
       <div class="flex flex-col justify-between ml-4 flex-grow">
         <span class="font-bold text-sm">${prd.name}</span>
-        Size:<input name="size[]" class="bg-transparent text-red-500 text-xs outline-none" value="${prd.size}" readonly>
+        Size:<input name="size[]" class="bg-transparent text-red-500 text-xs outline-none" value="${
+            prd.size
+        }" readonly disabled>
         Màu: <input name="color[]" class="bg-transparent text-red-500 text-xs outline-none" value="${
             prd.color
-        }" readonly>
+        }" readonly disabled>
         <div></div>
       </div>
     </div>
@@ -34,7 +36,7 @@ const html = (prd) => {
         </button>
         <input  type="number"
           class="outline-none focus:outline-none text-center w-full bg-gray-100 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
-          name="sl[]" value="${prd.sl}" min="0"></input>
+          name="sl[]" value="${prd.sl}" min="0" disabled></input>
         <button type="button" data-action="increment"
           class="bg-gray-200 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer">
           <span class="m-auto text-2xl font-thin">+</span>
@@ -99,6 +101,7 @@ incrementButtons.forEach((btn) => {
         localStorage.setItem("carts", JSON.stringify(carts));
         target.value = value;
         prdTotal.innerHTML = value * price;
+
         handleTotalCart();
     };
 });
@@ -145,6 +148,12 @@ checkPrdAllEl.onchange = () => {
     prdCheckEls.forEach((el) => {
         el.checked = checkPrdAllEl.checked;
     });
+    const amountPrd = document.querySelectorAll('input[name="sl[]"]');
+    const sizePrds = document.querySelectorAll('input[name="size[]"]');
+    const colorPrds = document.querySelectorAll('input[name="color[]"]');
+    amountPrd.forEach((el) => (el.disabled = !checkPrdAllEl.checked));
+    sizePrds.forEach((el) => (el.disabled = !checkPrdAllEl.checked));
+    colorPrds.forEach((el) => (el.disabled = !checkPrdAllEl.checked));
     handleTotalCart();
     btnSubMidCart.disabled = !checkPrdAllEl.checked || !!(carts.length == 0);
 };
@@ -153,17 +162,27 @@ const amountPrds = document.querySelectorAll('input[name="sl[]"]');
 amountPrds.forEach(
     (el) =>
         (el.onchange = () => {
+            const prdTotal = el.parentNode.parentNode.parentNode.querySelector(".prd-total");
+            const price = el.parentNode.parentNode.parentNode.querySelector(".prd-price ").textContent;
             if (el.value < 1) {
                 el.value = 1;
             }
+            prdTotal.innerHTML = el.value * price;
+            handleTotalCart();
         })
 );
 prdCheckEls.forEach((el) => {
     el.onchange = () => {
         const amountCheck = document.querySelectorAll('input[name="prdId[]"]:checked').length;
+        const amountPrd = el.parentNode.querySelector('input[name="sl[]"]');
+        const sizePrd = el.parentNode.querySelector('input[name="size[]"]');
+        const colorPrd = el.parentNode.querySelector('input[name="color[]"]');
 
         const isCheckAll = prdCheckEls.length === amountCheck;
         checkPrdAllEl.checked = isCheckAll;
+        amountPrd.disabled = !el.checked;
+        sizePrd.disabled = !el.checked;
+        colorPrd.disabled = !el.checked;
 
         if (el.checked) {
             destroyAllEl.classList.remove("hidden");
