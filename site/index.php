@@ -64,7 +64,18 @@ if (isset($_GET['chi-tiet'])) {
         $orders = get_orders_by_userId($_SESSION['user']['id'], 'all');
     }
 
-    
+    $results = [];
+    foreach ($orders as $key => $value) {
+        if (!in_array($value['orderId'], $results)) {
+            // $results[$key]['orderId'] = $value['orderId'];
+
+            // $results[$key]['status'] = $value['status'];
+            // $results[$key]['totalMoney'] = $value['totalMoney'];
+        }
+        // var_dump($value['orderId']);
+    }
+
+
     $VIEW_NAME = 'purchase.php';
 } elseif (isset($_GET['search'])) {
     if (!isset($_GET['q'])) {
@@ -93,8 +104,11 @@ if (isset($_GET['chi-tiet'])) {
     $products = get_full_favorites_by_userId($_SESSION['user']['id']);
     $VIEW_NAME = 'my-favorites.php';
 } else {
-
     $products = get_full_products();
+    $limit = 4;
+    $page = isset($_GET['page'])?$_GET['page']:1;
+    $products = get_page($limit, $page);
+
     $VIEW_NAME = 'trang-chu.php';
 }
 

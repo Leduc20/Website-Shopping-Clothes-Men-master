@@ -1,4 +1,82 @@
 
+<<<<<<< HEAD
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./src/img/favicon.png" />
+    <title>Rani</title>
+    <meta name="description" content="Free open source Tailwind CSS Store template" />
+    <meta name="keywords"
+        content="tailwind,tailwindcss,tailwind css,css,starter template,free template,store template, shop layout, minimal, monochrome, minimalistic, theme, nordic" />
+
+    <script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="./src/font/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet" />
+
+    <style>
+    .work-sans {
+        font-family: "Work Sans", sans-serif;
+    }
+
+    #menu-toggle:checked+#menu {
+        display: block;
+    }
+
+    .hover\:grow {
+        transition: all 0.3s;
+        transform: scale(1);
+    }
+
+    .hover\:grow:hover {
+        transform: scale(1.02);
+    }
+
+    .carousel-open:checked+.carousel-item {
+        position: static;
+        opacity: 100;
+    }
+
+    .carousel-item {
+        -webkit-transition: opacity 0.6s ease-out;
+        transition: opacity 0.6s ease-out;
+    }
+
+    #carousel-1:checked~.control-1,
+    #carousel-2:checked~.control-2,
+    #carousel-3:checked~.control-3 {
+        display: block;
+    }
+
+    .carousel-indicators {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: 2%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 10;
+    }
+
+    #carousel-1:checked~.control-1~.carousel-indicators li:nth-child(1) .carousel-bullet,
+    #carousel-2:checked~.control-2~.carousel-indicators li:nth-child(2) .carousel-bullet,
+    #carousel-3:checked~.control-3~.carousel-indicators li:nth-child(3) .carousel-bullet {
+        color: #000;
+        /*Set to match the Tailwind colour you want the active one to be */
+    }
+    </style>
+</head>
+
+<body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
+    <!--Nav-->
+
+    <!--  -->
+=======
+>>>>>>> f87a2107e89dc3a3a94d1fe4bf10c00dc19c543f
     <section class="bg-gray-50 dark:bg-gray-900">
         <div class="flex justify-center px-6 py-24 mx-auto">
             <div
@@ -8,8 +86,6 @@
                         class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                         Đăng ký tài khoản mới
                     </h1>
-
-
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                     <form class="space-y-4 md:space-y-6" action="<?= AUTH_BASE . "?register" ?>" method="POST" enctype="multipart/form-data">
                         <div>
