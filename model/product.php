@@ -18,11 +18,18 @@ function get_full_products()
     from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  ORDER BY prd.created_at DESC";
     return pdo_query_all($sql);
 }
+function get_page($limit, $page)
+{
+    $skip = $limit * ($page - 1);
+    // $sql = "select * from products ORDER BY products.updated_at DESC";
+    $sql = "select prd.id, prd.name, prd.image, prd.price, prd.description, prd.created_at, prd.category_id, fa.id as favorite_id, fa.user_id
+    from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  ORDER BY prd.created_at DESC LIMIT $limit OFFSET $skip";
+    return pdo_query_all($sql);
+}
 
 function get_productId_bought_by_user_id($user_id, $product_id)
 {
-    $sql = "SELECT od.product_id FROM orders JOIN order_details od ON orders.id = od.order_id 
-    WHERE orders.user_id = $user_id AND od.product_id = $product_id GROUP BY od.product_id";
+    $sql = "SELECT od.product_id FROM orders JOIN order_details od ON orders.id = od.order_id WHERE orders.user_id = $user_id AND od.product_id = $product_id GROUP BY od.product_id";
     return pdo_query_one($sql);
 }
 
@@ -89,3 +96,4 @@ function searchProduct($search, $category, $start, $end)
 
     return pdo_query_all($sql);
 }
+

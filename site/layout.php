@@ -117,7 +117,7 @@
                                 Liên hệ
                             </a>
                         </li>
-                        <li class="relative z-10">
+                        <li class="relative z-10 cursor-pointer">
                             <div id="open-search" type="button" data-modal-toggle="defaultModal" class="inline-block no-underline opacity-80 hover:opacity-100" href="#">
                                 <svg class="fill-current pointer-events-none text-grey-darkest w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                     <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z">
@@ -254,7 +254,7 @@
                     <?php if (isset($_SESSION['user'])) {
                         extract($_SESSION['user']);
                     ?>
-                        <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="absolute inset-x-2/4 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl">
+                        <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="absolute -right-2/4 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl">
                             <?php
                             if ($is_Admin == 1) { ?>
                                 <a href="<?= ADMIN_BASE ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
