@@ -1,4 +1,3 @@
-
 <form action="">
     <div>
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4">
@@ -55,6 +54,7 @@
                 <tbody>
                     <?php foreach ($list_pro as $show) {
                         extract($show);
+                        // var_dump($show);
                         //đường dẫn ảnh trong extract đường dẫn
                         $imagepath = "../upload/" . $image;
                         //kiểm tra 

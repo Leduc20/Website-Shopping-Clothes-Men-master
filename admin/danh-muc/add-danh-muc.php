@@ -1,3 +1,4 @@
+
 <div class="mr-10 ">
     <form class=" bg-gray-100 py-3 rounded place-items-center justify-center flex " action="<?= ADMIN_BASE . "?add-danh-muc" ?>" method="post" id="check-line" enctype="multipart/form-data">
     <div class="">    
@@ -31,4 +32,4 @@
     
     </form>
 </div>
-
+</form>

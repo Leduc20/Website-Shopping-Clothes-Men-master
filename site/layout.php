@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -118,7 +117,7 @@
                                 Liên hệ
                             </a>
                         </li>
-                        <li class="relative z-10">
+                        <li class="relative z-10 cursor-pointer">
                             <div id="open-search" type="button" data-modal-toggle="defaultModal" class="inline-block no-underline opacity-80 hover:opacity-100" href="#">
                                 <svg class="fill-current pointer-events-none text-grey-darkest w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                     <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z">
@@ -262,12 +261,12 @@
                                     Vào trang quản trị
                                 </a>
                             <?php } ?>
-                            <a href="<?= AUTH_BASE."?profile" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
+                            <a href="<?= AUTH_BASE . "?profile" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
                                 Thông tin cá nhân
                             </a>
 
                             <a href="" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">Xin chào <?= $_SESSION['user']['name'] ?></a>
-                            <a href="<?= SITE_URL."?purchase" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
+                            <a href="<?= SITE_URL . "?purchase" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
                                 Đơn hàng
                             </a>
                             <a href="<?= AUTH_BASE . "?logout" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
@@ -285,7 +284,7 @@
                             </a>
                         </div>
 
-
+                        +
                         <?php
                         // echo var_dump($_SESSION['user']);
                         ?>
@@ -504,8 +503,7 @@
 
                         <span class="ml-4">Tìm kiếm sản phẩm: <span id="search" class=""></span></span>
                     </div>
-                    <div id="results" class="mt-3">
-
+                    <div id="results" class="mt-3 " style="max-height: 400px; overflow-y: auto;">
 
                     </div>
                 </div>
@@ -551,6 +549,11 @@
                 $("#remove-search").removeClass("hidden")
                 loading.classList.remove("hidden")
                 loaded.classList.add("hidden")
+                if (searchEl.value == '') {
+                    loading.classList.add("hidden")
+                    loaded.classList.remove("hidden")
+                    return $('#results').html('')
+                }
 
                 $.ajax({
                     url: "handleAjax.php?search",

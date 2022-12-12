@@ -1,6 +1,4 @@
-<!--  -->
 
-    <!--  -->
         <section class="bg-gray-50 dark:bg-gray-900">
             <div class="flex justify-center px-6 py-24 mx-auto">
                 <div

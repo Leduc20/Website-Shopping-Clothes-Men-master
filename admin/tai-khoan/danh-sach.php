@@ -28,32 +28,42 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                    <?php 
+                    foreach ($list_user as $show) {
+                        # code...
+                        extract($show);
+                        $delete = "index.php?delete_user&id=" . $id;
+                        $edit = "index.php?edit-tai-khoan&id=" . $id;
+                        echo'<tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                         <th>
                             <div class="">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
                             </div>
                         </th>
                         <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            '.$id_user.'
+                            '.$id.'
                         </th>
                         <td class="py-4 px-6">
                             '.$name.'
                         </td>
                         <td class="py-4 px-6">
-                            '.$email.'
+                            '.$userName .'
                         </td>
                         <td class="py-4 px-6">
                             '.$phone.'
                         </td>
                         <td class="py-4 px-6">
-                            '.$role.'
+                            '.$is_Admin.'
                         </td>
                         <td class="py-4 px-6">
-                            <a href="<?= ADMIN_BASE . "?edit-tai-khoan"?>" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">Edit</a>
-                            <a href="<?= ADMIN_BASE . "?delete-tai-khoan"?>" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">delete</a>
+                            <a href="'.$edit.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">Edit</a>
+                            <a href="'.$delete.'" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">delete</a>
                         </td>
-                    </tr>
+                    </tr>';
+
+                    }
+                    ?>
+                    
                 </tbody>
             </table>
         </div>
