@@ -14,7 +14,7 @@ function getfullProducts()
 function get_full_products()
 {
     // $sql = "select * from products ORDER BY products.updated_at DESC";
-    $sql = "select prd.id, prd.name, prd.image, prd.price, prd.description, prd.created_at, fa.id as favorite_id, fa.user_id
+    $sql = "select prd.id, prd.name, prd.image, prd.price,prd.groupProduct_Id, prd.description,prd.detail, prd.created_at, fa.id as favorite_id, fa.user_id
     from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  ORDER BY prd.created_at DESC";
     return pdo_query_all($sql);
 }
@@ -80,7 +80,9 @@ function searchProduct($search, $category, $start, $end)
     if ($category != '') {
 
         $sql = "SELECT prd.id, prd.name, prd.image, prd.price, prd.description, fa.id as favorite_id, fa.user_id
-        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id JOIN categories cat ON prd.category_id = cat.id WHERE prd.name LIKE '%$search%' AND cat.name = '$category'";
+
+        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id JOIN groupproduct cat ON prd.groupProduct_id = cat.id WHERE prd.name LIKE '%$search%' AND cat.name = '$category'";
+
     }
     if ($start != '' & $end != '') {
 
@@ -90,7 +92,8 @@ function searchProduct($search, $category, $start, $end)
 
     if ($category != '' & $start != ''  & $end != '') {
         $sql = "SELECT prd.id, prd.name, prd.image, prd.price, prd.description, fa.id as favorite_id, fa.user_id
-        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id JOIN categories cat ON prd.category_id = cat.id WHERE prd.name LIKE '%$search%' 
+        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id JOIN groupproduct cat ON prd.groupProduct_id = cat.id WHERE prd.name LIKE '%$search%' 
+
             AND cat.name = '$category' AND price <= $end AND  price>= $start";
     }
 

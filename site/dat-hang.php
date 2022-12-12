@@ -36,7 +36,6 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
         <div class="flex-1 px-4">
             <!-- foreach -->
             <?php foreach ($products  as $key => $value) : ?>
-                <?php var_dump($value['name']); ?>
                 <input type="hidden" name="prdId[]" value="<?= $value['id'] ?>">
                 <input type="hidden" name="sl[]" value="<?= $value['sl'] ?>">
                 <input type="hidden" name="size[]" value="<?= $value['size'] ?>">
@@ -102,6 +101,11 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
                         Phương thức thanh toán:
                     </p>
                     <p>
+                        <input type="radio" name="payment" id="payment" value="tienmat">
+                        <button>Thanh toán khi nhận hàng</button>
+                    </p>
+                    <p>
+                        <input type="radio" name="payment" id="payment" value="vnpay">
                         <button>Thanh toán VNPAY</button>
                     </p>
                 </div>

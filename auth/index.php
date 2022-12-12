@@ -111,3 +111,4 @@ if (isset($_GET['login'])) {
 
 include_once './layout.php';
 ?>
+<img src="../auth/login.php" alt="">

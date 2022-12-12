@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -75,8 +74,7 @@
     <!--Nav-->
 
     <!--  -->
-=======
->>>>>>> f87a2107e89dc3a3a94d1fe4bf10c00dc19c543f
+
     <section class="bg-gray-50 dark:bg-gray-900">
         <div class="flex justify-center px-6 py-24 mx-auto">
             <div

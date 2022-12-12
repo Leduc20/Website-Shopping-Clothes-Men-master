@@ -1,15 +1,13 @@
 <?php
-function get_full_categories()
-{
-    $sql = "SELECT * FROM categories";
-    return pdo_query_all($sql);
-}
-
 function add_danh_muc($tenloai)
 {
     $sql = "INSERT INTO `groupproduct`(`name`) VALUES ('
     $tenloai')";
     pdo_execute($sql);
+}
+function get_full_categories() {
+    $sql = "SELECT * FROM groupproduct";
+    return pdo_query_all($sql);
 }
 function loadall_danh_muc()
 {

@@ -20,14 +20,16 @@ if (isset($_GET['danh-muc'])) {
     if (isset($_POST['themmoi'])) {
         $tenloai = $_POST['tenloai'];
         add_danh_muc($tenloai);
-        $msg="Thêm danh mục thành công";
+        $categori="Thêm danh mục thành công";
     }
     $VIEW_AD = './danh-muc/add-danh-muc.php';
 } elseif (isset($_GET['delete'])) {
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
         delete_danh_muc($id);
+        $categori="Xóa danh mục thành công";
     }
+
     $show_dm = loadall_danh_muc();
     $VIEW_AD = './danh-muc/danh-sach.php';
 } elseif (isset($_GET['edit'])) {
@@ -42,6 +44,7 @@ if (isset($_GET['danh-muc'])) {
         $id = $_POST['id'];
         $name = $_POST['name'];
         update_danh_muc($id, $name);
+        $categori="Cập nhật danh mục thành công";
     }
     $show_dm = loadall_danh_muc();
     $VIEW_AD = './danh-muc/danh-sach.php';
@@ -65,7 +68,7 @@ if (isset($_GET['danh-muc'])) {
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
         } else {
         }
-        insertProduct($name, $detail, $image,$price,$date,$priceNew,$description, $groupProduct_Id);
+        insertProduct($name, $detail, $image,$price,$description, $groupProduct_Id);
 
     }
     $show_dm = loadall_danh_muc();
@@ -74,6 +77,7 @@ if (isset($_GET['danh-muc'])) {
     if (isset($_GET['id'])) {
         $id_pro = $_GET['id'];
         deleteProduct($id_pro);
+        $product_tb="Xóa sản phẩm thành công";
     }
     $list_pro = get_full_products();
     $VIEW_AD = './san-pham/danh-sach.php';
@@ -101,6 +105,7 @@ if (isset($_GET['danh-muc'])) {
         } else {
             updateProduct($id, $name, $detail, '', $price ,$description, $groupProduct_Id);
         }
+        $product_tb="Cập nhật sản phẩm thành công";
     }
     $list_pro = get_full_products();
     $show_dm = loadall_danh_muc();
@@ -112,6 +117,7 @@ if (isset($_GET['danh-muc'])) {
             $size = $_POST['size'];
             add_size_product($size, $id);
         }
+        $size_tb="Thêm size thành công";
     }
     $list_pro =get_full_products();
     $list_size_ID = get_size_ID($id);
@@ -120,6 +126,7 @@ if (isset($_GET['danh-muc'])) {
     if (isset($_GET['id_size'])) {
         // $id_size = $_GET['id'];
         delete_Size($_GET['id_size']);
+        
     }
     $list_size = getfullSize();
     foreach ($list_size as $show) {
@@ -127,6 +134,7 @@ if (isset($_GET['danh-muc'])) {
         if (isset($product_id)) {
             $list_size_ID = get_size_ID($product_id);
         }
+        $size_tb="Xóa size thành công";
     }
     $VIEW_AD = './san-pham/edit_size.php';
 } elseif (isset($_GET['add_color'])) {
@@ -136,6 +144,7 @@ if (isset($_GET['danh-muc'])) {
             $color = $_POST['color'];
             add_color_product($color, $id);
         }
+        $size_tb="Thêm color thành công";
     }
     $list_color_ID = get_color_ID($id);
     $VIEW_AD = './san-pham/edit_color.php';
@@ -150,6 +159,7 @@ if (isset($_GET['danh-muc'])) {
         if (isset($product_id)) {
             $list_color_ID = get_color_ID($product_id);
         }
+        $size_tb="Xóa color thành công";
     }
     $VIEW_AD = './san-pham/edit_color.php';
 } elseif (isset($_GET['danh-sach-user'])) {
