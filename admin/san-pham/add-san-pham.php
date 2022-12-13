@@ -48,8 +48,8 @@
             <input class="border w-full p-2 rounded-[4px]" type="date" name="date" id="view">
             </div> -->
         <div>
-            <p class="font-bold mt-3 mb-2">Loại hàng</p>
-            <select class="border mb-4 w-[200px] h-[45px]  rounded" name="groupProduct_Id" id="">
+            <p class="font-bold mt-3 mb-2 ml-4">Loại hàng</p>
+            <select class="ml-4 border mb-4 w-[200px] h-[45px]  rounded" name="groupProduct_Id" id="">
                 <?php
                 foreach ($show_dm as $show) {
                     extract($show);
@@ -117,14 +117,17 @@
                 </script>
         </div>
 </div>
-<div class="mt-4  ml-20 mb-10">
+<div class="mt-4  ml-72 mb-10">
+    <form action="">
+
     <button onclick="myFunction()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
         type="submit" name="add-san-pham">Thêm mới</button>
     <button onclick="reset" type="submit"
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Nhập
         lại</button>
-    <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline"
+    <a class="bg-blue-500 hover:bg-blue-700 hover:no-underline text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline"
         href="<?= ADMIN_BASE . "?san-pham" ?>">Danh sách</a>
+        </form>
 </div>
 
 </form>

@@ -8,6 +8,7 @@ require_once '../model/product.php';
 require_once '../model/user.php';
 require_once '../model/option.php';
 require_once '../model/order.php';
+require_once '../model/thong-ke.php';
 // include_once '../model/danh_muc.php';
 // $show_error=getConnect();
 // echo $show_error;
@@ -211,10 +212,24 @@ if (isset($_GET['danh-muc'])) {
     $list_order = getfullOrder();
     // var_dump($id, $status);
     $VIEW_AD = './quan-ly-bill/bill.php';
-} elseif (isset($_GET[''])) {
+} elseif (isset($_GET['thong-ke'])) {
+    $listsanpham = load_thongkesanpham();
+    $thunhap = load_thongkethunhap();
+    $dhthanhcong = trangthaithanhcong();
+    $dhdangxuly = trangthaidangxuly();
+    $dhhuy = trangthaidahuy();
+    $dhdanggiao = trangthaigiaohang();
+    
+    $VIEW_AD = './thong-ke/thong-ke.php';
+
 } else {
     $VIEW_AD = 'home.php';
-}
+} 
+
+    $show_user = get_full_user();
+    
+    
+
 // require_once './danh-muc/    index.php';
 
 include_once './layout.php';

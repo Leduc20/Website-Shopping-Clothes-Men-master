@@ -1,7 +1,10 @@
-<div class=" mr-10 ">
-    <div class="">
-        <div class=" border bg-gray-200 rounded">
-            <p class="  justify-center flex py-2 uppercase font-semibold text-gray-500">Danh sách loại hàng</p>
+
+<div class=" ml-2 mr-2">
+    <div class="news relative shadow-md sm:rounded-lg mt-4">
+        <div class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ">
+            <p class="  justify-center flex py-2 uppercase font-semibold text-black">Danh sách loại hàng</p>
+
+
         </div>
         <h2>
             <?= isset($_COOKIE['success']) ? $_COOKIE['success'] : '' ?>
@@ -9,9 +12,11 @@
         
         <form action="">
             <div>
-                <div class=" shadow-md sm:rounded-lg mt-2">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-sm text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+
+                <div class="news shadow-md sm:rounded-lg mt-2   ">
+                    <table class="w-full text-center text-sm text-left text-gray-500 bg-white dark:text-black">
+                        <thead class= " text-sm text-black bg-white dark: dark:text-black">
+                        
 
                             <tr>
                                 <th>
@@ -37,9 +42,9 @@
                                 $edit = "index.php?edit&id=" . $id;
                                 echo '<tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                             <th>
-                                <div class="ml-7">
-                                    <input class="" type="checkbox" value="" id="flexCheckChecked">
-                                </div>
+
+                                <div> </div>
+
                             </th>
                             <th scope="row" class=" py-4 px-6 font-medium  text-gray-900 whitespace-nowrap dark:text-white">
                             ' . $id . '
@@ -47,13 +52,16 @@
                             <td class="py-4 px-6">
                             ' . $name . '
                             </td>
-                            <td class="py-4 px-6">
-                            <a onclick="" href="' . $edit . '" class=" px-2 text-white  rounded font-bold bg-blue-600 hover:bg-blue-700 ">Edit</a>
-                            <a onclick="" href="' . $delete . '" class="  px-2 text-white font-bold rounded bg-red-500 hover:bg-red-700 ">Delete</i></a>
+                            <td class="">
+                            <a onclick="" href="' . $edit . '" class="px-2 p-2  rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300">Sửa</a>
+                            <a onclick="" href="' . $delete . '" class="  px-2 p-2   rounded-lg bg-red-500 text-white hover:no-underline hover:bg-rose-400 ">Xóa</a>
                         </td>
                         </tr>';
                             }
                             ?>
+
+
+                        
 
                             <!-- <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                                 <th>
@@ -92,15 +100,23 @@
                                                 </td>
                                             </tr> -->
 
+
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class=" mt-4">
-                <a class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Chọn tất cả</a>
-                <a class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Bỏ chọn tất cả</a>
-                <a class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Xóa các mục chọn</a>
-                <a class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="<?= ADMIN_BASE . "?add-danh-muc" ?>">Nhập thêm</a>
+
+            <div class=" mt-4 ml-72">
+                <a class="hover:no-underline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline"
+                    href="">Chọn tất cả</a>
+                <a class="hover:no-underline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline"
+                    href="">Bỏ chọn tất cả</a>
+                <a class="hover:no-underline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline"
+                    href="">Xóa các mục chọn</a>
+                <a class="hover:no-underline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline"
+                    href="<?= ADMIN_BASE . "?add-danh-muc" ?>">Nhập thêm</a>
+
+            
             </div>
         </form>
         <div class="mt-2 text-black-500 font-bold text-red-500">
@@ -127,4 +143,5 @@
         </div>
 
     </div>
+    
 </div>

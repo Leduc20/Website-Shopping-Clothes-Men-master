@@ -35,17 +35,17 @@ if (is_file($imagepath)) {
         <div class="mt-4 ml-4">
             <p class="font-bold ">Hình ảnh</p>
             <input type="file" name="image" id="">
-            <img class="border  mt-1 py-2  rounded-[4px] w-[160px]" type="" name="image" src="../upload/<?= $image ?>"
+            <img class="border   mt-1 py-2  rounded-[4px] w-[160px]" type="" name="image" src="../upload/<?= $image ?>"
                 alt="" name="image">
         </div>
 
         <div class="mt-4 ml-4">
             <p class="font-bold ">Mô tả</p>
-            <textarea class="border" name="detail" id="detail" cols="49" rows="5" value=""><?= $detail ?></textarea>
+            <textarea class="border p-2" name="detail" id="detail" cols="49" rows="5" value=""><?= $detail ?></textarea>
         </div>
         <div class="mt-4 ml-4">
             <p class="font-bold ">Số lượng</p>
-            <input class="border py-2 mt-1  rounded-[4px]" type="number" name="description" id="view"
+            <input class="border p-2 mt-1  rounded-[4px]" type="number" name="description" id="view"
                 value="<?= $description ?>">
         </div>
         <!-- <div class="mt-4 ml-4">
@@ -64,7 +64,7 @@ if (is_file($imagepath)) {
         <div class="mt-4 ml-4">
             <input type="hidden" name="" id="" value="<?= $groupProduct_Id ?>">
             <p class="font-bold mb-2">Loại hàng</p>
-            <select class="border mb-4 w-[200px] h-[45px]  rounded" name="groupProduct_Id" id="myselect">
+            <select class="border p-2 mb-4 w-[200px] h-[45px]  rounded" name="groupProduct_Id" id="myselect">
                 <?php
                 foreach ($show_dm as $show) {
                     extract($show);
@@ -110,7 +110,7 @@ if (is_file($imagepath)) {
         <button type="reset"
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Nhập
             lại</button>
-        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline"
+        <a class="bg-blue-500 hover:no-underline hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline"
             href="<?= ADMIN_BASE . "?san-pham" ?>">Danh sách</a>
     </div>
 </form>

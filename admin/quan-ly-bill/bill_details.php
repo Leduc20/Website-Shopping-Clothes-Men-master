@@ -120,10 +120,12 @@
             <label for="client">Trạng thái</label>
             <div class="inline-flex relative">
                 <select class="bg-rose-400 text-white  px-4 py-3 rounded-lg appearance-none w-full outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300" id="client" name="order_status">
-                    <option value="chờ xác nhận">Đang xử lý</option>
+
+                    <option value="đang xử lý">Đang xử lý</option>
                     <option value="đang giao hàng">Đang giao hàng</option>
                     <option value="giao hàng thành công">Đã giao</option>
-                    <option value="đã hủy">Đã hủy</option>
+                    <option value="đã hủy đơn">Đã hủy</option>
+
                 </select>
                 <!-- <div class="inline-flex relative">
                     <select name="update_status" id="" class="bg-rose-400 text-white  px-4 py-3 rounded-lg appearance-none w-full outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300">
