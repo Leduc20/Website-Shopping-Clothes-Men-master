@@ -254,7 +254,7 @@
                     <?php if (isset($_SESSION['user'])) {
                         extract($_SESSION['user']);
                     ?>
-                        <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="absolute inset-x-2/4 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl">
+                        <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="absolute -right-2/4 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl">
                             <?php
                             if ($is_Admin == 1) { ?>
                                 <a href="<?= ADMIN_BASE ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">

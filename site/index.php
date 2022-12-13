@@ -13,7 +13,6 @@ if (isset($_GET['chi-tiet'])) {
     $product = getProductById($_GET['id']);
 
     $is_bought = !isset($_SESSION['user']) ? 'login' : (!!get_productId_bought_by_user_id($_SESSION['user']['id'], $_GET['id']) ? 'cmt' : 'watch');
-    var_dump($is_bought);
 
     $VIEW_NAME = 'chi-tiet.php';
 } elseif (isset($_GET['danh-muc'])) {
@@ -144,6 +143,46 @@ if (isset($_GET['chi-tiet'])) {
 
     $results = [];
 
+    foreach ($orders as $key => $value) {
+        $keyI = array_search($value['orderId'], array_column($results, 'orderId'));
+        extract($value);
+        if ($keyI === false) {
+            $order = array(
+                'orderId' => $orderId,
+                'status' => $status,
+                'totalMoney' => $totalMoney,
+                'created_at' => $created_at,
+                'updated_at' => $updated_at,
+                'products' => array(
+                    [
+                        "prdId" => $prdId,
+                        'name' => $name,
+                        'image' => $image,
+                        'price' => $price,
+                        'size' => $size,
+                        'color' => $color,
+                        'amount' => $amount
+                    ],
+                ),
+            );
+            array_push($results, $order);
+        } else {
+            array_push($results[$keyI]['products'], array(
+
+                "prdId" => $prdId,
+                'name' => $name,
+                'image' => $image,
+                'price' => $price,
+                'size' => $size,
+                'color' => $color,
+                'amount' => $amount
+
+            ));
+        }
+    }
+
+
+
     $VIEW_NAME = 'purchase.php';
 } elseif (isset($_GET['search'])) {
     if (!isset($_GET['q'])) {
@@ -172,7 +211,7 @@ if (isset($_GET['chi-tiet'])) {
     $products = get_full_favorites_by_userId($_SESSION['user']['id']);
     $VIEW_NAME = 'my-favorites.php';
 } else {
-    $products = get_full_products();
+
     $limit = 4;
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
     $products = get_page($limit, $page);

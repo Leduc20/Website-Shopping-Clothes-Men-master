@@ -24,11 +24,11 @@ function get_orders_by_userId($user_id, $type)
 
     function sql($user_id, $type)
     {
-        if ($type) return "SELECT prd.id AS prdId, prd.name, prd.image, prd.price, odt.size, odt.color, odt.amount, od.id AS orderId, od.status, od.totalMoney
+        if ($type) return "SELECT prd.id AS prdId, prd.name, prd.image, prd.price, odt.size, odt.color, odt.amount, od.id AS orderId, od.status, od.totalMoney, od.created_at, od.updated_at
     FROM products prd JOIN order_details odt ON prd.id = odt.product_id
     JOIN orders od ON od.id = odt.order_id WHERE od.user_id = $user_id AND od.status= '$type' ORDER BY od.created_at DESC";
 
-        return "SELECT prd.id AS prdId, prd.name, prd.image, prd.price, odt.size, odt.color, odt.amount, od.id AS orderId, od.status, od.totalMoney
+        return "SELECT prd.id AS prdId, prd.name, prd.image, prd.price, odt.size, odt.color, odt.amount, od.id AS orderId, od.status, od.totalMoney, od.created_at, od.updated_at
     FROM products prd JOIN order_details odt ON prd.id = odt.product_id
     JOIN orders od ON od.id = odt.order_id WHERE od.user_id = $user_id  ORDER BY od.created_at DESC";
     }
