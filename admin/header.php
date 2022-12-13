@@ -1,7 +1,7 @@
 
 <div class="ml-72 justify-end flex">
     <div class=" mt-2 py-3 px-4 mr-2 ">
-        <button class="now-ui-icons ui-1_bell-53 text-[17px] hover:text-orange-500 font-bold"></button>
+        <button class="fa fa-bell text-[17px] hover:text-orange-500 font-bold"></button>
     </div>
 
     <div>
