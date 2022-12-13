@@ -60,10 +60,15 @@
                                 </div>
                             </div>
                             <div class="text-lg text-black-600 font-normal mt-1">
+<<<<<<< HEAD
+                                 <?= $value['price'] ?> VNĐ
+                            </div>
+=======
                                 <?= $value['price'] ?> vnđ
 
                             </div>
 
+>>>>>>> b5733150cc722727f72737cae5a1eb0d2e948b73
                             <div class="flex space-x-2 text-sm font-medium justify-start my-3">
                                 <button class="w-full transition ease-in duration-300 inline-flex items-center justify-center text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-600">
                                     <span>Xem chi tiết</span>

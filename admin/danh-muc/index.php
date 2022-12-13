@@ -12,8 +12,6 @@ if(isset($_GET['add-danh-muc'])){
 else{
     $VIEW_AD = 'danh-sach.php';
 }
-
-
 // if(isset($_GET['tao-moi'])){
 //     $VIEW_AD = 'tao-form.php';
 // }elseif(isset($_GET['sua'])){
