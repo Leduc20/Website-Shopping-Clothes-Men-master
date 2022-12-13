@@ -23,6 +23,7 @@ function split_array($arr1, $arr2, $arr3, $arr4)
 }
 
 $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['color']);
+
 ?>
 
 <div class=" container mx-auto mb-4">
@@ -67,10 +68,10 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
                             </div>
                         </div>
                         <div class="text-sm text-gray-600 mr-4">
-                            price: <?= $value['price'] ?>
+                            Giá: <?= $value['price'] ?> vnđ
                         </div>
                         <div class="text-sm text-gray-600 mr-4">
-                            <?= $value['price'] * $value['sl'] ?>
+                            <?= $value['price'] * $value['sl'] ?> vnđ
                         </div>
                     </div>
                 </div>
@@ -98,10 +99,14 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
                 <div class="border p-2 my-3">
                     <p>
                         Phương thức thanh toán:
-                        <select name="payment" id="">
-                            <option value="cod">Nhận hàng thanh toán</option>
-                            <option value="banking">Thẻ ngân hàng</option>
-                        </select>
+                    </p>
+                    <p>
+                        <input type="radio" name="payment" id="payment" value="tienmat">
+                        <button>Thanh toán khi nhận hàng</button>
+                    </p>
+                    <p>
+                        <input type="radio" name="payment" id="payment" value="vnpay">
+                        <button>Thanh toán VNPAY</button>
                     </p>
                 </div>
             </div>
@@ -111,7 +116,6 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
                 </button>
             </div>
         </div>
-
     </form>
 
 </div>

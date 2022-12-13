@@ -1,33 +1,33 @@
-<div class="search">
-
-    <form class="flex items-center" method="GET">
-        <input type="hidden" name='q' value="<?= $keyWord ?>">
-        <input type="hidden" name='search'>
-        <div class="">
-            <p>Mời chọn danh mục</p>
-            <select class="form-select" name="category" style="max-width: 250px; height: 30px">
-                <option value="" selected>Tất cả danh mục</option>
-                <?php foreach ($categories as $key => $value) : ?>
-                    <option value="<?= $value['name'] ?>" <?= $value['name'] == $category ? 'selected' : null ?>>
-                        <?= $value['name'] ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-        </div>
-
-        <div class="ml-5">
-            <p>Khoảng giá</p>
-            <div class="flex items-center" style="max-width: 250px; height: 30px">
-                <input type="text" name='start' id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> -
-                <input type="text" name='end' id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+<div class="search flex py-24 container mx-auto">
+    <div>
+        <form class=" items-center" method="GET">
+            <input type="hidden" name='q' value="<?= $keyWord ?>">
+            <input type="hidden" name='search'>
+            <div class="my-3">
+                <p class="font-semibold my-3">Loại hàng</p>
+                <select class="form-select" name="category" style="max-width: 250px; height: 30px">
+                    <option value="" selected>Tất cả danh mục</option>
+                    <?php foreach ($categories as $key => $value) : ?>
+                        <option value="<?= $value['name'] ?>" <?= $value['name'] == $category ? 'selected' : null ?>>
+                            <?= $value['name'] ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
             </div>
-        </div>
 
-        <button class="btn btn-primary ml-4 mt-4" style=" height: 40px">Lọc</button>
-    </form>
-
+            <div class="my-3">
+                <p class="font-semibold my-3">Khoảng giá</p>
+                <div class="flex items-center" style="max-width: 250px; height: 30px">
+                    <input type="text" name='start' id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> -
+                    <input type="text" name='end' id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+            </div>
+            <button class="w-full my-5 transition ease-in duration-300 inline-flex items-center justify-center text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-4 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-600" >Lọc</button>
+        </form>
+    </div>
+    
     <h3 class="mb-4">Kết quả tìm kiểm: <?= $keyWord ?></h3>
-
+    
     <div class="grid grid-cols-4 gap-10 px-4">
         <?php foreach ($products as $key => $value) : ?>
             <div class="max-w-md w-full bg-gray-100 shadow-lg rounded-xl p-6">
@@ -60,14 +60,15 @@
                                 </div>
                             </div>
                             <div class="text-lg text-black-600 font-normal mt-1">
-                                $ <?= $value['price'] ?>
+<<<<<<< HEAD
+                                 <?= $value['price'] ?> VNĐ
+                            </div>
+=======
+                                <?= $value['price'] ?> vnđ
 
                             </div>
 
-                            <div class="text-lg text-black-600 font-normal mt-1">
-                                $ <?= $value['price'] ?>
-                            </div>
-
+>>>>>>> b5733150cc722727f72737cae5a1eb0d2e948b73
                             <div class="flex space-x-2 text-sm font-medium justify-start my-3">
                                 <button class="w-full transition ease-in duration-300 inline-flex items-center justify-center text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-600">
                                     <span>Xem chi tiết</span>

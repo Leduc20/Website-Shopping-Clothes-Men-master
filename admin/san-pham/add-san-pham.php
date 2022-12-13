@@ -1,7 +1,7 @@
 <div class="">
     <form onsubmit="return checkSelect()" action="index.php?add-san-pham" method="post" id="checkproduct"
         enctype="multipart/form-data">
-        <div class="grid grid-cols-2 gap-2 mr-10 bg-white rounded">
+        <div class="grid grid-cols-2 gap-2 mr-10 bg-gray-50 rounded">
             <div class="mt-4 ml-4">
                 <p class="font-bold ">Mã sản phẩm</p>
                 <input class="border  p-2 rounded-[4px] mt-1 " placeholder="Không cần nhập" disabled type="text" name=""
@@ -119,6 +119,7 @@
 </div>
 <div class="mt-4  ml-72 mb-10">
     <form action="">
+
     <button onclick="myFunction()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
         type="submit" name="add-san-pham">Thêm mới</button>
     <button onclick="reset" type="submit"
@@ -128,4 +129,5 @@
         href="<?= ADMIN_BASE . "?san-pham" ?>">Danh sách</a>
         </form>
 </div>
+
 </form>

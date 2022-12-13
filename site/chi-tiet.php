@@ -1,7 +1,7 @@
 <!-- component -->
 
 <section class="text-gray-700 body-font overflow-hidden bg-white">
-  <div class="container px-5 py-24 mx-auto" id="data-product" data-product='<?php echo json_encode($product); ?>'>
+  <div class="container px-5 py-24 mx-auto" id="data-product" data-id="<?= $product['id'] ?>" data-product='<?php echo json_encode($product); ?>'>
     <div class="lg:w-4/5 mx-auto flex flex-wrap">
       <img alt="ecommerce" class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" src="<?= BASE_URL . "upload/" . $product['image'] ?>">
       <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -51,7 +51,7 @@
             </a>
           </span>
         </div>
-        <p class="leading-relaxed"><?= $product['description'] ?></p>
+        <p class="leading-relaxed">Số lượng: <?= $product['description'] ?></p>
         <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
           <div class="flex ml-6 items-center">
             <span class="mr-3">Màu</span>
@@ -97,6 +97,9 @@
             </button>
           </div>
         </div>
+        <div>
+        <?= $product['detail'] ?>
+        </div>
         <div class="flex">
           <span class="title-font font-medium text-2xl text-gray-900"><?= $product['price'] ?> VNĐ</span>
           <button id="btn-add-prd" class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Mua
@@ -111,6 +114,36 @@
       </div>
     </div>
   </div>
+
+  <section class="bg-white dark:bg-gray-900 py-8 lg:py-16 container mx-auto " style="max-width: 950px;">
+    <div class="px-4">
+      <!-- form bình luận -->
+      <!-- if mua hàng thì show form bình luân, else không show -->
+      <?php if ($is_bought == 'login') { ?>
+        <p>Vui lòng đăng nhập để thực hiện comment <a class="text-blue-500" href="<?= AUTH_BASE ?>?login">Login</a></A></p>
+      <?php } ?>
+
+      <?php if ($is_bought == 'watch') echo  '<p class="">Hãy mua hàng và cho chúng tôi biết trải nghiệm của bạn về sản phẩm của chúng tôi</p>' ?>
+
+      <?php if ($is_bought == 'cmt') echo '<div class="mb-6">
+        <h1 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Viết bình luận của bạn tại đây</h1>
+        <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+          <label for="comment" class="sr-only">Your comment</label>
+          <textarea id="comment-value" rows="2" class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800" placeholder="Viết bình luận..." required></textarea>
+        </div>
+        <button disabled id="btn-cmt" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-primary-900 hover:bg-blue-800">
+          Gửi bình luận
+        </button>
+      </div>' ?>
+
+      <!-- show bình luận -->
+
+      <div id="list-cmt" class="overflow-y-auto" style="max-height: 800px;">
+
+      </div>
+
+    </div>
+  </section>
 </section>
 
 <!-- Toast -->
@@ -131,8 +164,7 @@
   </button>
 </div>
 
-<script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
-<!-- <script src="./src/js/test.js"></script> -->
+<script src="./src/js/flowbite.js"></script>
 <script type="module">
   import {
     cartCount,
@@ -230,7 +262,7 @@
         image,
         description,
         price,
-        sl: prdValid.sl * 1 + slEl.value*1,
+        sl: prdValid.sl * 1 + slEl.value * 1,
         color,
         size
       };
@@ -248,3 +280,4 @@
     }, 2000)
   }
 </script>
+<script type="module" src="./src/js/comment.js"></script>

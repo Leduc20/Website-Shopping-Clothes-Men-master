@@ -106,7 +106,7 @@
 
                         <a href="<?= SITE_URL ?>?chi-tiet&id=<?= $value['id'] ?>">
                             <div class=" h-56 mb-3">
-                                <img src=" <?= BASE_URL . "upload/" . $value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
+                                <img src=" <?= BASE_URL."upload/".$value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
                             </div>
                             <div class="flex-auto justify-evenly">
                                 <div class="flex flex-wrap">
@@ -118,7 +118,7 @@
                                     </div>
                                 </div>
                                 <div class="text-lg text-black-600 font-normal mt-1">
-                                    $ <?= $value['price'] ?>
+                                    <?= $value['price'] ?> VNĐ
                                 </div>
 
                                 <div class="flex space-x-2 text-sm font-medium justify-start my-3">
@@ -133,6 +133,39 @@
             <?php endforeach; ?>
         </div>
     </div>
+    
+<nav aria-label="Page navigation example" class="flex justify-center">
+  <ul class="inline-flex items-center -space-x-px">
+    <li>
+      <a href="#" class="block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+        <span class="sr-only">Previous</span>
+        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+      </a>
+    </li>
+    <li>
+      <a href="<?= SITE_URL ?>?page=1" class="<?php if(!isset($_GET['page']) || $_GET['page'] == 1) echo "text-blue-600 bg-blue-50" ?> px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+    </li>
+    <li>
+      <a href="<?= SITE_URL ?>?page=2" class="<?php if(isset($_GET['page']) && $_GET['page'] == 2) echo "text-blue-600 bg-blue-50" ?> px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+    </li>
+    <li>
+      <a href="<?= SITE_URL ?>?page=3" aria-current="page" class="<?php if(isset($_GET['page']) && $_GET['page'] == 3) echo "text-blue-600 bg-blue-50" ?> z-10 px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">3</a>
+    </li>
+    <li>
+      <a href="<?= SITE_URL ?>?page=4" class="<?php if(isset($_GET['page']) && $_GET['page'] == 4) echo "text-blue-600 bg-blue-50" ?> px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+    </li>
+    <li>
+      <a href="<?= SITE_URL ?>?page=5" class="<?php if(isset($_GET['page']) && $_GET['page'] == 5) echo "text-blue-600 bg-blue-50" ?>px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+    </li>
+    <li>
+      <a href="#" class="block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+        <span class="sr-only">Next</span>
+        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+      </a>
+    </li>
+  </ul>
+</nav>
+
 
 </section>
 

@@ -1,4 +1,6 @@
+
 <main class="bg-indigo-50/60 w-full py-10 px-3 sm:px-10">
+
 
     <!-- Nav -->
     <nav class="text-lg flex items-center justify-between content-center ">
@@ -133,7 +135,7 @@
             <div class="text-center">Date</div>
             <div class="text-center">Trạng thái</div>
             <div class="flex-1  text-center">Chi tiết</div>
-            <div class="flex-1  text-center">Hành động</div>
+            <div class="flex-1  text-center"></div>
         </div><!-- /Table Header -->
 
 
@@ -154,9 +156,7 @@
                 <a href='.$detail_bill.' class="text-center ">
                     <span class="px-4 py-1 rounded-lg bg-rose-400 text-white">Chi tiết</span>
                 </a>
-                <a href="" class="text-center ">
-                    <span class="px-4 py-1 rounded-lg bg-rose-400 text-white">Xóa</span>
-                </a>
+               
             </div>';
         }
         ?>
