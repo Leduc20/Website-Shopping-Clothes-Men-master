@@ -1,4 +1,4 @@
-<main class="bg-indigo-50/60 ml-[200px] w-full py-10 px-3 sm:px-10">
+<main class="bg-indigo-50/60 w-full py-10 px-3 sm:px-10">
 
     <!-- Nav -->
     <nav class="text-lg flex items-center justify-between content-center ">
