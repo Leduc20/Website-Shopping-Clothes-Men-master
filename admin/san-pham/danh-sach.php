@@ -34,7 +34,7 @@
                             Hình ảnh
                         </th>
                         <th scope="col" class="py-3 px-2">
-                            Giá gốc
+                            Giá tiền
                         </th>
                         <!-- <th scope="col" class="py-3 px-2">
                             Giá giảm
@@ -46,54 +46,12 @@
                             Thời Gian
                         </th>
                         <th scope="col" class="py-3 px-2">
-                            Mô Tả
+                            
                         </th>
                         <th scope="col" class="py-1 px-2">
                             
 
-                        <th scope="col" class="py-3 px-6">
-                            Mã hàng hóa
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            Mã loại
-                        </th>
-                        <!-- <th scope="col" class="py-3 px-6">
-                                                        Ten Danh mục
-                                                    </th> -->
-                        <th scope="col" class="py-3 px-6">
-                            Tên sản phẩm
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            Chi tiết
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            ADD Attribute
-                        </th>
-                        <!-- <th scope="col" class="py-3 px-6">
-                            Details Attribute
-                        </th> -->
-                        <th scope="col" class="py-3 px-6">
-                            Hình ảnh
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            Giá gốc
-                        </th>
-                        <!-- <th scope="col" class="py-3 px-6">
-                            Giá giảm
-                        </th> -->
-                        <!-- <th scope="col" class="py-3 px-6">
-                            ststus
-                        </th> -->
-                        <th scope="col" class="py-3 px-6">
-                            Date
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            Description
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            Edit
-
-                        </th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -151,45 +109,12 @@
                         <td class="py-4 px-2">
                         ' . $created_at . '
                         </td>
-                        <td class="py-4 px-2">
-                        ' . $description . '
-                        </td>
+                        
                         <td class="leading-10 text-center">
                             <a href="' . $edit . '" class="px-2 p-2  rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300">Sửa</a>
                             <a href="' . $delete . '" class="px-2 p-2   rounded-lg bg-red-500 text-white hover:no-underline hover:bg-rose-400">Xóa</a>
 
-                        <td class="py-4 px-6">
-                        ' . $groupProduct_Id . '
-                        </td>
                         
-                        <td class="py-4 px-6">
-                        ' . $name . '
-                        </td>
-                        <td class="py-4 px-6">
-                        ' . $detail . '
-                        </td>
-                        <td class="py-4 px-6">
-                        <a href="' . $edit_size. '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">ADD_size</a>
-                        <a href="' . $add_color . '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">ADD_color</a>
-                        
-                        <td class="py-4 px-6">
-                        ' . $image . '
-                        </td>
-                        <td class="py-4 px-6">
-                        ' . $price . '
-                        </td>
-                        
-                        <td class="py-4 px-6">
-                        ' . $created_at . '
-                        </td>
-                        <td class="py-4 px-6">
-                        ' . $description . '
-                        </td>
-                        <td class="py-4 px-6">
-                            <a href="' . $edit . '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">Edit</a>
-                            <a href="' . $delete . '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">delete</a>
-
-                        </td>
                     </tr>';
                     }
                     ?>

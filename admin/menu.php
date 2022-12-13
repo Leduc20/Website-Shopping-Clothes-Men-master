@@ -18,50 +18,50 @@
         <ul class="nav " id="">
           <li class="">
             <a href="<?= SITE_URL . "?list-danh-muc"?>">
-              <i class="now-ui-icons design_app"></i>
+              <i class="fa fa-home"></i>
               <p>Home</p>
             </a>
           </li>
           <li >
             <a href="<?= ADMIN_BASE . "?danh-muc" ?>">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Category</p>
+            <i class="fa fa-folder-open"></i>
+                          <p>Category</p>
             </a>
           </li>
           <li>
             <a href="<?= ADMIN_BASE . "?san-pham"?>">
-              <i class="now-ui-icons location_map-big"></i>
+            <i class="fa-solid fa-shirt"></i>
               <p>Product</p>
             </a>
           </li>
           <li>
             <a href="<?= ADMIN_BASE . "?khach-hang"?>">
-              <i class="now-ui-icons users_single-02"></i>
+              <i class="fa fa-users"></i>
               <p>Customer</p>
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="now-ui-icons ui-2_chat-round rotate"></i>
+            <a href="#">
+              <i class="fa fa-comments"></i>
               <p>Comment</p>
             </a>
           </li>
           <li>
             <a href="<?= ADMIN_BASE . "?don-hang"?>">
-              <i class="now-ui-icons education_paper"></i>
+              <i class="fa fa-file-text"></i>
               <p>Bills</p>
             </a>
           </li>
           <li>
             <a href="<?= ADMIN_BASE . "?thong-ke"?>">
-              <i class="now-ui-icons business_chart-bar-32"></i>
+              <i class="fa fa-bar-chart " aria-hidden="true"></i>
               <p>Statistical </p>
             </a>
           </li>
           
           <li class="index.php?act=thoat">
             <a href="">
-              <i class="now-ui-icons loader_gear"></i>
+              <i class="fa fa-cog"></i>
               <p>Log Out</p>
             </a>
           </li>
