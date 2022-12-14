@@ -213,9 +213,6 @@ if (isset($_GET['chi-tiet'])) {
     $start = empty($_GET['start']) ? '' : $_GET['start'];
     $end = empty($_GET['end']) ? '' : $_GET['end'];
 
-    $res = mail('hahuu01032k2@gmail.com', 'testEmail', 'Đây là nội dung email');
-    var_dump($res);
-
     $products = get_products_by_category($_GET['id'], '', '', null);
     $categories = get_full_categoriess();
     $VIEW_NAME = 'danh-muc.php';
