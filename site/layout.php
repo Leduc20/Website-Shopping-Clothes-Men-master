@@ -315,7 +315,7 @@
     </main>
     <!--  -->
     <section>
-        <footer class="text-center lg:text-left bg-gray-100 text-gray-600">
+        <footer class="mt-12 text-center lg:text-left bg-gray-100 text-gray-600">
             <div class="flex justify-center items-center lg:justify-center p-6 border-b border-gray-300">
                 <div class="hidden lg:block">
                     <form action="">

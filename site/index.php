@@ -213,7 +213,10 @@ if (isset($_GET['chi-tiet'])) {
     $start = empty($_GET['start']) ? '' : $_GET['start'];
     $end = empty($_GET['end']) ? '' : $_GET['end'];
 
-    $products = get_products_by_category($_GET['id'], $start, $end);
+    $res = mail('hahuu01032k2@gmail.com', 'testEmail', 'Đây là nội dung email');
+    var_dump($res);
+
+    $products = get_products_by_category($_GET['id'], '', '', null);
     $categories = get_full_categoriess();
     $VIEW_NAME = 'danh-muc.php';
 } else {
@@ -221,6 +224,7 @@ if (isset($_GET['chi-tiet'])) {
     $limit = 4;
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
     $products = get_page($limit, $page);
+    $productBestSl = get_products_bestseller();
     $categories = get_full_categoriess();
 
     $VIEW_NAME = 'trang-chu.php';
