@@ -167,7 +167,7 @@
                 <div class="text-left ">' . $id . '</div>
                 <div class="text-left">' . $product_id . '</div>
                 <div class="text-left"> null</div>
-                <div class="text-center">' . $size . '</div>
+                <div class="text-center">'.$size.'</div>
                 <div class="text-center">' . $color . '</div>
                 <div class="text-center">' . $amount . '</div>
                 <div class="text-center"></div>

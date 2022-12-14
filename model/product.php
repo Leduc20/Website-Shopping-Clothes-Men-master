@@ -14,7 +14,7 @@ function getfullProducts()
 function get_full_products()
 {
     // $sql = "select * from products ORDER BY products.updated_at DESC";
-    $sql = "select prd.id, prd.name, prd.image, prd.price,prd.groupProduct_Id, prd.description,prd.detail, prd.created_at, fa.id as favorite_id, fa.user_id
+    $sql = "select prd.id, prd.name, prd.image, prd.price,prd.groupProduct_Id, prd.amount,prd.detail, prd.created_at, fa.id as favorite_id, fa.user_id
     from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  ORDER BY prd.created_at DESC";
     return pdo_query_all($sql);
 }
@@ -28,13 +28,13 @@ function get_page($limit, $page)
 {
     $skip = $limit * ($page - 1);
     // $sql = "select * from products ORDER BY products.updated_at DESC";
-    $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.description, prd.created_at, prd.category_id, fa.id as favorite_id, fa.user_id
+    $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.amount, prd.created_at, prd.groupProduct_Id, fa.id as favorite_id, fa.user_id
     from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  ORDER BY prd.created_at DESC LIMIT $limit OFFSET $skip";
     return pdo_query_all($sql);
 }
 function get_products_bestseller()
 {
-    $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.description, prd.created_at, prd.category_id, fa.id as favorite_id, fa.user_id
+    $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.amount, prd.created_at, prd.groupProduct_Id, fa.id as favorite_id, fa.user_id
     from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  ORDER BY prd.quantity_sold DESC LIMIT 10";
     return pdo_query_all($sql);
 }
@@ -42,22 +42,22 @@ function get_products_bestseller()
 function get_products_by_category($category_id, $start, $end, $selling)
 {
     // $sql = "select * from products ORDER BY products.updated_at DESC";
-    $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.description, prd.created_at, prd.category_id, fa.id as favorite_id, fa.user_id
-    from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  WHERE category_id = $category_id ORDER BY prd.created_at DESC";
+    $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.	amount, prd.created_at, prd.groupProduct_Id, fa.id as favorite_id, fa.user_id
+    from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  WHERE groupProduct_Id = $category_id ORDER BY prd.created_at DESC";
 
     if ($start != '' & $end != '') {
-        $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.description, prd.created_at, prd.category_id, fa.id as favorite_id, fa.user_id
-        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  WHERE category_id = $category_id AND price <= $end AND  price>= $start  ORDER BY prd.created_at DESC";
+        $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.	amount, prd.created_at, prd.groupProduct_Id, fa.id as favorite_id, fa.user_id
+        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  WHERE groupProduct_Id = $category_id AND price <= $end AND  price>= $start  ORDER BY prd.created_at DESC";
     }
 
     if ($selling) {
-        $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.description, prd.created_at, prd.category_id, fa.id as favorite_id, fa.user_id
-        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  WHERE category_id = $category_id ORDER BY prd.quantity_sold DESC";
+        $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.	amount, prd.created_at, prd.groupProduct_Id, fa.id as favorite_id, fa.user_id
+        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  WHERE groupProduct_Id = $category_id ORDER BY prd.quantity_sold DESC";
     }
 
     if ($start != '' && $end != '' && $selling) {
-        $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.description, prd.created_at, prd.category_id, fa.id as favorite_id, fa.user_id
-        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  WHERE category_id = $category_id AND price <= $end AND  price>= $start  ORDER BY prd.quantity_sold DESC";
+        $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.	amount, prd.created_at, prd.groupProduct_Id, fa.id as favorite_id, fa.user_id
+        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  WHERE groupProduct_Id = $category_id AND price <= $end AND  price>= $start  ORDER BY prd.quantity_sold DESC";
     }
     return pdo_query_all($sql);
 }
@@ -82,9 +82,9 @@ function getProductById($id)
 }
 
 
-function insertProduct($name, $detail, $image, $price, $description, $groupProduct_Id)
+function insertProduct($name, $detail, $image, $price, $amount, $groupProduct_Id)
 {
-    $sql = "INSERT INTO `products`(`name`, `detail`, `image`, `price`, `description`,`groupProduct_Id`) VALUES ('$name','$detail','$image','$price','$description','$groupProduct_Id')";
+    $sql = "INSERT INTO `products`(`name`, `detail`, `image`, `price`, `amount`,`groupProduct_Id`) VALUES ('$name','$detail','$image','$price','$amount','$groupProduct_Id')";
     pdo_execute($sql);
 }
 function deleteProduct($id)
@@ -102,12 +102,12 @@ function deleteProduct($id)
 
 //     return pdo_execute($sql);
 // }
-function updateProduct($id, $name, $detail, $image, $price, $description, $groupProduct_Id)
+function updateProduct($id, $name, $detail, $image, $price, $amount, $groupProduct_Id)
 {
     if ($image != "") {
-        $sql = "UPDATE `products` SET `name`='" . $name . "',`detail`='" . $detail . "',`image`='" . $image . "',`price`='" . $price . "',`description`='" . $description . "',`groupProduct_Id`='" . $groupProduct_Id . "' WHERE id=$id";
+        $sql = "UPDATE `products` SET `name`='" . $name . "',`detail`='" . $detail . "',`image`='" . $image . "',`price`='" . $price . "',`amount`='" . $amount . "',`groupProduct_Id`='" . $groupProduct_Id . "' WHERE id=$id";
     } else {
-        $sql = "UPDATE `products` SET `name`='" . $name . "',`detail`='" . $detail . "',`price`='" . $price . "',`description`='" . $description . "',`groupProduct_Id`='" . $groupProduct_Id . "' WHERE id=$id";
+        $sql = "UPDATE `products` SET `name`='" . $name . "',`detail`='" . $detail . "',`price`='" . $price . "',`amount`='" . $amount. "',`groupProduct_Id`='" . $groupProduct_Id . "' WHERE id=$id";
     }
 
     return pdo_execute($sql);
@@ -116,23 +116,23 @@ function updateProduct($id, $name, $detail, $image, $price, $description, $group
 function searchProduct($search, $category, $start, $end)
 {
 
-    $sql =  "select prd.id, prd.name, prd.image, prd.price, prd.description, prd.amount, prd.quantity_sold, fa.id as favorite_id, fa.user_id
+    $sql =  "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.amount, prd.quantity_sold, fa.id as favorite_id, fa.user_id
     from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id WHERE prd.name LIKE '%$search%'";
 
     if ($category != '') {
 
-        $sql = "SELECT prd.id, prd.name, prd.image, prd.price, prd.description, prd.amount, prd.quantity_sold, fa.id as favorite_id, fa.user_id
+        $sql = "SELECT prd.id, prd.name, prd.image, prd.price,  prd.amount, prd.quantity_sold, fa.id as favorite_id, fa.user_id
 
         from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id JOIN groupproduct cat ON prd.groupProduct_id = cat.id WHERE prd.name LIKE '%$search%' AND cat.name = '$category'";
     }
     if ($start != '' & $end != '') {
 
-        $sql = "SELECT prd.id, prd.name, prd.image, prd.price, prd.description, prd.amount, prd.quantity_sold, fa.id as favorite_id, fa.user_id
+        $sql = "SELECT prd.id, prd.name, prd.image, prd.price,  prd.amount, prd.quantity_sold, fa.id as favorite_id, fa.user_id
         from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id WHERE prd.name LIKE '%$search%' AND price <= $end AND  price>= $start";
     }
 
     if ($category != '' & $start != ''  & $end != '') {
-        $sql = "SELECT prd.id, prd.name, prd.image, prd.price, prd.description, prd.amount, prd.quantity_sold, fa.id as favorite_id, fa.user_id
+        $sql = "SELECT prd.id, prd.name, prd.image, prd.price,  prd.amount, prd.quantity_sold, fa.id as favorite_id, fa.user_id
         from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id JOIN groupproduct cat ON prd.groupProduct_id = cat.id WHERE prd.name LIKE '%$search%' 
 
             AND cat.name = '$category' AND price <= $end AND  price>= $start";
@@ -150,4 +150,3 @@ function get_full_color($id){
     $sql="SELECT * FROM option_color where product_id=$id";
     return pdo_query_all($sql);
 }
-

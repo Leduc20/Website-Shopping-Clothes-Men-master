@@ -11,7 +11,7 @@ function get_full_categories() {
 }
 
 function get_full_categoriess() {
-    $sql = "SELECT * FROM categories";
+    $sql = "SELECT * FROM groupproduct";
     return pdo_query_all($sql);
 }
 

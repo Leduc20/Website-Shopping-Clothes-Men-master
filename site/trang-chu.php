@@ -94,7 +94,7 @@
     <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
         <div id="store" class="w-full z-30 top-0 px-6 py-1">
             <div class="w-full container mx-auto flex flex-wrap items-center justify-center mt-0 px-2 py-3">
-                <h3 class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl" >
+                <h3 class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl">
                     SẢN PHẨM BEST SELLER
                     <div class="h-1 w-full bg-indigo-500 rounded"></div>
                 </h3>
@@ -102,55 +102,59 @@
         </div>
         <!-- show product -->
         <!--  -->
+
         <div id="user-id" class="mt-4 grid grid-cols-3 lg:grid-cols-5 gap-10 px-6" data-userId="<?= isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : 'null' ?>">
             <?php foreach ($productBestSl as $key => $value) : ?>
-                <div class="relative max-w-md w-full bg-gray-100 shadow-lg rounded-xl p-5">
-                    <div class="absolute top-0 left-0 z-10 bg-red-500 rounded-l-lg px-2 text-white">
-                        Bán chạy
-                    </div>
-                    <div class="relative">
-                        <div action="<?= SITE_URL ?>" method="POST">
-                            <div x-data="{ open: false }" @mouseleave="open = false" @mouseover="open = true" class="absolute flex flex-col top-0 right-0 p-3">
-                                <button id="btn-fav" type="submit" data-favId="<?= $value['favorite_id'] ?>" data-prdId="<?= $value['id'] ?>" value=" <?= ($value['user_id'] == (isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : 'null')) ? $value['favorite_id'] : $value['id'] ?>" name="<?= ($value['user_id'] == (isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : 'null')) ? 'remove_fav' : 'add_fav' ?>" class="btn-fav transition ease-in duration-300 bg-white hover:text-red-500 shadow hover:shadow-md text-gray-500 rounded-full w-8 h-8 text-center p-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="tymPrd h-6 w-6" fill="<?= ($value['user_id'] == (isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : 'null')) ? 'red' : 'none' ?>" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                    </svg>
-                                </button>
-
-                                <button id="poper-fav" x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="p-2 absolute top-10 right-4 w-32 mt-2 bg-white rounded-md shadow-xl">
-                                    <?= ($value['user_id'] == (isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : 'null')) ? 'Xóa khỏi sản phẩm yêu thích' : 'Thêm vào list sản phẩm yêu thích' ?>
-                                </button>
-                            </div>
+                <?php if ($value['quantity_sold'] >= 10) : ?>
+                    <div class="relative max-w-md w-full bg-gray-100 shadow-lg rounded-xl p-5">
+                        <div class="absolute top-0 left-0 z-10 bg-red-500 rounded-l-lg px-2 text-white">
+                            Bán chạy
                         </div>
+                        <div class="relative">
+                            <div action="<?= SITE_URL ?>" method="POST">
+                                <div x-data="{ open: false }" @mouseleave="open = false" @mouseover="open = true" class="absolute flex flex-col top-0 right-0 p-3">
+                                    <button id="btn-fav" type="submit" data-favId="<?= $value['favorite_id'] ?>" data-prdId="<?= $value['id'] ?>" value=" <?= ($value['user_id'] == (isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : 'null')) ? $value['favorite_id'] : $value['id'] ?>" name="<?= ($value['user_id'] == (isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : 'null')) ? 'remove_fav' : 'add_fav' ?>" class="btn-fav transition ease-in duration-300 bg-white hover:text-red-500 shadow hover:shadow-md text-gray-500 rounded-full w-8 h-8 text-center p-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="tymPrd h-6 w-6" fill="<?= ($value['user_id'] == (isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : 'null')) ? 'red' : 'none' ?>" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                        </svg>
+                                    </button>
 
-                        <a href="<?= SITE_URL ?>?chi-tiet&id=<?= $value['id'] ?>">
-                            <div class=" h-56 mb-3">
-                                <img src=" <?= BASE_URL . "upload/" . $value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
-                            </div>
-                            <div class="flex-auto justify-evenly">
-                                <div class="flex flex-wrap">
-                                    <div class="w-full flex-none text-sm flex items-center text-gray-600"></div>
-                                    <div class="flex items-center w-full justify-between min-w-0">
-                                        <h2 class="text-xl mr-auto font-medium cursor-pointer text-black-100 hover:text-purple-500 truncate">
-                                            <?= $value['name'] ?>
-                                        </h2>
-                                    </div>
-                                </div>
-                                <div class="mt-1 flex items-center justify-between">
-                                    <span class="text-base text-yellow-600 font-normal"><?= $value['price'] ?> VNĐ</span>
-                                    <span class="text-xs text-black-400">Đã bán: <?= $value['quantity_sold'] ?></span>
-                                </div>
-
-                                <div class="flex space-x-2 text-sm font-medium justify-start my-3">
-                                    <button class="w-full transition ease-in duration-300 inline-flex items-center justify-center text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-600">
-                                        <span>Xem chi tiết</span>
+                                    <button id="poper-fav" x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="p-2 absolute top-10 right-4 w-32 mt-2 bg-white rounded-md shadow-xl">
+                                        <?= ($value['user_id'] == (isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : 'null')) ? 'Xóa khỏi sản phẩm yêu thích' : 'Thêm vào list sản phẩm yêu thích' ?>
                                     </button>
                                 </div>
-
                             </div>
-                        </a>
+
+                            <a href="<?= SITE_URL ?>?chi-tiet&id=<?= $value['id'] ?>">
+                                <div class=" h-56 mb-3">
+                                    <img src=" <?= BASE_URL . "upload/" . $value['image'] ?>" alt="Just a flower" class="h-full w-full object-fill rounded-2xl" />
+                                </div>
+                                <div class="flex-auto justify-evenly">
+                                    <div class="flex flex-wrap">
+                                        <div class="w-full flex-none text-sm flex items-center text-gray-600"></div>
+                                        <div class="flex items-center w-full justify-between min-w-0">
+                                            <h2 class="text-xl mr-auto font-medium cursor-pointer text-black-100 hover:text-purple-500 truncate">
+                                                <?= $value['name'] ?>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="mt-1 flex items-center justify-between">
+                                        <span class="text-base text-yellow-600 font-normal"><?= $value['price'] ?> VNĐ</span>
+                                        <span class="text-xs text-black-400">Đã bán: <?= $value['quantity_sold'] ?></span>
+                                    </div>
+
+                                    <div class="flex space-x-2 text-sm font-medium justify-start my-3">
+                                        <button class="w-full transition ease-in duration-300 inline-flex items-center justify-center text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-600">
+                                            <span>Xem chi tiết</span>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                <?php endif ?>
+
             <?php endforeach; ?>
         </div>
     </div>
@@ -161,7 +165,7 @@
     <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
         <div id="store" class="w-full z-30 top-0 px-6 py-1">
             <div class="w-full container mx-auto flex flex-wrap items-center justify-center mt-0 px-2 py-3">
-                <h3 class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl" >
+                <h3 class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl">
                     SẢN PHẨM MỚI NHẤT
                     <div class="h-1 w-full bg-indigo-500 rounded"></div>
                 </h3>

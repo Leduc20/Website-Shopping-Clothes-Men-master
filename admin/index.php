@@ -58,7 +58,7 @@ if (isset($_GET['danh-muc'])) {
         $price = $_POST['price'];
         // $priceNew = $_POST['sale'];
         $detail = $_POST['detail'];
-        $description = $_POST['description'];
+        $amount = $_POST['amount'];
         // $date = $_POST['date'];
         $image = $_FILES['image']['name'];
         $groupProduct_Id=$_POST['groupProduct_Id'];
@@ -69,7 +69,7 @@ if (isset($_GET['danh-muc'])) {
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
         } else {
         }
-        insertProduct($name, $detail, $image,$price,$description, $groupProduct_Id);
+        insertProduct($name, $detail, $image,$price,$amount, $groupProduct_Id);
 
     }
     $show_dm = loadall_danh_muc();
@@ -94,7 +94,7 @@ if (isset($_GET['danh-muc'])) {
         $name = $_POST['name'];
         $price = $_POST['price'];
         $detail = $_POST['detail'];
-        $description = $_POST['description'];
+        $amount = $_POST['amount'];
         $image = $_FILES['image']['name'];
         $groupProduct_Id = $_POST['groupProduct_Id'];
         //upload ảnh
@@ -102,9 +102,9 @@ if (isset($_GET['danh-muc'])) {
         $targetupload = $folder . basename($_FILES['image']['name']);
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
             
-            updateProduct($id, $name, $detail, $image, $price ,$description, $groupProduct_Id);
+            updateProduct($id, $name, $detail, $image, $price ,$amount, $groupProduct_Id);
         } else {
-            updateProduct($id, $name, $detail, '', $price ,$description, $groupProduct_Id);
+            updateProduct($id, $name, $detail, '', $price ,$amount, $groupProduct_Id);
         }
         $product_tb="Cập nhật sản phẩm thành công";
     }

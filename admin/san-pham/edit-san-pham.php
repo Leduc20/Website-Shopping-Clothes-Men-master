@@ -45,8 +45,8 @@ if (is_file($imagepath)) {
         </div>
         <div class="mt-4 ml-4">
             <p class="font-bold ">Số lượng</p>
-            <input class="border p-2 mt-1  rounded-[4px]" type="number" name="description" id="view"
-                value="<?= $description ?>">
+            <input class="border p-2 mt-1  rounded-[4px]" type="number" name="amount" id="view"
+                value="<?= $amount ?>">
         </div>
         <!-- <div class="mt-4 ml-4">
             <p class="font-bold">Date</p>

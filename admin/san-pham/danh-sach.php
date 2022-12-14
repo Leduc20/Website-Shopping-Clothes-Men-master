@@ -96,7 +96,7 @@
                         <a href="' . $add_color . '" class="px-2 p-2  rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300">ADD_color</a>
                         </td>
                         <td class="py-4 px-2">
-                        ' . $description . '
+                        ' . $amount . '
                         </td>
                         
                         <td class="py-4 px-2">

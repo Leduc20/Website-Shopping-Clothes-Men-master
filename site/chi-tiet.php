@@ -60,23 +60,26 @@ if (is_array($getfullPro)) {
         <!-- <p class="leading-relaxed">Số lượng: =</p> -->
 
         <p class="leading-relaxed">Trong kho: <?= $product['amount'] ?></p>
+
+        <!-- <p class="leading-relaxed">Số lượng: =</p> -->
+
         <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
           <div class="flex ml-6 items-center">
             <span class="mr-3">Màu</span>
             <div class="relative">
               <select id="color" class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
-              <?php
-               
-               foreach ($get_full_color as  $show) {
-                 extract($show);
-                 var_dump($show);
-                 if ($id  == $_GET['id'])
-                   echo '
+                <?php
+
+                foreach ($get_full_color as  $show) {
+                  extract($show);
+                  var_dump($show);
+                  if ($id  == $_GET['id'])
+                    echo '
                <option value="' . $color . '" selected>' . $color . '</option> ';
-                 else echo '<option value="' . $color . '">' . $color . '</option> ';
-               }
-             
-             ?>
+                  else echo '<option value="' . $color . '">' . $color . '</option> ';
+                }
+
+                ?>
                 <!-- <option>Đỏ</option>
                 <option>Xanh</option>
                 <option>Vàng</option>
@@ -96,16 +99,16 @@ if (is_array($getfullPro)) {
             <div class="relative">
               <select id="size" class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
                 <?php
-               
-                  foreach ($get_full_size as  $show) {
-                    extract($show);
-                    var_dump($show);
-                    if ($id  == $_GET['id'])
-                      echo '
+
+                foreach ($get_full_size as  $show) {
+                  extract($show);
+                  var_dump($show);
+                  if ($id  == $_GET['id'])
+                    echo '
                   <option value="' . $size . '" selected>' . $size . '</option> ';
-                    else echo '<option value="' . $size . '">' . $size . '</option> ';
-                  }
-                
+                  else echo '<option value="' . $size . '">' . $size . '</option> ';
+                }
+
                 ?>
                 <!-- <option>SM</option>
                 <option>M</option>
@@ -131,10 +134,8 @@ if (is_array($getfullPro)) {
           </div>
         </div>
         <div>
-
+          <?= $product['amount'] ?>
           <?= $product['detail'] ?>
-
-          <?= $product['description'] ?>
         </div>
         <div class="flex">
           <span class="title-font font-medium text-2xl text-gray-900"><?= $product['price'] ?> VNĐ</span>
@@ -143,7 +144,7 @@ if (is_array($getfullPro)) {
           <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
             <!-- <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
               <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"> -->
-              </path>
+            </path>
             </svg>
           </button>
         </div>
