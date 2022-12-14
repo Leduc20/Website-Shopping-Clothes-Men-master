@@ -101,7 +101,7 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
                         Phương thức thanh toán:
                     </p>
                     <p>
-                        <input type="radio" name="payment" id="payment" value="tienmat">
+                        <input type="radio" name="payment" id="payment" value="tienmat" checked="checked">
                         <button>Thanh toán khi nhận hàng</button>
                     </p>
                     <p>

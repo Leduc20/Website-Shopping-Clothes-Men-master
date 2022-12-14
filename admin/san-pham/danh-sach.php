@@ -1,60 +1,62 @@
 <form action="">
     <div>
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4">
+        <div class="ml-2 mr-2 news overflow-x-auto relative shadow-md sm:rounded-lg mt-4">
+
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th>
 
                         </th>
-                        <th scope="col" class="py-3 px-6">
+
+                        <th scope="col" class="py-3 px-2">
                             Mã hàng hóa
                         </th>
-                        <th scope="col" class="py-3 px-6">
+                        <th scope="col" class="py-3 px-2">
                             Mã loại
                         </th>
-                        <!-- <th scope="col" class="py-3 px-6">
+                        <!-- <th scope="col" class="py-3 px-2">
                                                         Ten Danh mục
                                                     </th> -->
-                        <th scope="col" class="py-3 px-6">
+                        <th scope="col" class="py-3 px-2">
                             Tên sản phẩm
                         </th>
-                        <th scope="col" class="py-3 px-6">
+                        <th scope="col" class="py-3 px-2">
                             Chi tiết
                         </th>
-                        <th scope="col" class="py-3 px-6">
-                            ADD Attribute
+                        <th scope="col" class="py-3 px-2">
+                            Biến thể
                         </th>
-                        <!-- <th scope="col" class="py-3 px-6">
-                            Details Attribute
-                        </th> -->
-                        <th scope="col" class="py-3 px-6">
+                        <th scope="col" class="py-3 px-1">
+                            Số lượng
+                        </th>
+                        <th scope="col" class="py-3 px-2">
                             Hình ảnh
                         </th>
-                        <th scope="col" class="py-3 px-6">
-                            Giá gốc
+                        <th scope="col" class="py-3 px-2">
+                            Giá tiền
                         </th>
-                        <!-- <th scope="col" class="py-3 px-6">
+                        <!-- <th scope="col" class="py-3 px-2">
                             Giá giảm
                         </th> -->
-                        <!-- <th scope="col" class="py-3 px-6">
+                        <!-- <th scope="col" class="py-3 px-2">
                             ststus
                         </th> -->
-                        <th scope="col" class="py-3 px-6">
-                            Date
+                        <th scope="col" class="py-3 px-2">
+                            Thời Gian
                         </th>
-                        <th scope="col" class="py-3 px-6">
-                            Description
+                        <th scope="col" class="py-3 px-2">
+                            
                         </th>
-                        <th scope="col" class="py-3 px-6">
-                            Edit
-                        </th>
+                        <th scope="col" class="py-1 px-2">
+                            
+
+                        
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($list_pro as $show) {
                         extract($show);
-                        // var_dump($show);
                         //đường dẫn ảnh trong extract đường dẫn
                         $imagepath = "../upload/" . $image;
                         //kiểm tra 
@@ -78,37 +80,41 @@
                         <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         ' . $id . '
                         </th>
-                        <td class="py-4 px-6">
+
+                        <td class="py-4 px-2">
                         ' . $groupProduct_Id . '
                         </td>
                         
-                        <td class="py-4 px-6">
+                        <td class="py-4 px-2">
                         ' . $name . '
                         </td>
-                        <td class="py-4 px-6">
+                        <td class="py-4 px-2">
                         ' . $detail . '
                         </td>
-                        <td class="py-4 px-6">
-                        <a href="' . $edit_size. '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">ADD_size</a>
-                        <a href="' . $add_color . '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">ADD_color</a>
+                        <td class="px-2 leading-10">
+                        <a href="' . $edit_size. '" class="px-2 p-2  rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300">ADD_size</a>
+                        <a href="' . $add_color . '" class="px-2 p-2  rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300">ADD_color</a>
+                        </td>
+                        <td class="py-4 px-2">
+                        ' . $description . '
+                        </td>
                         
-                        <td class="py-4 px-6">
+                        <td class="py-4 px-2">
                         ' . $image . '
                         </td>
-                        <td class="py-4 px-6">
+                        <td class="py-4 px-2">
                         ' . $price . '
                         </td>
                         
-                        <td class="py-4 px-6">
+                        <td class="py-4 px-2">
                         ' . $created_at . '
                         </td>
-                        <td class="py-4 px-6">
-                        ' . $description . '
-                        </td>
-                        <td class="py-4 px-6">
-                            <a href="' . $edit . '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">Edit</a>
-                            <a href="' . $delete . '" class="no-underline text-black px-2 border border-[2px] p2 rounded bg-sky-300 hover:bg-sky-700">delete</a>
-                        </td>
+                        
+                        <td class="leading-10 text-center">
+                            <a href="' . $edit . '" class="px-2 p-2  rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300">Sửa</a>
+                            <a href="' . $delete . '" class="px-2 p-2   rounded-lg bg-red-500 text-white hover:no-underline hover:bg-rose-400">Xóa</a>
+
+                        
                     </tr>';
                     }
                     ?>
@@ -117,18 +123,12 @@
         </div>
     </div>
 
-    <div class="z-50">
-        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Chọn tất cả</a>
-        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Bỏ chọn tất cả</a>
-        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Xóa các mục chọn</a>
-        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="<?= ADMIN_BASE . "?add-san-pham" ?>">Nhập thêm</a>
+
+    <div class="mt-4 ml-72">
+        <a class="bg-blue-500 hover:bg-blue-700 hover:no-underline text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Chọn tất cả</a>
+        <a class="bg-blue-500 hover:bg-blue-700 hover:no-underline text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Bỏ chọn tất cả</a>
+        <a class="bg-blue-500 hover:bg-blue-700 hover:no-underline text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Xóa các mục chọn</a>
+        <a class="bg-blue-500 hover:bg-blue-700 hover:no-underline text-white font-bold py-2 px-4 border border-blue-700 rounded no-underl" href="<?= ADMIN_BASE . "?add-san-pham" ?>">Nhập thêm</a>
     </div>
-    <div class="mt-2 text-black-500 font-bold text-red-500">
-            <?php
-            if (isset($product_tb)) {
-                echo "<script>alert('$product_tb');</script>";
-            }
-            ?>
-        </div>
 </form>
 
