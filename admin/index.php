@@ -8,6 +8,7 @@ require_once '../model/product.php';
 require_once '../model/user.php';
 require_once '../model/option.php';
 require_once '../model/order.php';
+require_once '../model/thong-ke.php';
 // include_once '../model/danh_muc.php';
 // $show_error=getConnect();
 // echo $show_error;
@@ -57,7 +58,7 @@ if (isset($_GET['danh-muc'])) {
         $price = $_POST['price'];
         // $priceNew = $_POST['sale'];
         $detail = $_POST['detail'];
-        $description = $_POST['description'];
+        $amount = $_POST['amount'];
         // $date = $_POST['date'];
         $image = $_FILES['image']['name'];
         $groupProduct_Id=$_POST['groupProduct_Id'];
@@ -68,7 +69,7 @@ if (isset($_GET['danh-muc'])) {
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
         } else {
         }
-        insertProduct($name, $detail, $image,$price,$description, $groupProduct_Id);
+        insertProduct($name, $detail, $image,$price,$amount, $groupProduct_Id);
 
     }
     $show_dm = loadall_danh_muc();
@@ -93,7 +94,7 @@ if (isset($_GET['danh-muc'])) {
         $name = $_POST['name'];
         $price = $_POST['price'];
         $detail = $_POST['detail'];
-        $description = $_POST['description'];
+        $amount = $_POST['amount'];
         $image = $_FILES['image']['name'];
         $groupProduct_Id = $_POST['groupProduct_Id'];
         //upload ảnh
@@ -101,9 +102,9 @@ if (isset($_GET['danh-muc'])) {
         $targetupload = $folder . basename($_FILES['image']['name']);
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
             
-            updateProduct($id, $name, $detail, $image, $price ,$description, $groupProduct_Id);
+            updateProduct($id, $name, $detail, $image, $price ,$amount, $groupProduct_Id);
         } else {
-            updateProduct($id, $name, $detail, '', $price ,$description, $groupProduct_Id);
+            updateProduct($id, $name, $detail, '', $price ,$amount, $groupProduct_Id);
         }
         $product_tb="Cập nhật sản phẩm thành công";
     }
@@ -211,10 +212,24 @@ if (isset($_GET['danh-muc'])) {
     $list_order = getfullOrder();
     // var_dump($id, $status);
     $VIEW_AD = './quan-ly-bill/bill.php';
-} elseif (isset($_GET[''])) {
+} elseif (isset($_GET['thong-ke'])) {
+    $listsanpham = load_thongkesanpham();
+    $thunhap = load_thongkethunhap();
+    $dhthanhcong = trangthaithanhcong();
+    $dhdangxuly = trangthaidangxuly();
+    $dhhuy = trangthaidahuy();
+    $dhdanggiao = trangthaigiaohang();
+    
+    $VIEW_AD = './thong-ke/thong-ke.php';
+
 } else {
     $VIEW_AD = 'home.php';
-}
+} 
+
+    $show_user = get_full_user();
+    
+    
+
 // require_once './danh-muc/    index.php';
 
 include_once './layout.php';

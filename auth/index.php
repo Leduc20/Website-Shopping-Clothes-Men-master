@@ -13,7 +13,6 @@ if (isset($_GET['login'])) {
         return;
     }
     if (isset($_POST['login'])) {
-        // var_dump($_POST);
         $user_login = get_user_by_name($_POST['email']);
         if (!($user_login)) {
             header('location: index.php?login&error2=Bạn chưa đăng ký');

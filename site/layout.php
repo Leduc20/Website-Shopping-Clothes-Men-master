@@ -17,10 +17,15 @@
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet" />
     <!-- <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script> -->
     <script src="./src/js/jquery.js"></script>
+    <script src="./src/js/flowbite.js"></script>
 
     <style>
         .work-sans {
             font-family: "Work Sans", sans-serif;
+        }
+
+        .bg-white\/50 {
+            background-color: gray;
         }
 
         #menu-toggle:checked+#menu {
@@ -254,7 +259,7 @@
                     <?php if (isset($_SESSION['user'])) {
                         extract($_SESSION['user']);
                     ?>
-                        <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="absolute inset-x-2/4 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl">
+                        <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="absolute -right-2/4 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl">
                             <?php
                             if ($is_Admin == 1) { ?>
                                 <a href="<?= ADMIN_BASE ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
@@ -310,7 +315,7 @@
     </main>
     <!--  -->
     <section>
-        <footer class="text-center lg:text-left bg-gray-100 text-gray-600">
+        <footer class="mt-12 text-center lg:text-left bg-gray-100 text-gray-600">
             <div class="flex justify-center items-center lg:justify-center p-6 border-b border-gray-300">
                 <div class="hidden lg:block">
                     <form action="">
