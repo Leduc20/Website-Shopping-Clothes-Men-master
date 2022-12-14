@@ -17,10 +17,15 @@
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet" />
     <!-- <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script> -->
     <script src="./src/js/jquery.js"></script>
+    <script src="./src/js/flowbite.js"></script>
 
     <style>
         .work-sans {
             font-family: "Work Sans", sans-serif;
+        }
+
+        .bg-white\/50 {
+            background-color: gray;
         }
 
         #menu-toggle:checked+#menu {

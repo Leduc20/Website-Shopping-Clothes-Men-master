@@ -9,6 +9,12 @@ function get_full_categories() {
     $sql = "SELECT * FROM groupproduct";
     return pdo_query_all($sql);
 }
+
+function get_full_categoriess() {
+    $sql = "SELECT * FROM categories";
+    return pdo_query_all($sql);
+}
+
 function loadall_danh_muc()
 {
     $sql = "SELECT * FROM groupproduct";

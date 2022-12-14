@@ -14,7 +14,7 @@ export const renderCart = ({ id, data = [], html }) => {
     elm.innerHTML = htmls.join("");
 };
 
-export const handleFavourite = (btnFavs ,toast, toastContetn) => {
+export const handleFavourite = (btnFavs, toast, toastContetn) => {
     btnFavs.forEach((btnFav) => {
         btnFav.onclick = (e) => {
             e.preventDefault();
