@@ -1,5 +1,10 @@
 <!-- component -->
+<?php
+if (is_array($getfullPro)) {
+  extract($getfullPro);
+}
 
+?>
 <section class="text-gray-700 body-font overflow-hidden bg-white">
   <div class="container px-5 py-24 mx-auto" id="data-product" data-id="<?= $product['id'] ?>" data-product='<?php echo json_encode($product); ?>'>
     <div class="lg:w-4/5 mx-auto flex flex-wrap">
@@ -51,16 +56,28 @@
             </a>
           </span>
         </div>
-        <p class="leading-relaxed">Số lượng: <?= $product['description'] ?></p>
+        <!-- <p class="leading-relaxed">Số lượng: =</p> -->
         <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
           <div class="flex ml-6 items-center">
             <span class="mr-3">Màu</span>
             <div class="relative">
               <select id="color" class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
-                <option>Đỏ</option>
+              <?php
+               
+               foreach ($get_full_color as  $show) {
+                 extract($show);
+                 var_dump($show);
+                 if ($id  == $_GET['id'])
+                   echo '
+               <option value="' . $color . '" selected>' . $color . '</option> ';
+                 else echo '<option value="' . $color . '">' . $color . '</option> ';
+               }
+             
+             ?>
+                <!-- <option>Đỏ</option>
                 <option>Xanh</option>
                 <option>Vàng</option>
-                <option>Tím</option>
+                <option>Tím</option> -->
               </select>
               <span class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4" viewBox="0 0 24 24">
@@ -71,13 +88,26 @@
           </div>
 
           <div class="flex ml-6 items-center">
+            <input type="hidden" name="" id="" value="<?= $id ?>">
             <span class="mr-3">Size</span>
             <div class="relative">
               <select id="size" class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
-                <option>SM</option>
+                <?php
+               
+                  foreach ($get_full_size as  $show) {
+                    extract($show);
+                    var_dump($show);
+                    if ($id  == $_GET['id'])
+                      echo '
+                  <option value="' . $size . '" selected>' . $size . '</option> ';
+                    else echo '<option value="' . $size . '">' . $size . '</option> ';
+                  }
+                
+                ?>
+                <!-- <option>SM</option>
                 <option>M</option>
                 <option>L</option>
-                <option>XL</option>
+                <option>XL</option> -->
               </select>
               <span class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4" viewBox="0 0 24 24">
@@ -98,15 +128,15 @@
           </div>
         </div>
         <div>
-        <?= $product['detail'] ?>
+          <?= $product['detail'] ?>
         </div>
         <div class="flex">
           <span class="title-font font-medium text-2xl text-gray-900"><?= $product['price'] ?> VNĐ</span>
           <button id="btn-add-prd" class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Mua
             hàng</button>
           <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z">
+            <!-- <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"> -->
               </path>
             </svg>
           </button>
