@@ -61,6 +61,8 @@ if (is_array($getfullPro)) {
 
         <p class="leading-relaxed">Trong kho: <?= $product['amount'] ?></p>
 
+        <!-- <p class="leading-relaxed">Số lượng: =</p> -->
+
         <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
           <div class="flex ml-6 items-center">
             <span class="mr-3">Màu</span>
@@ -132,10 +134,8 @@ if (is_array($getfullPro)) {
           </div>
         </div>
         <div>
-
-          <?= $product['detail'] ?>
           <?= $product['amount'] ?>
-
+          <?= $product['detail'] ?>
         </div>
         <div class="flex">
           <span class="title-font font-medium text-2xl text-gray-900"><?= $product['price'] ?> VNĐ</span>
