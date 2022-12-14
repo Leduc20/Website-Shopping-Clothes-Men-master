@@ -10,10 +10,15 @@ require_once '../model/order.php';
 require_once '../vnpay_php/config.php';
 
 if (isset($_GET['chi-tiet'])) {
-    $product = getProductById($_GET['id']);
 
+    $product = getProductById($_GET['id']);
     $is_bought = !isset($_SESSION['user']) ? 'login' : (!!get_productId_bought_by_user_id($_SESSION['user']['id'], $_GET['id']) ? 'cmt' : 'watch');
 
+    $id=$_GET['id'];
+    $get_full_size=get_full_size($id);
+    $get_full_color=get_full_color($id);
+    $getfullPro=getfullProducts();
+    // var_dump($get_full_size);
     $VIEW_NAME = 'chi-tiet.php';
 } elseif (isset($_GET['gio-hang'])) {
     $VIEW_NAME = 'gio-hang.php';

@@ -48,7 +48,7 @@ function update_order_by_id($order_id)
 
 function getfullOrder()
 {
-    $sql = "SELECT * FROM `orders`";
+    $sql = "SELECT * FROM `orders` ORDER BY id desc";
     return pdo_query_all($sql);
 }
 function get_order_ID($id)

@@ -139,4 +139,15 @@ function searchProduct($search, $category, $start, $end)
     }
 
     return pdo_query_all($sql);
+
+
 }
+function get_full_size($id){
+    $sql="SELECT * FROM option_size where product_id=$id";
+    return pdo_query_all($sql);
+}
+function get_full_color($id){
+    $sql="SELECT * FROM option_color where product_id=$id";
+    return pdo_query_all($sql);
+}
+
