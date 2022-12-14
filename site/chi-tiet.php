@@ -51,7 +51,7 @@
             </a>
           </span>
         </div>
-        <p class="leading-relaxed">Số lượng: <?= $product['description'] ?></p>
+        <p class="leading-relaxed">Trong kho: <?= $product['amount'] ?></p>
         <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
           <div class="flex ml-6 items-center">
             <span class="mr-3">Màu</span>
@@ -98,7 +98,7 @@
           </div>
         </div>
         <div>
-        <?= $product['detail'] ?>
+          <?= $product['description'] ?>
         </div>
         <div class="flex">
           <span class="title-font font-medium text-2xl text-gray-900"><?= $product['price'] ?> VNĐ</span>
@@ -148,14 +148,14 @@
 
 <!-- Toast -->
 
-<div id="toast-success" style="transform: translateX(-50%);" class="hidden absolute top-0 left-2/4 -translate-x-2/4 flex items-center p-4 mb-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+<div id="toast-success" style="transform: translateX(-50%);" class="hidden fixed top-0 left-2/4 -translate-x-2/4 flex items-center p-4 mb-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
   <div class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
     </svg>
     <span class="sr-only">Check icon</span>
   </div>
-  <div class="ml-3 text-sm font-normal">Thêm sản phẩm thành công</div>
+  <div class="ml-3 text-sm font-normal">Thêm sản phẩm vào giỏ thành công</div>
   <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-success" aria-label="Close">
     <span class="sr-only">Close</span>
     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -171,6 +171,9 @@
     carts
   } from "./src/js/global.js";
 
+  const amountPrd = <?php echo $product['amount'] ?>;
+
+
   const el = document.getElementById("data-product");
   const toast = document.getElementById("toast-success")
   const btnAddPrd = document.getElementById("btn-add-prd")
@@ -180,29 +183,49 @@
   const slEl = document.querySelector('#slPrd')
 
   slEl.onchange = (e) => {
+    if (amountPrd == 0) {
+      alert('Trong kho tạm hết hàng bạn quay lại sau')
+    }
     if (slEl.value < 1) slEl.value = 1;
-  }
+    if (slEl.value >= amountPrd) slEl.value = amountPrd
 
+  }
+  // Tăng giảm số longwj
   decrementButton.onclick = () => {
+    if (amountPrd == 0) {
+      alert('Trong kho tạm hết hàng bạn quay lại sau')
+      return
+    }
     const target = decrementButton.nextElementSibling;
     let value = Number(target.value);
     value--;
     if (value > 0) target.value = value;
+
   }
 
   incrementButton.onclick = () => {
+    if (amountPrd == 0) {
+      alert('Trong kho tạm hết hàng bạn quay lại sau')
+      return
+    }
     const target = decrementButton.nextElementSibling;
     let value = Number(target.value);
     value++;
     target.value = value;
+    if (value >= amountPrd) {
+      target.value = amountPrd
+      alert('Bạn đã đặt quá số lượng trong kho')
+    }
   }
 
+  // 
   const {
     id,
     name,
     image,
     description,
-    price
+    price,
+    amount
   } = data;
 
   function getValueSelect({
@@ -233,6 +256,7 @@
       image,
       description,
       price,
+      amount,
       sl: slEl.value * 1,
       color,
       size
@@ -242,12 +266,17 @@
   }
 
   btnAddPrd.onclick = () => {
+    if (amountPrd == 0) {
+      alert('Trong kho tạm hết hàng bạn quay lại sau')
+      return;
+    }
     const product = getPrdCart()
     const {
       id,
       image,
       description,
       price,
+      amount,
       sl,
       color,
       size
@@ -262,6 +291,7 @@
         image,
         description,
         price,
+        amount,
         sl: prdValid.sl * 1 + slEl.value * 1,
         color,
         size

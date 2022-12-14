@@ -15,8 +15,6 @@ if (isset($_GET['chi-tiet'])) {
     $is_bought = !isset($_SESSION['user']) ? 'login' : (!!get_productId_bought_by_user_id($_SESSION['user']['id'], $_GET['id']) ? 'cmt' : 'watch');
 
     $VIEW_NAME = 'chi-tiet.php';
-} elseif (isset($_GET['danh-muc'])) {
-    $VIEW_NAME = 'danh-muc.php';
 } elseif (isset($_GET['gio-hang'])) {
     $VIEW_NAME = 'gio-hang.php';
 } elseif (isset($_GET['dat-hang'])) {
@@ -40,6 +38,7 @@ if (isset($_GET['chi-tiet'])) {
 
             for ($i = 0; $i < count($_POST['prdId']); $i++) {
                 add_order_detail($_POST['prdId'][$i], $orderId, $_POST['sl'][$i], $_POST['size'][$i], $_POST['color'][$i]);
+                update_amount($_POST['sl'][$i], $_POST['prdId'][$i]);
             }
         } elseif ($cart_payment == 'vnpay') {
             $vnp_TxnRef = $code_order; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
@@ -101,19 +100,19 @@ if (isset($_GET['chi-tiet'])) {
                 'code' => '00', 'message' => 'success', 'data' => $vnp_Url
             );
             if (isset($_POST['dat-hang'])) {
-                $_SESSION['code_cart']=$code_order;
+                $_SESSION['code_cart'] = $code_order;
                 $user_id = $_SESSION['user']['id'];
                 $orderId = add_order($user_id, $_POST['total'], $_POST['payment'])['id'];
 
                 for ($i = 0; $i < count($_POST['prdId']); $i++) {
                     add_order_detail($_POST['prdId'][$i], $orderId, $_POST['sl'][$i], $_POST['size'][$i], $_POST['color'][$i]);
+                    update_amount($_POST['sl'][$i], $_POST['prdId'][$i]);
                 }
                 header('Location: ' . $vnp_Url);
                 die();
             } else {
                 echo json_encode($returnData);
             }
-            
         }
         $url = SITE_URL;
         header("location: $url?purchase");
@@ -195,7 +194,7 @@ if (isset($_GET['chi-tiet'])) {
     $start = empty($_GET['start']) ? '' : $_GET['start'];
     $end = empty($_GET['end']) ? '' : $_GET['end'];
 
-    $categories = get_full_categories();
+    $categories = get_full_categoriess();
     $products = searchProduct($keyWord, $category, $start, $end);
     $VIEW_NAME = 'search.php';
 } elseif (isset($_GET['my-favorites'])) {
@@ -210,11 +209,23 @@ if (isset($_GET['chi-tiet'])) {
     }
     $products = get_full_favorites_by_userId($_SESSION['user']['id']);
     $VIEW_NAME = 'my-favorites.php';
+} elseif (isset($_GET['category'])) {
+    $start = empty($_GET['start']) ? '' : $_GET['start'];
+    $end = empty($_GET['end']) ? '' : $_GET['end'];
+
+    $res = mail('hahuu01032k2@gmail.com', 'testEmail', 'Đây là nội dung email');
+    var_dump($res);
+
+    $products = get_products_by_category($_GET['id'], '', '', null);
+    $categories = get_full_categoriess();
+    $VIEW_NAME = 'danh-muc.php';
 } else {
 
     $limit = 4;
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
     $products = get_page($limit, $page);
+    $productBestSl = get_products_bestseller();
+    $categories = get_full_categoriess();
 
     $VIEW_NAME = 'trang-chu.php';
 }

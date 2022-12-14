@@ -56,4 +56,5 @@
     </div>
 </section>
 
+
 <script type="module" src="./src/js/cart.js"></script>
