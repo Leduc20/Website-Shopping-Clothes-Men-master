@@ -27,5 +27,9 @@ function update_profile($id, $name, $phone, $address, $userName, $gender, $image
     $sql="UPDATE `users` SET `name`='".$name."',`address`='".$address."',`phone`='".$phone."',`userName`='".$userName."',`gender`='".$gender."', `image`='".$image."' WHERE id=".$id;
     return pdo_execute($sql);
 }
+function delete_user($id){
+    $sql="DELETE FROM `users` WHERE id=$id";
+    return pdo_execute($sql);
+}
 
 ?>

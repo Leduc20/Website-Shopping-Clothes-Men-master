@@ -35,9 +35,9 @@
             </a>
           </li>
           <li>
-            <a href="<?= ADMIN_BASE . "?khach-hang"?>">
+            <a href="<?= ADMIN_BASE . "?danh-sach-user"?>">
               <i class="fa fa-users"></i>
-              <p>Customer</p>
+              <p>User</p>
             </a>
           </li>
           <li>

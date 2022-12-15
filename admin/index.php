@@ -172,8 +172,16 @@ if (isset($_GET['danh-muc'])) {
 } elseif (isset($_GET['edit-tai-khoan'])) {
     if (isset($_GET['id'])) {
         $list_user = get_user_Byid($_GET['id']);
+        $tb_user="Cập nhật tài khoản thành công";
     }
     $VIEW_AD = './tai-khoan/edit-tai-khoan.php';
+}elseif (isset($_GET['delete_user'])) {
+    if (isset($_GET['id'])) {
+        delete_user($_GET['id']);
+        $tb_user="Xóa tài khoản thành công";
+    }
+    $list_user = get_full_user();
+    $VIEW_AD = './tai-khoan/danh-sach.php';
 } elseif (isset($_GET['update-tai-khoan'])) {
     if (isset($_POST['update-tai-khoan'])) {
         $id = $_POST['id'];
@@ -184,6 +192,7 @@ if (isset($_GET['danh-muc'])) {
         $name = $_POST['name'];
         $role = $_POST['role'];
         $update_user = update_user($id, $name, $address, $phone, $userName, $role);
+        $tb_user="Cập nhật tài khoản thành công";
     }
     $list_user = get_full_user();
     $VIEW_AD = './tai-khoan/danh-sach.php';
