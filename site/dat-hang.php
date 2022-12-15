@@ -68,10 +68,10 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
                             </div>
                         </div>
                         <div class="text-sm text-gray-600 mr-4">
-                            Giá: <?= $value['price'] ?> vnđ
+                            Giá: <?= number_format($value['price']) ?> vnđ
                         </div>
                         <div class="text-sm text-gray-600 mr-4">
-                            <?= $value['price'] * $value['sl'] ?> vnđ
+                            <?= number_format($value['price'] * $value['sl']) ?> vnđ
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ $products = split_array($_POST['prdId'], $_POST['sl'], $_POST['size'], $_POST['c
             <!--  -->
             <div class="text-right m-4 mr-12 text-xl">
                 <p>Tổng tiền:
-                    <span> <?= $_POST['total'] ?></span>
+                    <span> <?= number_format($_POST['total']) ?> VNĐ</span>
                 </p>
             </div>
         </div>

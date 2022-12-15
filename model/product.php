@@ -35,15 +35,14 @@ function get_page($limit, $page)
 function get_products_bestseller()
 {
     $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.amount, prd.created_at, prd.groupProduct_Id, fa.id as favorite_id, fa.user_id
-    from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  ORDER BY prd.quantity_sold DESC LIMIT 10";
+    from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id where prd.quantity_sold > 10  ORDER BY prd.quantity_sold DESC LIMIT 10";
     return pdo_query_all($sql);
 }
 
 function get_products_by_category($category_id, $start, $end, $selling)
 {
-    // $sql = "select * from products ORDER BY products.updated_at DESC";
     $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.	amount, prd.created_at, prd.groupProduct_Id, fa.id as favorite_id, fa.user_id
-    from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  WHERE groupProduct_Id = $category_id ORDER BY prd.created_at DESC";
+    from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  WHERE groupProduct_Id = $category_id  ORDER BY prd.created_at DESC";
 
     if ($start != '' & $end != '') {
         $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.	amount, prd.created_at, prd.groupProduct_Id, fa.id as favorite_id, fa.user_id
@@ -52,12 +51,12 @@ function get_products_by_category($category_id, $start, $end, $selling)
 
     if ($selling) {
         $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.	amount, prd.created_at, prd.groupProduct_Id, fa.id as favorite_id, fa.user_id
-        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  WHERE groupProduct_Id = $category_id ORDER BY prd.quantity_sold DESC";
+        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  WHERE groupProduct_Id = $category_id and prd.quantity_sold > 10 ORDER BY prd.quantity_sold DESC";
     }
 
     if ($start != '' && $end != '' && $selling) {
         $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.	amount, prd.created_at, prd.groupProduct_Id, fa.id as favorite_id, fa.user_id
-        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  WHERE groupProduct_Id = $category_id AND price <= $end AND  price>= $start  ORDER BY prd.quantity_sold DESC";
+        from products prd LEFT JOIN favorites fa ON fa.product_id = prd.id  WHERE groupProduct_Id = $category_id AND price <= $end AND  price>= $start and prd.quantity_sold > 10  ORDER BY prd.quantity_sold DESC";
     }
     return pdo_query_all($sql);
 }

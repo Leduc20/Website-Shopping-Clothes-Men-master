@@ -66,12 +66,12 @@
                                             <span>Màu: </span> <span><?= $value2['color'] ?></span>
                                         </p>
                                         <p class="my-1">
-                                            Số lượng: <span> <?= $value2['amount'] ?></span>
+                                            Số lượng: <span> <?= number_format($value2['amount']) ?></span>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="text-base text-red-400 font-semibold mr-4">
-                                    Giá tiền: <?= $value2['price'] ?> vnđ
+                                    Giá tiền: <?= number_format($value2['price']) ?> vnđ
                                 </div>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                                 <button type="submit" name="huy-prd" class="px-4 ml-4 py-1.5 bg-red-600 text-white rounded hover:bg-red-500">Hủy đơn hàng</button>
                             </form>
                         <?php } ?>
-                        <span class="ml-6 text-lg font-semibold">Tổng số tiền: <span class="text-green-500"><?= $value['totalMoney'] ?> VND</span></span>
+                        <span class="ml-6 text-lg font-semibold">Tổng số tiền: <span class="text-green-500"><?= number_format($value['totalMoney']) ?> VND</span></span>
                     </div>
                 </div>
             </div>

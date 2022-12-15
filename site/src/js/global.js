@@ -20,7 +20,8 @@ export const handleFavourite = (btnFavs, toast, toastContetn) => {
             e.preventDefault();
 
             if ($("#user-id").attr("data-userId") == "null") {
-                window.location = "<?= AUTH_BASE ?>?login";
+                alert("Vui lòng đăng nhập để thực hiện chức năng này");
+                window.location = DOMAIN + "auth/index.php?login";
                 return;
             }
 

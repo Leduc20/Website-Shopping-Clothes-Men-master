@@ -12,10 +12,10 @@ require_once '../vnpay_php/config.php';
 if (isset($_GET['chi-tiet'])) {
     $product = getProductById($_GET['id']);
     $is_bought = !isset($_SESSION['user']) ? 'login' : (!!get_productId_bought_by_user_id($_SESSION['user']['id'], $_GET['id']) ? 'cmt' : 'watch');
-    $id=$_GET['id'];
-    $get_full_size=get_full_size($id);
-    $get_full_color=get_full_color($id);
-    $getfullPro=getfullProducts();
+    $id = $_GET['id'];
+    $get_full_size = get_full_size($id);
+    $get_full_color = get_full_color($id);
+    $getfullPro = getfullProducts();
     // var_dump($get_full_size);
     $VIEW_NAME = 'chi-tiet.php';
 } elseif (isset($_GET['gio-hang'])) {
@@ -142,6 +142,7 @@ if (isset($_GET['chi-tiet'])) {
     } else {
         $orders = get_orders_by_userId($_SESSION['user']['id'], 'all');
     }
+    // var_dump($orders);
 
     $results = [];
 
@@ -182,7 +183,7 @@ if (isset($_GET['chi-tiet'])) {
             ));
         }
     }
-
+    // var_dump($prdId);
 
 
     $VIEW_NAME = 'purchase.php';
@@ -221,7 +222,7 @@ if (isset($_GET['chi-tiet'])) {
     $VIEW_NAME = 'danh-muc.php';
 } else {
 
-    $limit = 4;
+    $limit = 10;
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
     $products = get_page($limit, $page);
     $productBestSl = get_products_bestseller();
