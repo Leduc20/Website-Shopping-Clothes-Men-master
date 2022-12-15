@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                             <div class="text-lg text-black-600 font-normal mt-1">
-                                $ <?= $value['price'] ?>
+                                $ <?= number_format($value['price']) ?>
                             </div>
 
                             <div class="flex space-x-2 text-sm font-medium justify-start my-3">

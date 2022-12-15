@@ -16,6 +16,6 @@
 
 
     </div>
-
+<img src="../auth/login.php" alt="">
     
 </div>

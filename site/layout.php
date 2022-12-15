@@ -80,7 +80,7 @@
 
 <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
     <!--Nav-->
-    <nav id="header" class="w-full z-30 top-0 py-1">
+    <nav id="header" class="w-full z-30 fixed top-0 bg-white">
         <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3 bg-white">
             <label for="menu-toggle" class="cursor-pointer md:hidden block">
                 <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
@@ -308,7 +308,7 @@
                 </div>
     </nav>
     <!--  -->
-    <main>
+    <main class="mt-20">
         <?php if (isset($VIEW_NAME)) include_once $VIEW_NAME ?>
     </main>
     <!--  -->

@@ -41,7 +41,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="<?= ADMIN_BASE . "?list-comment" ?>">
               <i class="fa fa-comments"></i>
               <p>Comment</p>
             </a>
