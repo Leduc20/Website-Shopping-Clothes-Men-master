@@ -35,7 +35,7 @@
             </div>
             <div class="mt-4 ml-4">
                 <p class="font-bold ">Số lượng</p>
-                <input class="border py-2 mt-1    rounded-[4px]" type="number" required name="description" id="checkquantity" min="0" max="100">
+                <input class="border py-2 mt-1    rounded-[4px]" type="number" required name="amount" id="checkquantity" min="0" max="100">
                 <p id="showquantity"></p>
             </div>
             <!-- <div class="mt-4 mb-4 ml-4">
