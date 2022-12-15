@@ -283,8 +283,6 @@
                                 Đăng ký
                             </a>
                         </div>
-
-                        +
                         <?php
                         // echo var_dump($_SESSION['user']);
                         ?>

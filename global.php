@@ -8,10 +8,10 @@ function dd()
     die;
 }
 
-const BASE_URL = "http://localhost:8080/duan1/";
+const BASE_URL = "http://localhost/webbanhang/";
 
 
-const BASE_URL = "http://localhost:/layout/";
+// const BASE_URL = "http://localhost/layout/";
 
 
 
