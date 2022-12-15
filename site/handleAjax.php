@@ -6,6 +6,7 @@ require_once '../model/product.php';
 require_once '../model/favorites.php';
 require_once '../model/comment.php';
 
+// search
 if (isset($_GET['search'])) {
     $products = searchProduct($_GET['q'], '', '', '');
     if (count($products) == 0) echo '<p>Không có sản phẩm tìm thấy</p>';
@@ -19,6 +20,7 @@ if (isset($_GET['search'])) {
     }
 } ?>
 
+<!-- favorite -->
 <?php
 if (isset($_GET['favourite'])) {
 
@@ -30,6 +32,8 @@ if (isset($_GET['favourite'])) {
         remove_favorite_by_favoriteId($_POST['favId']);
     }
 }
+
+// Comment
 
 if (isset($_GET['comment'])) {
     if (isset($_GET['product_id'])) {
@@ -48,15 +52,15 @@ if (isset($_GET['comment'])) {
                     <div class="">
                         <div class="flex">
                             <div class="avt">
-                                <img class="mr-2 w-9 h-9 rounded-full" src="<?= $value['image'] ?>" alt="">
+                                <img class="mr-2 w-9 h-9 rounded-full" src="<?= UPLOAD_BASE . $value['image'] ?>" alt="">
                             </div>
                             <div class="">
                                 <div class="flex items-center">
-                                    <p class="inline-flex items-center mr-3 text-md text-gray-900 dark:text-white">
-                                        <?= $value['userName'] ?>
+                                    <p class="inline-flex items-center mr-3 text-lg text-gray-900 dark:text-white">
+                                        <?= $value['name'] ?>
                                     </p>
                                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                                        <time class="text-sm"><?= $value['created_at'] ?></time>
+                                    <p class="text-sm"><?= getRelativeTime($value['created_at']) ?> </p>
                                     </p>
                                 </div>
                                 <!-- <div class="flex items-center ">
@@ -107,7 +111,7 @@ if (isset($_GET['comment'])) {
 
 if (isset($_GET['filter'])) {
     $selling = isset($_GET['selling']) ?  $_GET['selling'] : null;
-    $products = get_products_by_category($_GET['id'], $_GET['smallPrice'], $_GET['bigPrice'],$selling);
+    $products = get_products_by_category($_GET['id'], $_GET['smallPrice'], $_GET['bigPrice'], $selling);
     if (count($products) == 0) { ?>
 
         <p class="absolute left-2/4 top-1/4">Không có kết quả lọc phù hợp <a href="" class="text-red-500">Xóa bộ lọc</a></p>

@@ -82,14 +82,14 @@
                         </th>
 
                         <td class="py-4 px-2">
-                        ' . $groupProduct_Id . '
+                        ' . $category_id . '
                         </td>
                         
                         <td class="py-4 px-2">
                         ' . $name . '
                         </td>
                         <td class="py-4 px-2">
-                        ' . $detail . '
+                        ' . $description . '
                         </td>
                         <td class="px-2 leading-10">
                         <a href="' . $edit_size. '" class="px-2 p-2  rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300">ADD_size</a>

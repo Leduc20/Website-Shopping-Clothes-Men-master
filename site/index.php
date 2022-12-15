@@ -221,7 +221,7 @@ if (isset($_GET['chi-tiet'])) {
     $VIEW_NAME = 'danh-muc.php';
 } else {
 
-    $limit = 4;
+    $limit = 10;
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
     $products = get_page($limit, $page);
     $productBestSl = get_products_bestseller();

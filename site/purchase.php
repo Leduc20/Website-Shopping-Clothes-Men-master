@@ -71,7 +71,7 @@
                                     </div>
                                 </div>
                                 <div class="text-base text-red-400 font-semibold mr-4">
-                                    Giá tiền: <?= $value2['price'] ?> vnđ
+                                    Giá tiền: <?= number_format($value2['price']) ?> vnđ
                                 </div>
                             </div>
                         </div>
@@ -86,10 +86,10 @@
                             <form class="contents" action="" method="post">
 
                                 <input type="hidden" name="order_id" value="<?php echo $value['orderId'] ?>">
-                                <button type="submit" name="huy-prd" class="px-4 ml-4 py-1.5 bg-red-600 text-white rounded hover:bg-red-500">Hủy đơn hàng</button>
+                                <button type="submit" name="huy-prd" class="px-4 ml-4 py-1.5 bg-red-600 text-white rounded hover:bg-red-500" onclick="return confirm('Bạn có chắc muốn hủy đơn hàng này không!!')">Hủy đơn hàng</button>
                             </form>
                         <?php } ?>
-                        <span class="ml-6 text-lg font-semibold">Tổng số tiền: <span class="text-green-500"><?= $value['totalMoney'] ?> VND</span></span>
+                        <span class="ml-6 text-lg font-semibold">Tổng số tiền: <span class="text-green-500"><?= number_format($value['totalMoney']) ?> VND</span></span>
                     </div>
                 </div>
             </div>

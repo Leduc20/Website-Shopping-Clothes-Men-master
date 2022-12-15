@@ -80,8 +80,8 @@
 
 <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
     <!--Nav-->
-    <nav id="header" class="w-full z-30 top-0 py-1">
-        <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3 bg-white">
+    <nav id="header" class="w-full z-30 top-0 fixed left-0 right-0 bg-white">
+        <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3 ">
             <label for="menu-toggle" class="cursor-pointer md:hidden block">
                 <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                     <title>menu</title>
@@ -272,7 +272,7 @@
 
                             <a href="" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">Xin chào <?= $_SESSION['user']['name'] ?></a>
                             <a href="<?= SITE_URL . "?purchase" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
-                                Đơn hàng
+                                Đơn hàng của tôi
                             </a>
                             <a href="<?= AUTH_BASE . "?logout" ?>" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
                                 Đăng xuất
@@ -310,7 +310,7 @@
                 </div>
     </nav>
     <!--  -->
-    <main>
+    <main class="mt-20">
         <?php if (isset($VIEW_NAME)) include_once $VIEW_NAME ?>
     </main>
     <!--  -->

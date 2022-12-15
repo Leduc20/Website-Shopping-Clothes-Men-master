@@ -45,7 +45,7 @@ if (isset($_GET['login'])) {
         $gender = $_POST['gender'];
         $phone = $_POST['phone'];
         $image = $_FILES['image']['name'];
-        // $groupProduct_Id=$_POST['groupProduct_Id'];
+        // $category_id=$_POST['category_id'];
         //upload ảnh
         $folder = "../upload/";
         $targerupload = $folder . basename($_FILES['image']['name']);
@@ -60,21 +60,20 @@ if (isset($_GET['login'])) {
         $user_db = get_user_by_name($email);
         if ($user_db) {
             header('location: index.php?register&error4=Tài khoản này đã tồn tại!!');
-
-        } else {  
+        } else {
             if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
-                add_user($name,$address,$phone,$email,password_hash($password, PASSWORD_BCRYPT),$gender,$image);
+                add_user($name, $address, $phone, $email, password_hash($password, PASSWORD_BCRYPT), $gender, $image);
                 $url = AUTH_BASE;
                 header("location: $url?login");
             }
-        } 
+        }
     }
     $VIEW_AUTH = 'register.php';
 } elseif (isset($_GET['logout'])) {
     unset($_SESSION['user']);
     $url = AUTH_BASE;
     header("location: $url?login");
-} elseif (isset($_GET['profile'])){
+} elseif (isset($_GET['profile'])) {
 
 
     if (!isset($_SESSION['user']['id'])) {
@@ -84,14 +83,14 @@ if (isset($_GET['login'])) {
     }
     $id = $_SESSION['user']['id'];
 
-    if(isset($_POST['btn_submit'])){
+    if (isset($_POST['btn_submit'])) {
         $name = $_POST['name'];
         $gender = $_POST['gender'];
         $phone = $_POST['phone'];
         $address = $_POST['address'];
         $userName = $_POST['userName'];
         $image = $_FILES['image']['name'];
-        // $groupProduct_Id=$_POST['groupProduct_Id'];
+        // $category_id=$_POST['category_id'];
         //upload ảnh
         $folder = "../upload/";
         $targerupload = $folder . basename($_FILES['image']['name']);
@@ -99,13 +98,11 @@ if (isset($_GET['login'])) {
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
             update_profile($id, $name, $phone, $address, $userName, $gender, $image);
         }
-
     }
 
     $user = get_user_Byid($id);
-    
-    $VIEW_AUTH = 'profile.php';
 
+    $VIEW_AUTH = 'profile.php';
 }
 
 include_once './layout.php';

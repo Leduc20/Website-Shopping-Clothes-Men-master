@@ -134,19 +134,12 @@ if (is_array($getfullPro)) {
           </div>
         </div>
         <div>
-          <?= $product['amount'] ?>
-          <?= $product['detail'] ?>
+          <?= $product['description'] ?>
         </div>
         <div class="flex">
-          <span class="title-font font-medium text-2xl text-gray-900"><?= $product['price'] ?> VNĐ</span>
+          <span class="title-font font-medium text-2xl text-gray-900"><?= number_format($product['price']) ?> VNĐ</span>
           <button id="btn-add-prd" class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Mua
             hàng</button>
-          <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-            <!-- <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"> -->
-            </path>
-            </svg>
-          </button>
         </div>
       </div>
     </div>
@@ -185,7 +178,7 @@ if (is_array($getfullPro)) {
 
 <!-- Toast -->
 
-<div id="toast-success" style="transform: translateX(-50%);" class="hidden fixed top-0 left-2/4 -translate-x-2/4 flex items-center p-4 mb-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+<div id="toast-success" style="transform: translateX(-50%);" class="hidden fixed z-50 top-0 left-2/4 -translate-x-2/4 flex items-center p-4 mb-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
   <div class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
