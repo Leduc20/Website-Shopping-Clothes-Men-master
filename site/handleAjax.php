@@ -147,7 +147,7 @@ if (isset($_GET['filter'])) {
                             </div>
                         </div>
                         <div class="mt-1 flex items-center justify-between">
-                            <span class="text-base text-yellow-600 font-normal"><?= $value['price'] ?> VNĐ</span>
+                            <span class="text-base text-yellow-600 font-normal"><?= number_format($value['price']) ?> VNĐ</span>
                             <span class="text-xs text-black-400">Đã bán: <?= $value['quantity_sold'] ?></span>
                         </div>
 

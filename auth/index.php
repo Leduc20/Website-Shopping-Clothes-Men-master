@@ -28,6 +28,11 @@ if (isset($_GET['login'])) {
                 $userLogin['password'] = $user_login['password'];
                 $userLogin['is_Admin'] = $user_login['is_Admin'];
                 $_SESSION['user'] = $userLogin;
+                if ($user_login['is_Admin']) {
+                    $url = ADMIN_BASE;
+                    header("location: $url");
+                    return;
+                }
 
                 $url = SITE_URL;
                 header("location: $url");
@@ -109,5 +114,3 @@ if (isset($_GET['login'])) {
 }
 
 include_once './layout.php';
-?>
-<img src="../auth/login.php" alt="">

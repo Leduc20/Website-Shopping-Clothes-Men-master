@@ -1,6 +1,6 @@
 <!-- banner, slide -->
 
-<div class="carousel relative container mx-auto" style="max-width: 1600px">
+<div class="carousel relative -z-10 container mx-auto" style="max-width: 1600px">
     <div id="default-carousel" class="relative" data-carousel="">
         <!-- Carousel wrapper -->
         <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
@@ -45,7 +45,7 @@
             </div>
         </div>
         <!-- Slider indicators -->
-        <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+        <div class="absolute z-20 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
             <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></button>
             <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
             <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
@@ -105,7 +105,7 @@
 
         <div id="user-id" class="mt-4 grid grid-cols-3 lg:grid-cols-5 gap-10 px-6" data-userId="<?= isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : 'null' ?>">
             <?php foreach ($productBestSl as $key => $value) : ?>
-                <?php if ($value['quantity_sold'] >= 10) : ?>
+                
                     <div class="relative max-w-md w-full bg-gray-100 shadow-lg rounded-xl p-5">
                         <div class="absolute top-0 left-0 z-10 bg-red-500 rounded-l-lg px-2 text-white">
                             Bán chạy
@@ -139,7 +139,7 @@
                                         </div>
                                     </div>
                                     <div class="mt-1 flex items-center justify-between">
-                                        <span class="text-base text-yellow-600 font-normal"><?= $value['price'] ?> VNĐ</span>
+                                        <span class="text-base text-yellow-600 font-normal"><?= number_format($value['price']) ?> VNĐ</span>
                                         <span class="text-xs text-black-400">Đã bán: <?= $value['quantity_sold'] ?></span>
                                     </div>
 
@@ -153,8 +153,6 @@
                             </a>
                         </div>
                     </div>
-                <?php endif ?>
-
             <?php endforeach; ?>
         </div>
     </div>
@@ -206,7 +204,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-1 flex items-center justify-between">
-                                    <span class="text-base text-yellow-600 font-normal"><?= $value['price'] ?> VNĐ</span>
+                                    <span class="text-base text-yellow-600 font-normal"><?= number_format($value['price']) ?> VNĐ</span>
                                     <span class="text-xs text-black-400">Đã bán: <?= $value['quantity_sold'] ?></span>
                                 </div>
 
@@ -264,7 +262,7 @@
 </section>
 
 
-<div id="toast-fav" style="transform: translateX(-50%);" class="hidden fixed top-0 left-2/4 -translate-x-2/4 flex items-center p-4 mb-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+<div id="toast-fav" style="transform: translateX(-50%);" class="hidden z-50 fixed top-0 left-2/4 -translate-x-2/4 flex items-center p-4 mb-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
     <div class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
         <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>

@@ -1,0 +1,10 @@
+RUN a2enmod rewrite
+sudo systemctl restart apache2
+AuthType basic
+
+AuthName "Thư mục này hạn chế truy cập"
+
+AuthUserFile ".htpass"
+
+Require valid-user
+
