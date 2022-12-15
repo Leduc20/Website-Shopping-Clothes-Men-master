@@ -122,7 +122,7 @@
 
     <button onclick="myFunction()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
         type="submit" name="add-san-pham">Thêm mới</button>
-    <button onclick="reset" type="submit"
+    <button onclick="reset" type="reset"
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Nhập
         lại</button>
     <a class="bg-blue-500 hover:bg-blue-700 hover:no-underline text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline"

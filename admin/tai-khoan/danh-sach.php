@@ -1,4 +1,4 @@
-<form action="index.php?act=dskh" methot="post" enctype="multipart/form-data">
+<form action="index.php?act=dskh" methot="post" enctype="multipart/form-data" class="ml-4">
     <div>
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -68,10 +68,10 @@
             </table>
         </div>
     </div>
-    <div class="z-50">
+    <!-- <div class="z-50 mt-4">
         <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Chọn tất cả</a>
         <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Bỏ chọn tất cả</a>
         <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Xóa các mục chọn</a>
         <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="index.php?act=addkh">Nhập thêm</a>
-    </div>
+    </div> -->
 </form>

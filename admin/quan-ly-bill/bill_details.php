@@ -1,7 +1,7 @@
-<main class="bg-indigo-50/60 ml-[100px] w-full py-10 px-3 sm:px-10">
+<main class="bg-indigo-50/60 ml-2 w-full py-10 px-3 sm:px-10">
     <!-- Nav -->
     <nav class="text-lg flex items-center justify-between content-center ">
-        <div class=" font-semibold text-xl text-gray-800 flex space-x-4 items-center">
+        <div class=" font-semibold text-2xl text-gray-800 flex space-x-4 items-center">
             <a href="#">
                 <span class="md:hidden">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -39,7 +39,7 @@
 
     <!-- Filters Section -->
     <section>
-        <div class="bg-rose-100/70 mt-12  rounded-xl px-5 sm:px-10  pt-8 pb-4 relative xl:bg-[url('../images/invoice.png')] bg-no-repeat bg-right bg-contain ">
+        <!-- <div class="bg-rose-100/70 mt-12  rounded-xl px-5 sm:px-10  pt-8 pb-4 relative xl:bg-[url('../images/invoice.png')] bg-no-repeat bg-right bg-contain ">
             <div class="text-rose-400 font-semibold text-lg">Tài khoản : </div>
 
 
@@ -47,7 +47,7 @@
 
 
 
-                <!-- <div class="flex flex-col  md:w-40  text-gray-600 text-sm space-y-2 font-semibold">
+                <div class="flex flex-col  md:w-40  text-gray-600 text-sm space-y-2 font-semibold">
                     <label for="client">Ngày đặt</label>
                     <div class="inline-flex relative">
                         <input class="bg-indigo-800/80 text-white tracking-wider pl-4 pr-10 py-3 rounded-lg appearance-none w-full outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300" id="client" name="client" type="text" value="2019/02/28">
@@ -104,17 +104,18 @@
                             </svg>
                         </span>
                     </div>
-                </div> -->
+                </div>
 
             </div>
 
             <div class="mt-5 text-gray-500 text-sm ">
                 * This data has been shown according to your given information
             </div>
-        </div>
+        </div> -->
 
     </section>
-    <form action="index.php?update_stt" method="post">
+    
+    <form action="index.php?update_stt" method="post" class="m-4">
         <input type="hidden" name="id" id="" value="<?= $_GET['id'] ?>">
         <div class="flex flex-col md:w-40  text-gray-600 text-sm space-y-2 font-semibold">
             <label for="client">Trạng thái</label>
@@ -145,7 +146,7 @@
     <!-- Invoice List Table -->
     <section class="">
         <!-- Table Header -->
-        <div class="grid grid-cols-7 invoice-table-row invoice-table-header bg-white mt-10 rounded-xl px-10  py-4 flex items-center gap-x-2 text-sm font-semibold  text-gray-600">
+        <div class="grid border-b-2 grid-cols-7 invoice-table-row invoice-table-header bg-white mt-10 rounded-xl px-10  py-4 flex items-center gap-x-2 text-sm font-semibold  text-gray-600">
             <div class="text-left">ID</div>
             <div class="text-left">ID đơn hàng</div>
             <div class="text-left">Tên sản phẩm</div>
@@ -161,7 +162,7 @@
         foreach ($list_bill_detail as $show) {
             extract($show);
             # code...
-            echo '<div class="bg-white mt-5 rounded-xl text-sm  text-gray-500 divide-y divide-indigo-50 overflow-x-auto  shadow">
+            echo '<div class="bg-white border-b-2 rounded-xl text-sm  text-gray-500 divide-y divide-indigo-50 overflow-x-auto  shadow">
 
             <div class="grid grid-cols-7 invoice-table-row flex items-center gap-x-3 px-10 py-4">
                 <div class="text-left ">' . $id . '</div>
