@@ -7,8 +7,7 @@
     <div>
         <div class="rounded-full bg-white mt-2 p-3 mr-3 ">
             <?php foreach($show_user as $user){
-                // extract($user);
-                // echo ' '.$image.' ';
+
             }
             ?>
         </div>
