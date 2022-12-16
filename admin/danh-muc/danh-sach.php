@@ -1,4 +1,3 @@
-
 <div class=" ml-2 mr-2">
     <div class="news relative shadow-md sm:rounded-lg mt-4">
         <div class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ">
@@ -9,14 +8,14 @@
         <h2>
             <?= isset($_COOKIE['success']) ? $_COOKIE['success'] : '' ?>
         </h2>
-        
+
         <form action="">
             <div>
 
                 <div class="news shadow-md sm:rounded-lg mt-2   ">
                     <table class="w-full text-center text-sm text-left text-gray-500 bg-white dark:text-black">
-                        <thead class= " text-sm text-black bg-white dark: dark:text-black">
-                        
+                        <thead class=" text-sm text-black bg-white dark: dark:text-black">
+
 
                             <tr>
                                 <th>
@@ -29,6 +28,9 @@
                                     Tên loại
                                 </th>
                                 <th scope="col" class="py-3 px-6">
+                                    Ảnh
+                                </th>
+                                <th scope="col" class="py-3 px-6">
 
                                 </th>
 
@@ -38,6 +40,14 @@
                             <?php
                             foreach ($show_dm as $show) {
                                 extract($show);
+                                //đường dẫn ảnh trong extract đường dẫn
+                                $imagepath = "../upload/" . $image;
+                                //kiểm tra 
+                                if (is_file($imagepath)) {
+                                    $image = "<img src='" . $imagepath . "' width='140px'";
+                                } else {
+                                    $image = "No image";
+                                }
                                 $delete = "index.php?delete&id=" . $id;
                                 $edit = "index.php?edit&id=" . $id;
                                 echo '<tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
@@ -52,6 +62,9 @@
                             <td class="py-4 px-6">
                             ' . $name . '
                             </td>
+                            <td class="py-4 px-6">
+                            ' . $image . '
+                            </td>
                             <td class="">
                             <a onclick="" href="' . $edit . '" class="px-2 p-2  rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300">Sửa</a>
                             <a onclick="" href="' . $delete . '" class="  px-2 p-2   rounded-lg bg-red-500 text-white hover:no-underline hover:bg-rose-400 ">Xóa</a>
@@ -61,7 +74,7 @@
                             ?>
 
 
-                        
+
 
                             <!-- <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                                 <th>
@@ -107,16 +120,12 @@
             </div>
 
             <div class=" mt-4 ml-72">
-                <a class="hover:no-underline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline"
-                    href="">Chọn tất cả</a>
-                <a class="hover:no-underline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline"
-                    href="">Bỏ chọn tất cả</a>
-                <a class="hover:no-underline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline"
-                    href="">Xóa các mục chọn</a>
-                <a class="hover:no-underline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline"
-                    href="<?= ADMIN_BASE . "?add-danh-muc" ?>">Nhập thêm</a>
+                <a class="hover:no-underline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Chọn tất cả</a>
+                <a class="hover:no-underline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Bỏ chọn tất cả</a>
+                <a class="hover:no-underline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="">Xóa các mục chọn</a>
+                <a class="hover:no-underline bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded no-underline" href="<?= ADMIN_BASE . "?add-danh-muc" ?>">Nhập thêm</a>
 
-            
+
             </div>
         </form>
         <div class="mt-2 text-black-500 font-bold text-red-500">
@@ -143,5 +152,5 @@
         </div>
 
     </div>
-    
+
 </div>

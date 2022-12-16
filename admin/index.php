@@ -25,7 +25,15 @@ if (isset($_GET['danh-muc'])) {
 } elseif (isset($_GET['add-danh-muc'])) {
     if (isset($_POST['themmoi'])) {
         $tenloai = $_POST['tenloai'];
-        add_danh_muc($tenloai);
+        $image = $_FILES['image']['name'];
+        var_dump($_POST);
+        $folder = "../upload/";
+        $targerupload = $folder . basename($_FILES['image']['name']);
+        $targetupload = $folder . basename($_FILES['image']['name']);
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
+        } else {
+        }
+        add_danh_muc($tenloai,$image);
         $categori = "Thêm danh mục thành công";
     }
     $VIEW_AD = './danh-muc/add-danh-muc.php';
@@ -49,7 +57,16 @@ if (isset($_GET['danh-muc'])) {
     if (isset($_POST['update'])) {
         $id = $_POST['id'];
         $name = $_POST['name'];
-        update_danh_muc($id, $name);
+        // $image=$_POST['image'];
+        $image = $_FILES['image']['name'];
+        //upload ảnh
+        $folder = "../upload/";
+        $targetupload = $folder . basename($_FILES['image']['name']);
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $targetupload)) {
+            update_danh_muc($id, $name,$image);
+        } else {
+            update_danh_muc($id, $name,'');
+        }
         $categori = "Cập nhật danh mục thành công";
     }
     $show_dm = loadall_danh_muc();
@@ -75,6 +92,7 @@ if (isset($_GET['danh-muc'])) {
         } else {
         }
         insertProduct($name, $detail, $image, $price, $amount, $groupProduct_Id);
+        $product_tb = "Thêm sản phẩm thành công";
     }
     $show_dm = loadall_danh_muc();
     $VIEW_AD = './san-pham/add-san-pham.php';
@@ -115,14 +133,20 @@ if (isset($_GET['danh-muc'])) {
     $list_pro = get_full_products();
     $show_dm = loadall_danh_muc();
     $VIEW_AD = './san-pham/danh-sach.php';
+} elseif (isset($_GET['danhsach_size'])) {
+    if (isset($_GET['id'])) {
+    }
+    $list_pro = get_full_products();
+    $list_size_ID = get_size_ID($_GET['id']);
+    $VIEW_AD = './san-pham/danhsach_size.php';
 } elseif (isset($_GET['add_size'])) {
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
         if (isset($_POST['add_size'])) {
             $size = $_POST['size'];
             add_size_product($size, $id);
+            $size_tb = "Thêm size thành công";
         }
-        $size_tb = "Thêm size thành công";
     }
     $list_pro = get_full_products();
     $list_size_ID = get_size_ID($id);
@@ -131,6 +155,7 @@ if (isset($_GET['danh-muc'])) {
     if (isset($_GET['id_size'])) {
         // $id_size = $_GET['id'];
         delete_Size($_GET['id_size']);
+        $size_tb = "Xóa size thành công";
     }
     $list_size = getfullSize();
     foreach ($list_size as $show) {
@@ -140,22 +165,30 @@ if (isset($_GET['danh-muc'])) {
         }
         $size_tb = "Xóa size thành công";
     }
-    $VIEW_AD = './san-pham/edit_size.php';
+    $VIEW_AD = './san-pham/danhsach_size.php';
+} elseif (isset($_GET['danhsach_color'])) {
+    if (isset($_GET['id'])) {
+        $list_pro = get_full_products();
+        $list_color_ID = get_color_ID($_GET['id']);
+    }
+    $VIEW_AD = './san-pham/danhsach_color.php';
 } elseif (isset($_GET['add_color'])) {
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
         if (isset($_POST['add_color'])) {
             $color = $_POST['color'];
             add_color_product($color, $id);
+            $color_tb = "Thêm color thành công";
         }
-        $size_tb = "Thêm color thành công";
     }
+    $list_pro = get_full_products();
     $list_color_ID = get_color_ID($id);
     $VIEW_AD = './san-pham/edit_color.php';
 } elseif (isset($_GET['delete-color'])) {
     if (isset($_GET['id_color'])) {
         // $id_size = $_GET['id'];
         delete_Color($_GET['id_color']);
+        $color_tb = "Xóa color thành công";
     }
     $list_size = getfullColor();
     foreach ($list_size as $show) {
@@ -165,20 +198,20 @@ if (isset($_GET['danh-muc'])) {
         }
         $size_tb = "Xóa color thành công";
     }
-    $VIEW_AD = './san-pham/edit_color.php';
+    $VIEW_AD = './san-pham/danhsach_color.php';
 } elseif (isset($_GET['danh-sach-user'])) {
     $list_user = get_full_user();
     $VIEW_AD = './tai-khoan/danh-sach.php';
 } elseif (isset($_GET['edit-tai-khoan'])) {
     if (isset($_GET['id'])) {
         $list_user = get_user_Byid($_GET['id']);
-        $tb_user="Cập nhật tài khoản thành công";
+        $tb_user = "Cập nhật tài khoản thành công";
     }
     $VIEW_AD = './tai-khoan/edit-tai-khoan.php';
-}elseif (isset($_GET['delete_user'])) {
+} elseif (isset($_GET['delete_user'])) {
     if (isset($_GET['id'])) {
         delete_user($_GET['id']);
-        $tb_user="Xóa tài khoản thành công";
+        $tb_user = "Xóa tài khoản thành công";
     }
     $list_user = get_full_user();
     $VIEW_AD = './tai-khoan/danh-sach.php';
@@ -192,7 +225,7 @@ if (isset($_GET['danh-muc'])) {
         $name = $_POST['name'];
         $role = $_POST['role'];
         $update_user = update_user($id, $name, $address, $phone, $userName, $role);
-        $tb_user="Cập nhật tài khoản thành công";
+        $tb_user = "Cập nhật tài khoản thành công";
     }
     $list_user = get_full_user();
     $VIEW_AD = './tai-khoan/danh-sach.php';
@@ -233,19 +266,18 @@ if (isset($_GET['danh-muc'])) {
     $dhdanggiao = trangthaigiaohang();
 
     $VIEW_AD = './thong-ke/thong-ke.php';
-}elseif (isset($_GET['list-comment'])) {
-    $get_comments=get_full_comments();
+} elseif (isset($_GET['list-comment'])) {
+    $get_comments = get_full_comments();
     $VIEW_AD = './comment/list-comment.php';
-}
-elseif (isset($_GET['delete_cmt'])) {
-    if(isset($_GET['id'])){
+} elseif (isset($_GET['delete_cmt'])) {
+    if (isset($_GET['id'])) {
         delete_cmt($_GET['id']);
-        $tb_cmt="Xóa thành công comment!";
+        $tb_cmt = "Xóa thành công comment!";
     }
-    $get_comments=get_full_comments();
+    $get_comments = get_full_comments();
     $VIEW_AD = './comment/list-comment.php';
 } else {
- 
+
     $VIEW_AD = 'home.php';
 }
 

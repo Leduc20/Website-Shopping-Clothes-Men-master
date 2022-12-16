@@ -1,4 +1,4 @@
-<div class="px-6 flex mt-8 mb-8">
+<div class="px-6 flex mt-8 mb-8 mx-auto">
     <div class="" style="width: 300px;">
         <div class="">
             <h3 class="text-lg font-bold">Tất cả danh mục</h3>

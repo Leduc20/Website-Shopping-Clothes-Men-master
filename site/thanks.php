@@ -17,7 +17,7 @@ if (isset($_GET['vnp_Amount'])) {
 
     $goBack = SITE_URL;
     if (isset($vnp_BankTranNo)) {
-        $sql = "INSERT INTO vnpay( `vnp_amount`, `vnp_bankCode`, `vnp_banktranno`, `vnp_cardtype`, `vnp_orderinfo`, `vnp_payDate`, `vnp_tmnCode`, `vnp_transactionNo`, `code_cart`) VALUES ('$vnp_Amount','$vnp_BankCode','$vnp_BankTranNo','$vnp_CardType','$vnp_OrderInfo','$vnp_PayDate','$vnp_TmnCode','$vnp_TransactionNo','$code_cart')";
+        $sql = "INSERT INTO vnpay(`vnp_amount`, `vnp_bankCode`, `vnp_banktranno`, `vnp_cardtype`, `vnp_orderinfo`, `vnp_payDate`, `vnp_tmnCode`, `vnp_transactionNo`, `code_cart`) VALUES ('$vnp_Amount','$vnp_BankCode','$vnp_BankTranNo','$vnp_CardType','$vnp_OrderInfo','$vnp_PayDate','$vnp_TmnCode','$vnp_TransactionNo','$code_cart')";
         $cart_query = $sql;
         pdo_execute($cart_query);
         echo '

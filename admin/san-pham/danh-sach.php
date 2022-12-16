@@ -46,12 +46,12 @@
                             Thời Gian
                         </th>
                         <th scope="col" class="py-3 px-2">
-                            
+
                         </th>
                         <th scope="col" class="py-1 px-2">
-                            
 
-                        
+
+
                     </tr>
                 </thead>
                 <tbody>
@@ -63,12 +63,12 @@
                         if (is_file($imagepath)) {
                             $image = "<img src='" . $imagepath . "' width='140px'";
                         } else {
-                            $image= "No image";
+                            $image = "No image";
                         }
                         $delete = "index.php?delete-sanpham&id=" . $id;
                         $edit = "index.php?edit-sanpham&id=" . $id;
-                        $edit_size = "index.php?add_size&id=" . $id;
-                        $add_color = "index.php?add_color&id=" . $id;
+                        $danhsach_size = "index.php?danhsach_size&id=" . $id;
+                        $danhsach_color = "index.php?danhsach_color&id=" . $id;
                         $detail_size = "index.php?detail_size&id=" . $id;
                         $detail_color = "index.php?detail_color&id=" . $id;
                         echo '<tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
@@ -92,8 +92,8 @@
                         ' . $detail . '
                         </td>
                         <td class="px-2 leading-10">
-                        <a href="' . $edit_size. '" class="px-2 p-2  rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300">ADD_size</a>
-                        <a href="' . $add_color . '" class="px-2 p-2  rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300">ADD_color</a>
+                        <a href="' . $danhsach_size . '" class="px-2 p-2  rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300">Danhsach_size</a>
+                        <a href="' . $danhsach_color . '" class="px-2 p-2  rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300">Danhsach_color</a>
                         </td>
                         <td class="py-4 px-2">
                         ' . $amount . '
@@ -132,3 +132,8 @@
     </div>
 </form>
 
+<?php 
+if (isset($color_tb)) {
+    echo "<script>alert('$color_tb');</script>";
+}
+?>

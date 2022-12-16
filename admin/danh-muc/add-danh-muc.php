@@ -18,6 +18,8 @@
                 document.getElementById("inform").innerHTML = text;
                 }
             </script>
+            <div class="font-bold mt-2 mb-1"> Ảnh </div>
+            <input class="border mb-1 p-1  rounded-[4px]" type="file" name="image" required id="add"> 
 
             <div class="mt-4 justify-center flex">
         <button onclick="myFunction()"
@@ -33,3 +35,9 @@
     </form>
 </div>
 </form>
+<?php
+if (isset($categori)) {
+    echo "<script>alert('$categori');</script>";
+}
+
+?>

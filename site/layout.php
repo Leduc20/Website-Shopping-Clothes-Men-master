@@ -316,7 +316,7 @@
         <footer class="mt-12 text-center lg:text-left bg-gray-100 text-gray-600">
             <div class="flex justify-center items-center lg:justify-center p-6 border-b border-gray-300">
                 <div class="hidden lg:block">
-                    <form action="">
+                    <!-- <form action="">
                         <div class="grid md:grid-cols-3 gird-cols-1 gap-4 flex justify-center items-center">
                             <div class="md:ml-auto">
                                 <p class="">
@@ -334,7 +334,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
                 </div>
             </div>
             <div class="mx-6 py-10 text-center md:text-left pl-10">

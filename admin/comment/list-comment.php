@@ -131,13 +131,12 @@
         <!-- Table Body -->
         <?php
         foreach ($get_comments as $show) {
-            # code...
             extract($show);
-            $detail_bill = "index.php?detail_bill&id=" . $id;
+            // var_dump($show);
             $delete = "index.php?delete_cmt&id=" . $id;
             echo '<div class="bg-white mt-5 rounded-xl text-sm  text-gray-500 divide-y divide-indigo-50 overflow-x-auto  shadow">
             <div class="grid grid-cols-7 invoice-table-row flex items-center gap-x-3 px-10 py-4">
-                <div class="text-left ">' . $id . '</div>
+                <div class="text-left ">' . $id. '</div>
                 <div class="text-left">' . $name_u . '</div>
                 <div class="text-left">' . $name_p . '</div>
                 <div class="text-center">' . $content . '</div>
