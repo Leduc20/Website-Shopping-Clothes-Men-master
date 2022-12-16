@@ -30,7 +30,7 @@
     <?php endforeach ?>
     <!-- /Table Body -->
     <button type="" name="" class="mt-2 mb-10 px-2 p-2 rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300 "><a href="<?= ADMIN_BASE . "?san-pham" ?>" class="hover:no-underline text-white"> Trở Về Danh Sách</a></button>
-    <button type="" name="" class="mt-2 mb-10 px-2 p-2 rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300 "><a href="<?= ADMIN_BASE . "?add_color&id=".$show['product_id'] ?>" class="hover:no-underline text-white">ADD</a></button>
+    <button type="" name="" class="mt-2 mb-10 px-2 p-2 rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300 "><a href="<?= ADMIN_BASE . "?add_color&id=".$_GET['id'] ?>" class="hover:no-underline text-white">ADD</a></button>
 
 </section>
 </section>

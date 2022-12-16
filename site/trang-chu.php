@@ -7,11 +7,11 @@
             <!-- Item 1 -->
             <div class="hidden duration-700 ease-in-out " data-carousel-item>
                 <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="
-              background-image: url('https://affiliate.f88.vn/banner_refferal_mobile.png');
+              background-image: url('https://routine.vn/media/catalog/category/ao-nam.jpg');
             ">
                     <div class="container mx-auto">
                         <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
-                            <p class="text-black text-2xl my-4">Về nhà(cái) thôi ae</p>
+                            <p class="text-black text-2xl my-4"></p>
                             <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black" href="#">view product</a>
                         </div>
                     </div>
@@ -20,7 +20,7 @@
             <!-- Item 2 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="
-              background-image: url('https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjM0MTM2fQ&auto=format&fit=crop&w=1600&q=80');
+              background-image: url('https://routine.vn/media/banner/tmp/images/L_NH_-_1920x984_-_slider.png');
             ">
                     <div class="container mx-auto">
                         <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
@@ -74,7 +74,7 @@
 <div class="px-6 pt-16 sm:pt-24 mx-auto">
     <h2 class="text-2xl font-bold tracking-tight text-gray-900 text-center">DANH MỤC SẢN PHẨM</h2>
 
-    <div class="mt-6 p-2 grid grid-cols-3 gap-y-10 gap-x-6 sm:grid-cols-6 lg:grid-cols-10 xl:gap-x-5">
+    <div class="mt-6 p-2 grid grid-cols-3 gap-y-10 gap-x-6 sm:grid-cols-6 lg:grid-cols-6 xl:gap-x-5">
         <?php foreach ($categories as $key => $value) : ?>
             <a href="<?= SITE_URL ?>?category=<?= str_replace(' ', '-', $value['name']) ?>&id=<?= $value['id'] ?>" class="group relative bg-gray-200 rounded-md">
                 <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md group-hover:opacity-75 lg:aspect-none flex items-center justify-center">
