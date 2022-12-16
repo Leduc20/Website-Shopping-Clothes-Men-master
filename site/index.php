@@ -105,12 +105,14 @@ if (isset($_GET['chi-tiet'])) {
             if (isset($_POST['dat-hang'])) {
                 $_SESSION['code_cart'] = $code_order;
                 $user_id = $_SESSION['user']['id'];
+                
                 $orderId = add_order($user_id, $_POST['total'], $_POST['payment'])['id'];
+                    for ($i = 0; $i < count($_POST['prdId']); $i++) {
+                        add_order_detail($_POST['prdId'][$i], $orderId, $_POST['sl'][$i], $_POST['size'][$i], $_POST['color'][$i]);
+                        update_amount($_POST['sl'][$i], $_POST['prdId'][$i]);
+                    }
 
-                for ($i = 0; $i < count($_POST['prdId']); $i++) {
-                    add_order_detail($_POST['prdId'][$i], $orderId, $_POST['sl'][$i], $_POST['size'][$i], $_POST['color'][$i]);
-                    update_amount($_POST['sl'][$i], $_POST['prdId'][$i]);
-                }
+
                 header('Location: ' . $vnp_Url);
                 die();
             } else {

@@ -1,16 +1,18 @@
 <?php
-function add_danh_muc($tenloai)
+function add_danh_muc($tenloai, $image)
 {
-    $sql = "INSERT INTO `groupproduct`(`name`) VALUES ('
-    $tenloai')";
+    $sql = "INSERT INTO `groupproduct`(`name`,`image`) VALUES ('
+    $tenloai','$image')";
     pdo_execute($sql);
 }
-function get_full_categories() {
+function get_full_categories()
+{
     $sql = "SELECT * FROM groupproduct";
     return pdo_query_all($sql);
 }
 
-function get_full_categoriess() {
+function get_full_categoriess()
+{
     $sql = "SELECT * FROM groupproduct";
     return pdo_query_all($sql);
 }
@@ -32,8 +34,13 @@ function loadone_danh_muc($id)
     $edit_dm = pdo_query_one($sql);
     return $edit_dm;
 }
-function update_danh_muc($id, $name)
+function update_danh_muc($id, $name, $image)
 {
-    $sql = "UPDATE `groupproduct` SET name='" . $name . "' WHERE id=" . $id;
+    if ($image != "") {
+        $sql = "UPDATE `groupproduct` SET name='" . $name . "',image='" . $image . "' WHERE id=" . $id;
+    } else {
+        $sql = "UPDATE `groupproduct` SET name='" . $name . "' WHERE id=" . $id;
+    }
+
     pdo_execute($sql);
 }

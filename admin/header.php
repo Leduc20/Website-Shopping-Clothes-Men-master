@@ -7,15 +7,7 @@
     <div>
         <div class="rounded-full bg-white mt-2 p-3 mr-3 ">
             <?php foreach($show_user as $user){
-                extract($user);
-                $imagepath = "../upload/" . $image;
-                        //kiểm tra 
-                        if (is_file($imagepath)) {
-                            $image = "<img src='" . $imagepath . "' width='140px'";
-                        } else {
-                            $image= "No image";
-                        }
-                echo ' '.$image.' ';
+
             }
             ?>
         </div>
