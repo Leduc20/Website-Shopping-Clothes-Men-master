@@ -97,28 +97,11 @@
                             <a href="./product.html" @mouseover="open = true" class="flex items-center block p-2 rounded-md">
                                 <p class="inline-block no-underline hover:text-black hover:underline py-2 px-4">
                                     Sản phẩm
-                                    <span class="hidden lg:block float-right">
-                                        <i class="fa-solid fa-chevron-down text-xs"></i>
-                                    </span>
                                 </p>
                             </a>
-                            <div x-show="open" x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="absolute z-10 left-0 w-48 py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl">
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
-                                    Dropdown List 1
-                                </a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
-                                    Dropdown List 2
-                                </a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
-                                    Dropdown List 3
-                                </a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">
-                                    Dropdown List 4
-                                </a>
-                            </div>
                         </li>
                         <li>
-                            <a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="./contact.html">
+                            <a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="<?= SITE_URL ?>?contact">
                                 Liên hệ
                             </a>
                         </li>

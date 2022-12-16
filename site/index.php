@@ -220,6 +220,8 @@ if (isset($_GET['chi-tiet'])) {
     $products = get_products_by_category($_GET['id'], '', '', null);
     $categories = get_full_categoriess();
     $VIEW_NAME = 'danh-muc.php';
+}elseif(isset($_GET['contact'])){
+    $VIEW_NAME = 'contact.php';
 } else {
 
     $limit = 10;

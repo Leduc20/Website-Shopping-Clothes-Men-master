@@ -73,11 +73,11 @@
 <div class="px-6 pt-16 sm:pt-24  ">
     <h2 class="text-2xl font-bold tracking-tight text-gray-900 text-center">DANH MỤC SẢN PHẨM</h2>
 
-    <div class="mt-6 grid grid-cols-3 gap-y-10 gap-x-6 sm:grid-cols-6 lg:grid-cols-10 xl:gap-x-8">
+    <div class="mt-6 grid grid-cols-3 gap-y-10 gap-x-6 sm:grid-cols-6 lg:grid-cols-6 xl:gap-x-8 container mx-auto">
         <?php foreach ($categories as $key => $value) : ?>
             <a href="<?= SITE_URL ?>?category=<?= str_replace(' ', '-', $value['name']) ?>&id=<?= $value['id'] ?>" class="group relative bg-gray-200 rounded-md">
                 <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md group-hover:opacity-75 lg:aspect-none flex items-center justify-center">
-                    <img src="<?= $value['image'] ?>" alt=" <?= $value['name'] ?>" class="mt-4 h-16 w-16 lg:h-24 lg:w-24 rounded-full object-cover object-center">
+                    <img src="<?= $value['image'] ?>" alt=" <?= $value['name'] ?>" class="mt-4 h-8 w-8 lg:h-24 lg:w-24 rounded-full object-cover object-center">
                 </div>
                 <div class="text-base my-3 flex items-center justify-center px-2">
                     <?= $value['name'] ?>
