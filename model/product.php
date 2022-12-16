@@ -29,7 +29,7 @@ function get_page($limit, $page)
     $skip = $limit * ($page - 1);
     // $sql = "select * from products ORDER BY products.updated_at DESC";
 
-    $sql = "select prd.id, prd.name, prd.image, prd.price, prd.description, prd.created_at, prd.groupProduct_Id, fa.id as favorite_id, fa.user_id
+    // $sql = "select prd.id, prd.name, prd.image, prd.price, prd.description, prd.created_at, prd.groupProduct_Id, fa.id as favorite_id, fa.user_id
 
     $sql = "select prd.id, prd.name, prd.image, prd.price, prd.amount, prd.quantity_sold, prd.amount, prd.created_at, prd.groupProduct_Id, fa.id as favorite_id, fa.user_id
 
