@@ -26,7 +26,7 @@ if (isset($_GET['danh-muc'])) {
     if (isset($_POST['themmoi'])) {
         $tenloai = $_POST['tenloai'];
         $image = $_FILES['image']['name'];
-        var_dump($_POST);
+        // var_dump($_POST);
         $folder = "../upload/";
         $targerupload = $folder . basename($_FILES['image']['name']);
         $targetupload = $folder . basename($_FILES['image']['name']);

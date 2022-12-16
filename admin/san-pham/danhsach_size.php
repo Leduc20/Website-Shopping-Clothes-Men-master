@@ -1,3 +1,5 @@
+<?php foreach ($list_size_ID as $show) : ?>
+    <?php endforeach ?>
 <div class="ml-4 mr-4">
 
 <form action="" method="post">
@@ -17,8 +19,8 @@
 
     <!-- Table Body -->
     <?php foreach ($list_size_ID as $show) : ?>
-        <!-- $delete_size = "index.php?delete-size&id_size=" . $id;
-        $add_size = "index.php?add_size&id=" . $id; -->
+         <!-- $delete_size = "index.php?delete-size&id_size=" . $id;
+        $add_size = "index.php?add_size&id=" . $product_id -->
         <div class="bg-white mt- rounded-xl text-sm  text-gray-500 divide-y divide-indigo-50 overflow-x-auto  shadow">
 
         <div class=" grid grid-cols-4 invoice-table-row flex items-center gap-x-3 px-10 py-4">
@@ -35,7 +37,7 @@
     <?php endforeach ?>
     <!-- /Table Body -->
     <button type="" name="" class="mt-2 mb-10 px-2 p-2 rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300 "><a href="<?= ADMIN_BASE . "?san-pham" ?>" class="hover:no-underline text-white"> Trở Về Danh Sách</a></button>
-    <button type="" name="" class="mt-2 mb-10 px-2 p-2 rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300 "><a href="<?= ADMIN_BASE . "?add_size&id=".$show['product_id'] ?>" class="hover:no-underline text-white"> ADD</a></button>
+    <button type="" name="" class="mt-2 mb-10 px-2 p-2 rounded-lg bg-rose-400 text-white hover:no-underline hover:bg-rose-300 "><a href="<?= ADMIN_BASE . "?add_size&id=".$_GET['id'] ?>" class="hover:no-underline text-white"> ADD</a></button>
     
 
 </section>
